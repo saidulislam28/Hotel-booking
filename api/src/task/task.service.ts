@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class TaskService {
@@ -7,7 +8,9 @@ export class TaskService {
     { id: 2, title: 'saidul', sub_title: 'sub_title' },
   ];
 
+  constructor(private readonly prismaService: PrismaService){}
+
   getAllTask() {
-    return this.task;
+    return this.prismaService.task.findMany();
   }
 }

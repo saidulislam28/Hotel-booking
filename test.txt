@@ -1,32 +1,125 @@
-Just for example
-I have 4 routes in my navbar
-each route have many dropdown options. And each dropdown option is link of a new page.
-Can I set Title as a navbar route, path is navigation link for parent route, children is dropdown option and path is navigation link.
-[ 
+import React, { useState, useRef, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  Maximize2,
+  Bed,
+  Users,
+} from "lucide-react";
+
+// JSON data for hotel rooms
+const roomsData = [
   {
-  title: 'Home',
-  path: '/',
-  children:[
-    {
-      title: 'dropdown_option_1', 
-      path: '/option_1'
-    },
-    {
-      title: 'dropdown_option_2', 
-      path: '/option_2'
-    },
-    {
-      title: 'dropdown_option_3', 
-      path: '/option_3'
-    },
-  ]},
+    id: 1,
+    title: "Tower Deluxe Room W King Bed",
+    category: "Deluxe Room",
+    featured: false,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%236b7280'%3ERoom Image%3C/text%3E%3C/svg%3E",
+    rating: 0,
+    reviews: 0,
+    roomSize: "50sqm",
+    beds: "1 beds",
+    maxGuests: "1 adults",
+    price: 88.0,
+    currency: "$",
+  },
   {
-  title: 'Rooms',
-  path: '/rooms',
-  children:[
-    {
-      title: 'dropdown_option_1', 
-      path: '/option_1'
-    }
-  ]},
-]
+    id: 2,
+    title: "Deluxe King Room With Balcony",
+    category: "Double Room",
+    featured: true,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23ddd6fe'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%235b21b6'%3EDeluxe Room%3C/text%3E%3C/svg%3E",
+    rating: 4.5,
+    reviews: 2,
+    roomSize: "50sqm",
+    beds: "1 beds",
+    maxGuests: "6 adults",
+    price: 110.0,
+    currency: "$",
+  },
+  {
+    id: 3,
+    title: "American Parks Trail End Rapid City",
+    category: "Double Room",
+    featured: true,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23fef3c7'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%23f59e0b'%3EDouble Room%3C/text%3E%3C/svg%3E",
+    rating: 4.7,
+    reviews: 3,
+    roomSize: "50sqm",
+    beds: "2 beds",
+    maxGuests: "2 adults",
+    price: 308.0,
+    currency: "$",
+  },
+  {
+    id: 4,
+    title: "Hotel Deluxe Room W King Bed",
+    category: "Deluxe Room",
+    featured: false,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23fee2e2'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%23dc2626'%3EDeluxe Room%3C/text%3E%3C/svg%3E",
+    rating: 1,
+    reviews: 1,
+    roomSize: "50sqm",
+    beds: "1 beds",
+    maxGuests: "1 adults",
+    price: 198.0,
+    currency: "$",
+  },
+  {
+    id: 5,
+    title: "Premium Suite With Ocean View",
+    category: "Suite",
+    featured: true,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23dcfce7'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%2316a34a'%3EPremium Suite%3C/text%3E%3C/svg%3E",
+    rating: 4.8,
+    reviews: 5,
+    roomSize: "75sqm",
+    beds: "1 beds",
+    maxGuests: "4 adults",
+    price: 450.0,
+    currency: "$",
+  },
+  {
+    id: 6,
+    title: "Executive Business Room",
+    category: "Executive Room",
+    featured: false,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23e0e7ff'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%233730a3'%3EExecutive Room%3C/text%3E%3C/svg%3E",
+    rating: 4.2,
+    reviews: 8,
+    roomSize: "45sqm",
+    beds: "1 beds",
+    maxGuests: "2 adults",
+    price: 275.0,
+    currency: "$",
+  },
+  {
+    id: 7,
+    title: "Family Suite with Garden View",
+    category: "Family Room",
+    featured: false,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23fef7cd'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%23a16207'%3EFamily Suite%3C/text%3E%3C/svg%3E",
+    rating: 4.6,
+    reviews: 12,
+    roomSize: "60sqm",
+    beds: "2 beds",
+    maxGuests: "4 adults",
+    price: 320.0,
+    currency: "$",
+  },
+  {
+    id: 8,
+    title: "Luxury Presidential Suite",
+    category: "Presidential Suite",
+    featured: true,
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23fce7f3'/%3E%3Ctext x='200' y='150' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='14' fill='%23be185d'%3EPresidential Suite%3C/text%3E%3C/svg%3E",
+    rating: 4.9,
+    reviews: 15,
+    roomSize: "100sqm",
+    beds: "1 beds",
+    maxGuests: "2 adults",
+    price: 750.0,
+    currency: "$",
+  },
+];

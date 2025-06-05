@@ -4,6 +4,14 @@
   --background: #ffffff;
 }
 
+
+@layer utilities {
+  .hover_text {
+    @apply text-black hover:text-[#B1905E] font-bold;
+  }
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

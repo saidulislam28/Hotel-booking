@@ -1,6 +1,6 @@
 'use client'
-import { GET_TASK } from '@/api/endpoints'
 import { del } from '@/app/utils/ApiCalls'
+import { GET_TASK } from '@/services/api/endpoints'
 import React from 'react'
 
 export default function TaskButton({task}) {

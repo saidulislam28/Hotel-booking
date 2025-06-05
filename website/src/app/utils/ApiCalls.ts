@@ -10,16 +10,16 @@ export const get = async(url: string) =>{
 
 export const post = async(url:string)=>{
   const res = await axios.post(base_url + url)
-  return res.data;
+  return res?.data;
 }
 
 export const patch = async (url: string, body: unknown) => {
   const res = await axios.patch(base_url + url, body);
-  return res.data;
+  return res?.data;
 };
 
 export const del = async (url: string) => {
   const res = await axios.delete(base_url + url);
-  return res.data;
+  return res?.data;
 };
 

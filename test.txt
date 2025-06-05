@@ -1,0 +1,32 @@
+Just for example
+I have 4 routes in my navbar
+each route have many dropdown options. And each dropdown option is link of a new page.
+Can I set Title as a navbar route, path is navigation link for parent route, children is dropdown option and path is navigation link.
+[ 
+  {
+  title: 'Home',
+  path: '/',
+  children:[
+    {
+      title: 'dropdown_option_1', 
+      path: '/option_1'
+    },
+    {
+      title: 'dropdown_option_2', 
+      path: '/option_2'
+    },
+    {
+      title: 'dropdown_option_3', 
+      path: '/option_3'
+    },
+  ]},
+  {
+  title: 'Rooms',
+  path: '/rooms',
+  children:[
+    {
+      title: 'dropdown_option_1', 
+      path: '/option_1'
+    }
+  ]},
+]

@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <div className="h-20 bg-white">
+    <div className="h-20 bg-white relative z-50">
       <div className="max-w-[1310px] mx-auto h-full flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href={"/"}>
@@ -22,6 +22,7 @@ const Navbar = () => {
             <h2 className="font-bold text-2xl">Saidul</h2>
           </Link>
         </div>
+        
         <div className="flex flex-row items-center gap-7">
           {Routes?.map((route) => (
             <div key={route.title} className="relative group">
@@ -49,6 +50,7 @@ const Navbar = () => {
             </div>
           ))}
         </div>
+
         <div className="flex items-center gap-5 ">
           <div className="relative group">
             <div className="flex items-center gap-2 hover_text hover:cursor-pointer">

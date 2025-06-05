@@ -3,7 +3,7 @@ import { IoSearch } from "react-icons/io5";
 export default function Banner() {
   return (
     <div
-      className="relative h-[700px] bg-cover bg-center"
+      className="relative h-[700px] bg-cover bg-center w-full"
       style={{ backgroundImage: "url('/banner-min.png')" }}
     >
       {/* Dark Overlay */}

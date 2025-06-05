@@ -1,5 +1,6 @@
 import Banner from "@/component/home/Banner";
 import OfferSection from "@/component/home/OffersSection";
+import HotelRoomsSwiper from "@/component/home/RoomCard";
 import SectionTitle from "@/component/SectionTitle";
 
 export default async function Home() {
@@ -9,6 +10,7 @@ export default async function Home() {
       <div className="max-w-7xl mx-auto">
         <SectionTitle title={"Offers to inspire you"} />
         <OfferSection />
+        <HotelRoomsSwiper />
       </div>
     </>
   );

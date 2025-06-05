@@ -25,7 +25,7 @@ const OfferSection = () => {
   return (
     <div className="grid grid-cols-3 gap-10">
       {data.map((d) => (
-        <div key={d.id} className="flex flex-col gap-5">
+        <div key={d.id} className="flex flex-col gap-5 h-[455px]">
           <div className="overflow-hidden rounded-xl w-full">
             <Image
               width={400}

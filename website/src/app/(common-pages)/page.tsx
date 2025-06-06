@@ -8,7 +8,9 @@ export default async function Home() {
     <>
       <Banner />
       <div className="max-w-7xl mx-auto">
-        <SectionTitle title={"Offers to inspire you"} />
+        <div className="mt-22 mb-10">
+          <SectionTitle title={"Offers to inspire you"} />
+        </div>
         <OfferSection />
         <HotelRoomsSwiper />
       </div>

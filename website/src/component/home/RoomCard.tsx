@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
+import SectionTitle from "../SectionTitle";
 
 // JSON data for hotel rooms
 const roomsData = [
@@ -186,7 +187,7 @@ const HotelRoomsSwiper = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900">Our Rooms & Suites</h2>
+        <SectionTitle title={"Our rooms & suites"} />
 
         {/* Navigation Buttons */}
         <div className="flex space-x-2">
@@ -223,14 +224,15 @@ const HotelRoomsSwiper = () => {
             <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Room Image */}
               <div className="relative h-48 bg-gray-200">
-                {/* Uncomment when using actual images */}
-                <Image
-                  width={400}
-                  height={300}
-                  src={room.image}
-                  alt={room.title}
-                  className="w-full h-full object-cover"
-                />
+                <div className="overflow-hidden rounded-t-xl w-full">
+                  <Image
+                    width={400}
+                    height={300}
+                    src={room.image}
+                    alt={room.title}
+                    className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-full object-cover cursor-pointer"
+                  />
+                </div>
 
                 <div className="absolute top-4 left-4 flex space-x-2">
                   {room.featured && (
@@ -268,9 +270,11 @@ const HotelRoomsSwiper = () => {
                     {room.price.toFixed(2)} /{" "}
                     <span className="font-normal text-[#4F5E71]">night</span>
                   </h4>
-                  <button className="font-medium text-md text-[#B1905E] hover:text-black hover:cursor-pointer transition-all duration-400 ease-in-out">
-                    View Details
-                  </button>
+                  <div className="h-12 flex justify-center">
+                    <button className="font-medium text-md text-[#B1905E] hover:text-black hover:cursor-pointer  mb-0 hover:mb-5 transition-all duration-400 ease-in-out">
+                      View Details
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

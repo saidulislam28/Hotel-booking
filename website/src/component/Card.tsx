@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import React from "react";
+import AnimateButton from "./AnimateButton";
 
 const Card = ({ item }) => {
   return (
@@ -19,9 +20,7 @@ const Card = ({ item }) => {
         <h2 className="text-3xl font-bold">{item?.title}</h2>
         <p className="text-[#4F5E71]">{item?.short_desc}</p>
         <div className="h-12 flex justify-center">
-          <button className="hover_text hover:cursor-pointer mb-0 hover:mb-5 transition-all duration-400 ease-in-out">
-            Read More
-          </button>
+          <AnimateButton text={'Read More'} />
         </div>
       </div>
     </div>

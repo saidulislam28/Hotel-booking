@@ -5,6 +5,7 @@ import SectionTitle from "@/component/SectionTitle";
 import { insipresData, serviceData } from "@/constants/datas";
 import RoomSingleCard from "@/component/RoomSingleCard";
 import Card from "@/component/Card";
+import DiscountBanner from "@/component/home/DiscountBanner";
 
 const roomsData = [
   {
@@ -136,6 +137,7 @@ export default async function Home() {
           perView={4}
         />
         <GenericSwiper data={serviceData} CardComponent={Card} perView={3} />
+        <DiscountBanner />
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 import Banner from "@/component/home/Banner";
 import OfferSection from "@/component/home/OffersSection";
-import HotelRoomsSwiper from "@/component/home/RoomCard";
+import GenericSwiper from "@/component/home/GenericSwiper";
 import SectionTitle from "@/component/SectionTitle";
-import { insipresData } from "@/constants/datas";
-
+import { insipresData, serviceData } from "@/constants/datas";
+import RoomSingleCard from "@/component/RoomSingleCard";
+import Card from "@/component/Card";
 
 const roomsData = [
   {
@@ -120,7 +121,6 @@ const roomsData = [
   },
 ];
 
-
 export default async function Home() {
   return (
     <>
@@ -130,7 +130,12 @@ export default async function Home() {
           <SectionTitle title={"Offers to inspire you"} />
         </div>
         <OfferSection data={insipresData} />
-        <HotelRoomsSwiper roomsData={roomsData} />
+        <GenericSwiper
+          data={roomsData}
+          CardComponent={RoomSingleCard}
+          perView={4}
+        />
+        <GenericSwiper data={serviceData} CardComponent={Card} perView={3} />
       </div>
     </>
   );

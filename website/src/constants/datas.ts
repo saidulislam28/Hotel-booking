@@ -133,3 +133,27 @@ export const insipresData = [
     image: "/banner-min.png",
   },
 ];
+
+export const serviceData = [
+  {
+    id: 1,
+    title: "Spa & Wellness",
+    short_desc: "Up to 20% off food and services",
+    buttonText: "Read More",
+    image: "/banner-min.png",
+  },
+  {
+    id: 2,
+    title: "Fitness Center",
+    short_desc: "Discount room rates, reward points",
+    buttonText: "Read More",
+    image: "/banner-min.png",
+  },
+  {
+    id: 3,
+    title: "Restaurant",
+    short_desc: "Children eat free, exciting fun activities.",
+    buttonText: "Read More",
+    image: "/banner-min.png",
+  },
+];

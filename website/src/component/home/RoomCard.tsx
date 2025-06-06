@@ -9,122 +9,9 @@ import Image from "next/image";
 import SectionTitle from "../SectionTitle";
 
 // JSON data for hotel rooms
-const roomsData = [
-  {
-    id: 1,
-    title: "Tower Deluxe Room W King Bed",
-    category: "Deluxe Room",
-    featured: false,
-    image: "/banner-min.png",
-    rating: 0,
-    reviews: 0,
-    roomSize: "50sqm",
-    beds: "1 beds",
-    maxGuests: "1 adults",
-    price: 88.0,
-    currency: "$",
-  },
-  {
-    id: 2,
-    title: "Deluxe King Room With Balcony",
-    category: "Double Room",
-    featured: true,
-    image: "/banner-min.png",
-    rating: 4.5,
-    reviews: 2,
-    roomSize: "50sqm",
-    beds: "1 beds",
-    maxGuests: "6 adults",
-    price: 110.0,
-    currency: "$",
-  },
-  {
-    id: 3,
-    title: "American Parks Trail End Rapid City",
-    category: "Double Room",
-    featured: true,
-    image: "/banner-min.png",
-    rating: 4.7,
-    reviews: 3,
-    roomSize: "50sqm",
-    beds: "2 beds",
-    maxGuests: "2 adults",
-    price: 308.0,
-    currency: "$",
-  },
-  {
-    id: 4,
-    title: "Hotel Deluxe Room W King Bed",
-    category: "Deluxe Room",
-    featured: false,
-    image: "/banner-min.png",
-    rating: 1,
-    reviews: 1,
-    roomSize: "50sqm",
-    beds: "1 beds",
-    maxGuests: "1 adults",
-    price: 198.0,
-    currency: "$",
-  },
-  {
-    id: 5,
-    title: "Premium Suite With Ocean View",
-    category: "Suite",
-    featured: true,
-    image: "/banner-min.png",
-    rating: 4.8,
-    reviews: 5,
-    roomSize: "75sqm",
-    beds: "1 beds",
-    maxGuests: "4 adults",
-    price: 450.0,
-    currency: "$",
-  },
-  {
-    id: 6,
-    title: "Executive Business Room",
-    category: "Executive Room",
-    featured: false,
-    image: "/banner-min.png",
-    rating: 4.2,
-    reviews: 8,
-    roomSize: "45sqm",
-    beds: "1 beds",
-    maxGuests: "2 adults",
-    price: 275.0,
-    currency: "$",
-  },
-  {
-    id: 7,
-    title: "Executive Business Room",
-    category: "Executive Room",
-    featured: false,
-    image: "/banner-min.png",
-    rating: 4.2,
-    reviews: 8,
-    roomSize: "45sqm",
-    beds: "1 beds",
-    maxGuests: "2 adults",
-    price: 275.0,
-    currency: "$",
-  },
-  {
-    id: 8,
-    title: "Executive Business Room",
-    category: "Executive Room",
-    featured: false,
-    image: "/banner-min.png",
-    rating: 4.2,
-    reviews: 8,
-    roomSize: "45sqm",
-    beds: "1 beds",
-    maxGuests: "2 adults",
-    price: 275.0,
-    currency: "$",
-  },
-];
 
-const HotelRoomsSwiper = () => {
+
+const HotelRoomsSwiper = ({roomsData}:any) => {
   const swiperRef = useRef(null);
 
   const handlePrevSlide = () => {
@@ -219,7 +106,7 @@ const HotelRoomsSwiper = () => {
           1280: { slidesPerView: 4 },
         }}
       >
-        {roomsData.map((room) => (
+        {roomsData?.map((room:any) => (
           <SwiperSlide key={room.id}>
             <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Room Image */}

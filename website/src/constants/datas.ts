@@ -1,11 +1,4 @@
-import Banner from "@/component/home/Banner";
-import OfferSection from "@/component/home/OffersSection";
-import HotelRoomsSwiper from "@/component/home/RoomCard";
-import SectionTitle from "@/component/SectionTitle";
-import { insipresData } from "@/constants/datas";
-
-
-const roomsData = [
+export const roomsData = [
   {
     id: 1,
     title: "Tower Deluxe Room W King Bed",
@@ -120,18 +113,23 @@ const roomsData = [
   },
 ];
 
-
-export default async function Home() {
-  return (
-    <>
-      <Banner />
-      <div className="max-w-7xl mx-auto">
-        <div className="mt-22 mb-10">
-          <SectionTitle title={"Offers to inspire you"} />
-        </div>
-        <OfferSection data={insipresData} />
-        <HotelRoomsSwiper roomsData={roomsData} />
-      </div>
-    </>
-  );
-}
+export const insipresData = [
+  {
+    id: 1,
+    title: "Family Escape",
+    short_desc: "Children eat free, exciting fun activities.",
+    image: "/banner-min.png",
+  },
+  {
+    id: 2,
+    title: "Business Trip",
+    short_desc: "Up to 20% off food and services",
+    image: "/banner-min.png",
+  },
+  {
+    id: 3,
+    title: "Romance",
+    short_desc: "Discount room rates, reward points",
+    image: "/banner-min.png",
+  },
+];

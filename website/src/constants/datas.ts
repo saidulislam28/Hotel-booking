@@ -157,3 +157,60 @@ export const serviceData = [
     image: "/banner-min.png",
   },
 ];
+
+export const activitiesData = [
+  {
+    id: 1,
+    title: "Festival",
+    short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
+    image: "/banner-min.png",
+  },
+  {
+    id: 2,
+    title: "Diving",
+    short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
+    image: "/banner-min.png",
+  },
+  {
+    id: 3,
+    title: "Surfing",
+    short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
+    image: "/banner-min.png",
+  },
+  {
+    id: 4,
+    title: "Kayaking",
+    short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
+    image: "/banner-min.png",
+  },
+];
+
+export const reviewData = [
+  {
+    id: 1,
+    comment:
+      "Incredible experience at the new Stanly Ranch. Auberge Resorts never disappoint but Stanly Ranch takes the level of hospitality to another level... The restaurant Bear is beautifully appointed  and the pool cabanas, poolside beverages and food were a 10. The service was impeccable.",
+    image: "/banner-min.png",
+    profile_name: "David",
+    address: "New York",
+    rating: 4,
+  },
+  {
+    id: 2,
+    comment:
+      "Incredible experience at the new Stanly Ranch. Auberge Resorts never disappoint but Stanly Ranch takes the level of hospitality to another level... The restaurant Bear is beautifully appointed  and the pool cabanas, poolside beverages and food were a 10. The service was impeccable.",
+    image: "/banner-min.png",
+    profile_name: "John",
+    address: "New York",
+    rating: 5,
+  },
+  {
+    id: 3,
+    comment:
+      "Incredible experience at the new Stanly Ranch. Auberge Resorts never disappoint but Stanly Ranch takes the level of hospitality to another level... The restaurant Bear is beautifully appointed  and the pool cabanas, poolside beverages and food were a 10. The service was impeccable.",
+    image: "/banner-min.png",
+    profile_name: "King xon yun",
+    address: "New York",
+    rating: 3,
+  },
+];

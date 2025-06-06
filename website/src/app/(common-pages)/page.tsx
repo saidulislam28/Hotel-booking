@@ -2,10 +2,20 @@ import Banner from "@/component/home/Banner";
 import OfferSection from "@/component/home/OffersSection";
 import GenericSwiper from "@/component/home/GenericSwiper";
 import SectionTitle from "@/component/SectionTitle";
-import { insipresData, serviceData } from "@/constants/datas";
+import {
+  activitiesData,
+  insipresData,
+  reviewData,
+  serviceData,
+} from "@/constants/datas";
 import RoomSingleCard from "@/component/RoomSingleCard";
 import Card from "@/component/Card";
 import DiscountBanner from "@/component/home/DiscountBanner";
+import EventHighlights from "@/component/home/EventHighlights";
+import ActivitiesCard from "@/component/ActivitiesCard";
+import Image from "next/image";
+import { FaStar } from "react-icons/fa";
+import ReviewCard from "@/component/ReviewCard";
 
 const roomsData = [
   {
@@ -135,9 +145,28 @@ export default async function Home() {
           data={roomsData}
           CardComponent={RoomSingleCard}
           perView={4}
+          title="Our rooms & suites"
         />
-        <GenericSwiper data={serviceData} CardComponent={Card} perView={3} />
+        <GenericSwiper
+          data={serviceData}
+          CardComponent={Card}
+          perView={3}
+          title="Our Services"
+        />
         <DiscountBanner />
+        <EventHighlights />
+        <GenericSwiper
+          data={activitiesData}
+          CardComponent={ActivitiesCard}
+          perView={4}
+          title="Make the most of your long weekend"
+        />
+        <GenericSwiper
+          data={reviewData}
+          CardComponent={ReviewCard}
+          perView={2}
+          title="Every stay has a story"
+        />
       </div>
     </>
   );

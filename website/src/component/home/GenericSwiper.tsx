@@ -9,7 +9,7 @@ import SectionTitle from "../SectionTitle";
 
 // JSON data for hotel rooms
 
-const GenericSwiper = ({ data, CardComponent, perView=3 }: any) => {
+const GenericSwiper = ({ data, CardComponent, perView = 3 , title}: any) => {
   const swiperRef = useRef(null);
 
   const breakpoints = {
@@ -74,11 +74,11 @@ const GenericSwiper = ({ data, CardComponent, perView=3 }: any) => {
   //     </div>
   //   );
   // };
-const repeatedData = data.length < perView + 1 ? [...data, ...data] : data;
+  const repeatedData = data.length < perView + 1 ? [...data, ...data] : data;
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <SectionTitle title={"Our rooms & suites"} />
+        <SectionTitle title={title} />
 
         {/* Navigation Buttons */}
         <div className="flex space-x-2">

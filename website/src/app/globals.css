@@ -7,7 +7,7 @@
 
 @layer utilities {
   .hover_text {
-    @apply text-[#B1905E] hover:text-black font-bold;
+    @apply text-[#B1905E] hover:text-black font-medium;
   }
 }
 

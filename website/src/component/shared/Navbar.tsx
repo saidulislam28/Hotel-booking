@@ -1,4 +1,4 @@
-import Routes from "@/app/utils/routes";
+import Routes from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
@@ -22,11 +22,14 @@ const Navbar = () => {
             <h2 className="font-bold text-2xl">Saidul</h2>
           </Link>
         </div>
-        
+
         <div className="flex flex-row items-center gap-7">
           {Routes?.map((route) => (
             <div key={route.title} className="relative group">
-              <Link href={route.path} className="px-4 py-2 hover_text">
+              <Link
+                href={route.path}
+                className="px-4 py-2 text-black hover:text-[#B1905E] font-semibold"
+              >
                 <div className="flex items-center gap-2">
                   {route.title}
                   {route.icon ? <IoIosArrowDown /> : ""}
@@ -40,7 +43,7 @@ const Navbar = () => {
                     <Link
                       key={child.title}
                       href={child.path}
-                      className="block px-6 py-4 rounded-lg hover_text"
+                      className="block px-6 py-4 rounded-lg text-black hover:text-[#B1905E] font-semibold"
                     >
                       {child.title}
                     </Link>

@@ -6,10 +6,13 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionTitle from "../SectionTitle";
+import { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
+import FadeUpWrapper from "../hooks/FadeupWrapper";
 
 // JSON data for hotel rooms
 
-const GenericSwiper = ({ data, CardComponent, perView = 3 , title}: any) => {
+const GenericSwiper = ({ data, CardComponent, perView = 3, title }: any) => {
   const swiperRef = useRef(null);
 
   const breakpoints = {
@@ -76,52 +79,55 @@ const GenericSwiper = ({ data, CardComponent, perView = 3 , title}: any) => {
   // };
   const repeatedData = data.length < perView + 1 ? [...data, ...data] : data;
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <SectionTitle title={title} />
+    <FadeUpWrapper>
+      <div className="w-full max-w-7xl mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8">
+          <SectionTitle title={title} />
 
-        {/* Navigation Buttons */}
-        <div className="flex space-x-2">
+          {/* Navigation Buttons */}
+          <div className="flex space-x-2">
+            <button
+              onClick={handlePrevSlide}
+              className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
+        bg-white hover:bg-[#B1905E] cursor-pointer"
+            >
+              <ChevronLeft className="w-8 h-8 text-black hover:text-white" />
+            </button>
+            <button
+              onClick={handleNextSlide}
+              className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
+        bg-white hover:bg-[#B1905E] cursor-pointer"
+            >
+              <ChevronRight className="w-8 h-8 text-black hover:text-white" />
+            </button>
+          </div>
+        </div>
+
+        <Swiper
+          ref={swiperRef}
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={breakpoints}
+          loop={true}
+        >
+          {repeatedData?.map((room, index) => (
+            <SwiperSlide key={index}>
+              <CardComponent item={room} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className="mt-10 flex justify-center">
           <button
-            onClick={handlePrevSlide}
-            className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
+            className="px-5 py-3.5 rounded-full border-2 border-[#B1905E] text-md font-bold text-[#B1905E] hover:text-white
         bg-white hover:bg-[#B1905E] cursor-pointer"
           >
-            <ChevronLeft className="w-8 h-8 text-black hover:text-white" />
-          </button>
-          <button
-            onClick={handleNextSlide}
-            className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
-        bg-white hover:bg-[#B1905E] cursor-pointer"
-          >
-            <ChevronRight className="w-8 h-8 text-black hover:text-white" />
+            View All Rooms
           </button>
         </div>
       </div>
-
-      <Swiper
-        ref={swiperRef}
-        modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={breakpoints}
-        loop={true}
-      >
-        {repeatedData?.map((room, index) => (
-          <SwiperSlide key={index}>
-            <CardComponent item={room} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className="mt-10 flex justify-center">
-        <button
-          className="px-5 py-3.5 rounded-full border-2 border-[#B1905E] text-md font-bold text-[#B1905E] hover:text-white
-        bg-white hover:bg-[#B1905E] cursor-pointer"
-        >
-          View All Rooms
-        </button>
-      </div>
-    </div>
+    </FadeUpWrapper>
   );
 };
 

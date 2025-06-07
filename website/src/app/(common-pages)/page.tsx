@@ -1,6 +1,13 @@
+import ActivitiesCard from "@/component/ActivitiesCard";
+import Card from "@/component/Card";
+import EventCard from "@/component/EventCard";
 import Banner from "@/component/home/Banner";
-import OfferSection from "@/component/home/OffersSection";
+import DiscountBanner from "@/component/home/DiscountBanner";
+import EventHighlights from "@/component/home/EventHighlights";
 import GenericSwiper from "@/component/home/GenericSwiper";
+import OfferSection from "@/component/home/OffersSection";
+import ReviewCard from "@/component/ReviewCard";
+import RoomSingleCard from "@/component/RoomSingleCard";
 import SectionTitle from "@/component/SectionTitle";
 import {
   activitiesData,
@@ -9,15 +16,6 @@ import {
   reviewData,
   serviceData,
 } from "@/constants/datas";
-import RoomSingleCard from "@/component/RoomSingleCard";
-import Card from "@/component/Card";
-import DiscountBanner from "@/component/home/DiscountBanner";
-import EventHighlights from "@/component/home/EventHighlights";
-import ActivitiesCard from "@/component/ActivitiesCard";
-import Image from "next/image";
-import ReviewCard from "@/component/ReviewCard";
-import AnimateButton from "@/component/AnimateButton";
-import EventCard from "@/component/EventCard";
 
 const roomsData = [
   {
@@ -134,6 +132,8 @@ const roomsData = [
   },
 ];
 
+
+
 export default async function Home() {
   return (
     <>
@@ -143,12 +143,15 @@ export default async function Home() {
           <SectionTitle title={"Offers to inspire you"} />
         </div>
         <OfferSection data={insipresData} />
-        <GenericSwiper
-          data={roomsData}
-          CardComponent={RoomSingleCard}
-          perView={4}
-          title="Our rooms & suites"
-        />
+              
+          <GenericSwiper
+            data={roomsData}
+            CardComponent={RoomSingleCard}
+            perView={4}
+            title="Our rooms & suites"
+          />
+       
+
         <GenericSwiper
           data={serviceData}
           CardComponent={Card}

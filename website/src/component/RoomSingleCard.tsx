@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 
-const RoomSingleCard = ({ item  }) => {
+const RoomSingleCard = ({ item }) => {
   // console.log("single card ", item)
   return (
     <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">

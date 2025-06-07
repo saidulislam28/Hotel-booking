@@ -4,6 +4,7 @@ import GenericSwiper from "@/component/home/GenericSwiper";
 import SectionTitle from "@/component/SectionTitle";
 import {
   activitiesData,
+  eventData,
   insipresData,
   reviewData,
   serviceData,
@@ -14,8 +15,9 @@ import DiscountBanner from "@/component/home/DiscountBanner";
 import EventHighlights from "@/component/home/EventHighlights";
 import ActivitiesCard from "@/component/ActivitiesCard";
 import Image from "next/image";
-import { FaStar } from "react-icons/fa";
 import ReviewCard from "@/component/ReviewCard";
+import AnimateButton from "@/component/AnimateButton";
+import EventCard from "@/component/EventCard";
 
 const roomsData = [
   {
@@ -166,6 +168,12 @@ export default async function Home() {
           CardComponent={ReviewCard}
           perView={2}
           title="Every stay has a story"
+        />
+        <GenericSwiper
+          data={eventData}
+          CardComponent={EventCard}
+          perView={3}
+          title="Inspiration, guides, stories"
         />
       </div>
     </>

@@ -214,3 +214,30 @@ export const reviewData = [
     rating: 3,
   },
 ];
+
+export const eventData = [
+  {
+    id: 1,
+    image: '/banner-min.png',
+    title: 'Host A Family Party',
+    short_desc: 'Create memorable moments with your loved ones. Perfect venue and catering services for intimate family gatherings and celebrations.'
+  },
+  {
+    id: 2,
+    image: '/banner-min.png',
+    title: 'Weddings',
+    short_desc: 'From engagement to the big day, we handle all the important milestones. Make your special day unforgettable with our wedding planning services.'
+  },
+  {
+    id: 3,
+    image: '/banner-min.png',
+    title: 'Extended Stay Saving',
+    short_desc: 'Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.'
+  },
+  {
+    id: 4,
+    image: '/banner-min.png',
+    title: 'Benefit of Spa Treatment',
+    short_desc: 'Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.'
+  },
+];

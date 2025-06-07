@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <div className="h-20 bg-white relative z-50">
+    <div className="h-20 bg-white relative z-50 shadow-md">
       <div className="max-w-[1310px] mx-auto h-full flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href={"/"}>

@@ -16,6 +16,7 @@ import {
   reviewData,
   serviceData,
 } from "@/constants/datas";
+import TitleHelmet from "@/utils/Helmet";
 
 const roomsData = [
   {
@@ -137,6 +138,7 @@ const roomsData = [
 export default async function Home() {
   return (
     <>
+    <TitleHelmet title="Home" />
       <Banner />
       <div className="max-w-7xl mx-auto">
         <div className="mt-22 mb-10">

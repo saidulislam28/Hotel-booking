@@ -1,4 +1,5 @@
 import FAQSection from "@/component/Faq";
+import OnclickDropdown from "@/component/OnclickDropdown";
 import RoomBookingTabs from "@/component/RoomBookingTab";
 import SectionTitleMedium from "@/component/SectionTitleMedium";
 import BookingPoliciesStepper from "@/component/VerticalStepper";
@@ -170,7 +171,6 @@ const RoomCardDetails = ({ params }) => {
               </div>
 
               {/* Pricing plan */}
-
               <div className="border-2 rounded-xl border-gray-200 p-5">
                 <SectionTitleMedium title={"Pricing plan"} />
                 <div className="mt-6">
@@ -182,18 +182,75 @@ const RoomCardDetails = ({ params }) => {
                         className="mt-5 flex flex-col gap-3 secondary_text"
                       >
                         <h1 className="font-medium text-lg">{plan?.title}</h1>
-                        <h5>${plan.price}</h5>
+                        <h5>${details?.price}</h5>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-                   {/* Faq     */}
-
+              {/* Faq*/}
               <div className="border-2 rounded-xl border-gray-200 p-5">
                 <SectionTitleMedium title={"Frequently Asked Questions"} />
                 <FAQSection />
+              </div>
+
+              {/* Reviews --*/}
+              <div className="border-2 rounded-xl border-gray-200 p-5">
+                <div className="flex items-center justify-between">
+                  <SectionTitleMedium title={"Reviews"} />
+                  <h4 className="text-2xl font-semibold secondary_text flex items-center gap-4">
+                    4.5/5 (2 reviews) <FaStar size={24} color="orange" />
+                  </h4>
+                </div>
+                <div className="mt-10">
+                  {/* review filtering  */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-5">
+                      <button className="text-md border border-[#B1905E] px-5 py-2 primary_text hover:text-white font-semibold rounded-full cursor-pointer hover:bg-[#ccae81]">
+                        All
+                      </button>
+                      <button className="text-md border border-[#B1905E] px-5 py-2 primary_text hover:text-white font-semibold rounded-full cursor-pointer hover:bg-[#ccae81]">
+                        With Photos Only
+                      </button>
+                    </div>
+                    <OnclickDropdown />
+                  </div>
+                  <div className="mt-12 bg-[#F2F4F4] p-5 space-y-3 rounded-xl">
+                    <div className="flex items-center">
+                      <FaStar size={20} color="orange" />
+                      <FaStar size={20} color="orange" />
+                      <FaStar size={20} color="orange" />
+                      <FaStar size={20} color="orange" />
+                      <FaStar size={20} color="orange" />
+                    </div>
+                    <h2 className="text-xl font-semibold">Good</h2>
+                    <p className="secondary_text">21 june, 2024</p>
+                    <p className="secondary_text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      In repellat earum similique iure, sequi, deserunt dolorem
+                      neque at, laboriosam voluptatum sint? Quam suscipit
+                      temporibus omnis deleniti reprehenderit consequatur
+                      provident architecto!
+                    </p>
+                    <div className="flex items-center gap-5">
+                      <Image
+                        width={150}
+                        height={150}
+                        src="/banner-min.png"
+                        alt="banner"
+                        className="object-cover h-full rounded-xl"
+                      />
+                      <Image
+                        width={150}
+                        height={150}
+                        src="/banner-min.png"
+                        alt="banner"
+                        className="object-cover h-full rounded-xl"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

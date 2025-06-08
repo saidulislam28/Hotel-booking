@@ -1,7 +1,7 @@
+import FAQSection from "@/component/Faq";
 import RoomBookingTabs from "@/component/RoomBookingTab";
 import SectionTitleMedium from "@/component/SectionTitleMedium";
 import BookingPoliciesStepper from "@/component/VerticalStepper";
-import VerticalStepper from "@/component/VerticalStepper";
 import { roomsData } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
@@ -46,6 +46,16 @@ const RoomCardDetails = ({ params }) => {
     { id: 11, title: "Balcony" },
     { id: 12, title: "Beachfront" },
   ];
+  const Price_plan = [
+    { id: 1, title: "Sat", price: 110 },
+    { id: 2, title: "Sun", price: 110 },
+    { id: 3, title: "Mon", price: 110 },
+    { id: 4, title: "Tue", price: 110 },
+    { id: 5, title: "Wed", price: 110 },
+    { id: 6, title: "Thu", price: 110 },
+    { id: 7, title: "Fri", price: 110 },
+  ];
+
   return (
     <>
       <TitleHelmet title={details?.title ?? "Room Details"} />
@@ -157,6 +167,33 @@ const RoomCardDetails = ({ params }) => {
               {/* stepper  */}
               <div className="border-2 rounded-xl border-gray-200 p-5">
                 <BookingPoliciesStepper />
+              </div>
+
+              {/* Pricing plan */}
+
+              <div className="border-2 rounded-xl border-gray-200 p-5">
+                <SectionTitleMedium title={"Pricing plan"} />
+                <div className="mt-6">
+                  <h2 className=" font-semibold text-lg">Regular plan</h2>
+                  <div className="flex items-center justify-between gap-10">
+                    {Price_plan.map((plan, index) => (
+                      <div
+                        key={index}
+                        className="mt-5 flex flex-col gap-3 secondary_text"
+                      >
+                        <h1 className="font-medium text-lg">{plan?.title}</h1>
+                        <h5>${plan.price}</h5>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+                   {/* Faq     */}
+
+              <div className="border-2 rounded-xl border-gray-200 p-5">
+                <SectionTitleMedium title={"Frequently Asked Questions"} />
+                <FAQSection />
               </div>
             </div>
           </div>

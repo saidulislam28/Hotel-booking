@@ -15,6 +15,16 @@
     @apply text-black hover:text-[#B1905E] font-medium;
   }
 }
+@layer utilities {
+  .primary_text {
+    @apply text-[#B1905E];
+  }
+}
+@layer utilities {
+  .secondary_text {
+    @apply text-[#4F5E71];
+  }
+}
 
 
 @theme inline {

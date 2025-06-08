@@ -1,9 +1,13 @@
+"use client"
 import Routes from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <div className="h-20 bg-white relative z-50 shadow-md">
       <div className="max-w-[1310px] mx-auto h-full flex items-center justify-between">
@@ -24,34 +28,46 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-row items-center gap-7">
-          {Routes?.map((route) => (
-            <div key={route.title} className="relative group">
-              <Link
-                href={route.path}
-                className="px-4 py-2 text-black hover:text-[#B1905E] font-semibold"
-              >
-                <div className="flex items-center gap-2">
+          {Routes?.map((route) => {
+            const isActive = pathname === route.path;
+            return (
+              <div key={route.title} className="relative group">
+                <Link
+                  href={route.path}
+                  className={`px-4 py-2 font-semibold flex items-center gap-2 ${
+                    isActive
+                      ? "text-[#B1905E]"
+                      : "text-black hover:text-[#B1905E]"
+                  }`}
+                >
                   {route.title}
                   {route.icon ? <IoIosArrowDown /> : ""}
-                </div>
-              </Link>
+                </Link>
 
-              {/* Dropdown */}
-              {route?.children?.length > 0 && (
-                <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg min-w-64">
-                  {route?.children?.map((child) => (
-                    <Link
-                      key={child.title}
-                      href={child.path}
-                      className="block px-6 py-4 rounded-lg text-black hover:text-[#B1905E] font-semibold"
-                    >
-                      {child.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                {/* Dropdown */}
+                {route?.children?.length > 0 && (
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg min-w-64">
+                    {route?.children?.map((child) => {
+                      const isChildActive = pathname === child.path;
+                      return (
+                        <Link
+                          key={child.title}
+                          href={child.path}
+                          className={`block px-6 py-4 rounded-lg font-semibold ${
+                            isChildActive
+                              ? "text-[#B1905E]"
+                              : "text-black hover:text-[#B1905E]"
+                          }`}
+                        >
+                          {child.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-5 ">

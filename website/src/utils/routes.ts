@@ -13,7 +13,7 @@ const Routes = [
     title: "Rooms",
     path: "/rooms",
     icon: true,
-    children: [{ title: "dropdown_option_1", path: "/option_1" }],
+    children: [{ title: "Room List", path: "/room-list" }],
   },
   {
     title: "Restaurant and Bar",

@@ -31,11 +31,11 @@ const RoomSingleCard = ({ item }) => {
         </div>
 
         {/* Room Details */}
-        <div className="p-6 flex-1">
-          <h3 className="hover_text mb-3 line-clamp-1 cursor-pointer">
+        <div className="p-4 flex-1">
+          <h3 className="hover_text_reverse mb-1 line-clamp-1 cursor-pointer font-semibold">
             {item?.title}
           </h3>
-          <div className="mb-4">
+          <div className="mb-1">
             {/* {renderStars(room.rating, room.reviews)} */}
             {item?.rating}
           </div>
@@ -45,11 +45,11 @@ const RoomSingleCard = ({ item }) => {
             <p>Guests: {item?.maxGuests}</p>
           </div>
           <div
-            className="my-5"
+            className="my-3"
             style={{ borderTop: "0.5px solid #9CA3AF" }}
           ></div>
 
-          <div className="mt-4 font-bold text-gray-900 flex items-center justify-between">
+          <div className="mt-2 font-bold text-gray-900 flex items-center justify-between">
             <h4>
               {item?.currency}
               {item?.price?.toFixed(2)} /{" "}

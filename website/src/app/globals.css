@@ -10,6 +10,11 @@
     @apply text-[#B1905E] hover:text-black font-medium;
   }
 }
+@layer utilities {
+  .hover_text_reverse {
+    @apply text-black hover:text-[#B1905E] font-medium;
+  }
+}
 
 
 @theme inline {

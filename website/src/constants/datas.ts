@@ -320,3 +320,42 @@ export const foodItems = [
     price: 19.4,
   },
 ];
+
+export const SurfPackages = [
+  {
+    id: 1,
+    title: "Daily Open Group Surf Lessons",
+    price: 60.50,
+    features: [
+      { id: 1, feature: "3:1 Student to Surf Instructor Ratio (No Experience Necessary)" },
+      { id: 2, feature: "Wetsuits and Surfboards Included" },
+      { id: 3, feature: "What to Bring: Water, Sunscreen, Towel and Swimsuit" },
+      { id: 4, feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30" },
+      { id: 5, feature: "90 Minute Lesson (Join other surfers or bring your own group)" }
+    ]
+  },
+  {
+    id: 2,
+    title: "Private Surf Lessons: Customized Coaching",
+    price: 60.50,
+    features: [
+      { id: 1, feature: "1:1 Student to Surf Instructor Ratio *Best Seller" },
+      { id: 2, feature: "Wetsuits and Surfboards Included" },
+      { id: 3, feature: "What to Bring: Water, Sunscreen, Towel and Swimsuit" },
+      { id: 4, feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30" },
+      { id: 5, feature: "90 Minute Lesson" }
+    ]
+  },
+  {
+    id: 3,
+    title: "Surf Lesson Packages",
+    price: 60.50,
+    features: [
+      { id: 1, feature: "4 Surf Lessons for the price of 3 *Very Popular" },
+      { id: 2, feature: "Wetsuits and Surfboards Included" },
+      { id: 3, feature: "What to Bring: Water, Sunscreen, Towel & Swimsuit" },
+      { id: 4, feature: "Surf Lessons offered Daily: 9, 10:30, 12:30, 2, 3:30" }
+    ]
+  }
+];
+

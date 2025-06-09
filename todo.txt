@@ -139,3 +139,5 @@ export const getHeader = (title: string) => {
 
 * Restaurant & bar page: Implement background swiper.
 * Restaurant page: On click function on banner.
+
+** Gallery section custom.**** important.

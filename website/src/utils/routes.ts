@@ -25,18 +25,18 @@ const Routes = [
     title: "Local Activities",
     path: "/local-activities",
     icon: true,
-    children: [{ title: "dropdown", path: "/option_1" }],
+    children: [{ title: "Activities Details", path: "/activities-details" }],
   },
   {
     title: "Features",
     path: "/features",
-     icon: true,
+    icon: true,
     children: [{ title: "dropdown_option_1", path: "/option_1" }],
   },
   {
     title: "Contact",
     path: "/contact",
-     icon: false,
+    icon: false,
   },
 ];
 export default Routes;

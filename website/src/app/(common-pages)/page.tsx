@@ -133,26 +133,23 @@ const roomsData = [
   },
 ];
 
-
-
 export default async function Home() {
   return (
     <>
-    <TitleHelmet title="Home" />
+      <TitleHelmet title="Home" />
       <Banner />
       <div className="max-w-7xl mx-auto">
         <div className="mt-22 mb-10">
           <SectionTitle title={"Offers to inspire you"} />
         </div>
         <OfferSection data={insipresData} />
-              
-          <GenericSwiper
-            data={roomsData}
-            CardComponent={RoomSingleCard}
-            perView={4}
-            title="Our rooms & suites"
-          />
-       
+
+        <GenericSwiper
+          data={roomsData}
+          CardComponent={RoomSingleCard}
+          perView={4}
+          title="Our rooms & suites"
+        />
 
         <GenericSwiper
           data={serviceData}

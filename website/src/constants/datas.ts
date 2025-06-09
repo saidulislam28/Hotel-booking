@@ -218,26 +218,105 @@ export const reviewData = [
 export const eventData = [
   {
     id: 1,
-    image: '/banner-min.png',
-    title: 'Host A Family Party',
-    short_desc: 'Create memorable moments with your loved ones. Perfect venue and catering services for intimate family gatherings and celebrations.'
+    image: "/banner-min.png",
+    title: "Host A Family Party",
+    short_desc:
+      "Create memorable moments with your loved ones. Perfect venue and catering services for intimate family gatherings and celebrations.",
   },
   {
     id: 2,
-    image: '/banner-min.png',
-    title: 'Weddings',
-    short_desc: 'From engagement to the big day, we handle all the important milestones. Make your special day unforgettable with our wedding planning services.'
+    image: "/banner-min.png",
+    title: "Weddings",
+    short_desc:
+      "From engagement to the big day, we handle all the important milestones. Make your special day unforgettable with our wedding planning services.",
   },
   {
     id: 3,
-    image: '/banner-min.png',
-    title: 'Extended Stay Saving',
-    short_desc: 'Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.'
+    image: "/banner-min.png",
+    title: "Extended Stay Saving",
+    short_desc:
+      "Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.",
   },
   {
     id: 4,
-    image: '/banner-min.png',
-    title: 'Benefit of Spa Treatment',
-    short_desc: 'Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.'
+    image: "/banner-min.png",
+    title: "Benefit of Spa Treatment",
+    short_desc:
+      "Enjoy comfortable accommodations for longer stays. Perfect for business trips, family visits, or extended vacations with special rates.",
+  },
+];
+
+export const foodItems = [
+  {
+    id: 1,
+    title: "Grilled Salmon",
+    image: "/Food.png",
+    price: 18.99,
+  },
+  {
+    id: 2,
+    title: "Beef Steak",
+    image: "/Food.png",
+    price: 22.49,
+  },
+  {
+    id: 3,
+    title: "Chicken Alfredo",
+    image: "/Food.png",
+    price: 15.75,
+  },
+  {
+    id: 4,
+    title: "Veggie Pizza",
+    image: "/Food.png",
+    price: 12.5,
+  },
+  {
+    id: 5,
+    title: "Shrimp Tacos",
+    image: "/Food.png",
+    price: 14.0,
+  },
+  {
+    id: 6,
+    title: "Pasta Carbonara",
+    image: "/Food.png",
+    price: 13.8,
+  },
+  {
+    id: 7,
+    title: "Cheese Burger",
+    image: "/Food.png",
+    price: 11.25,
+  },
+  {
+    id: 8,
+    title: "Caesar Salad",
+    image: "/Food.png",
+    price: 9.99,
+  },
+  {
+    id: 9,
+    title: "Lobster Roll",
+    image: "/Food.png",
+    price: 21.0,
+  },
+  {
+    id: 10,
+    title: "Tom Yum Soup",
+    image: "/Food.png",
+    price: 10.5,
+  },
+  {
+    id: 11,
+    title: "Sushi Platter",
+    image: "/Food.png",
+    price: 24.9,
+  },
+  {
+    id: 12,
+    title: "BBQ Ribs",
+    image: "/Food.png",
+    price: 19.4,
   },
 ];

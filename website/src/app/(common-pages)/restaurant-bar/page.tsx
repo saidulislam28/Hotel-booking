@@ -1,7 +1,8 @@
+import RestaurantBanner from "@/component/restaurant-bar/RestaurantBanner";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import React from "react";
-const title = 'Restaurant & Bar'
+const title = "Restaurant & Bar";
 const page = () => {
   return (
     <>
@@ -9,11 +10,13 @@ const page = () => {
       <PageTitle
         breadcrumbs={[
           { title: "Home", href: "/" },
-          { title: "restaurant & bar", href: "/restaurant-bar" },
+          { title: title },
         ]}
         title={title}
       />
-      <div>this is restaurant and bar</div>
+      <div>
+        <RestaurantBanner />
+      </div>
     </>
   );
 };

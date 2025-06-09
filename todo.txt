@@ -137,6 +137,8 @@ export const getHeader = (title: string) => {
 
 // to do list 
 
+**Update all the image in website**
+
 * Restaurant & bar page: Implement background swiper.
 * Restaurant page: On click function on banner.
 

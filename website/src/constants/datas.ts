@@ -359,3 +359,77 @@ export const SurfPackages = [
   }
 ];
 
+export const RoomDetailsFaqs = [
+  {
+    id: 1,
+    question: "What is your return policy?",
+    answer: "You can return any item within 30 days for a full refund.",
+  },
+  {
+    id: 2,
+    question: "Do you offer technical support?",
+    answer: "Yes, we offer 24/7 support via email and live chat.",
+  },
+  {
+    id: 3,
+    question: "How long does shipping take?",
+    answer: "Shipping typically takes 3-5 business days.",
+  },
+];
+ export const servicesAndInstructorsFAQ = [
+  {
+    id: 1,
+    question: "Surfboards And Wetsuits",
+    answer: "All surfboards and wetsuits are included in your lesson price. We provide beginner-friendly foam boards in various sizes, and high-quality wetsuits to keep you warm and comfortable in the water. Our equipment is regularly maintained and sanitized for your safety."
+  },
+  {
+    id: 2,
+    question: "Licensed And Permitted Instructors",
+    answer: "All our surf instructors are licensed professionals with years of experience. They hold valid permits to operate on local beaches and are certified through recognized surf instruction programs. Our team undergoes continuous training to ensure the highest quality instruction."
+  },
+  {
+    id: 3,
+    question: "Water Safety, First Aid & CPR Certified",
+    answer: "Every instructor on our team is certified in water safety, first aid, and CPR. We prioritize your safety above all else and are fully prepared to handle any emergency situations. Our instructors regularly renew their certifications to maintain the highest safety standards."
+  },
+  {
+    id: 4,
+    question: "Availability Across All Seasons",
+    answer: "We offer surf lessons year-round, adapting to seasonal conditions and weather patterns. While summer offers warmer waters and gentler waves perfect for beginners, winter sessions provide more challenging conditions for intermediate surfers. We adjust lesson times and locations based on optimal surf conditions throughout the year."
+  }
+];
+
+// Second FAQ Array - Practical Questions
+export const practicalQuestionsFAQ = [
+  {
+    id: 1,
+    question: "Do You Offer Transportation To The Beach?",
+    answer: "Transportation is not included in our standard lesson packages, but we can arrange pickup services for an additional fee. We'll provide you with detailed directions to our meeting location, and there's typically ample parking available near the beach. Some of our premium packages do include transportation - please ask about availability."
+  },
+  {
+    id: 2,
+    question: "What Beach Will We Be Surfing At?",
+    answer: "We select the best beach location based on current surf conditions, weather, and your skill level. Our most common locations include beginner-friendly beaches with gentle waves and sandy bottoms. We'll confirm the exact location 24 hours before your lesson and provide detailed meeting instructions."
+  },
+  {
+    id: 3,
+    question: "What If It's Raining On The Day Of My Lesson?",
+    answer: "Light rain doesn't stop us from surfing! However, if there are dangerous weather conditions like thunderstorms or high winds, we'll reschedule your lesson at no extra charge. We monitor weather conditions closely and will contact you if any changes are needed. Your safety is our top priority."
+  },
+  {
+    id: 4,
+    question: "What Should I Bring To The Surf Lesson?",
+    answer: "Bring a swimsuit or board shorts, sunscreen (reef-safe preferred), a towel, water bottle, and a change of clothes. We recommend bringing a waterproof bag for your belongings. All surf equipment is provided. Optional items include a waterproof camera, snacks, and flip-flops for easy beach walking."
+  },
+  {
+    id: 5,
+    question: "Can I Wear My Glasses Or Contact Lenses?",
+    answer: "Contact lenses are generally fine for surfing, though there's always a small risk of losing them in the water. For glasses, we recommend sport straps or consider switching to contacts for the lesson. Some students prefer to surf without vision correction if their prescription isn't too strong, as the activity doesn't require perfect vision."
+  },
+  {
+    id: 6,
+    question: "How Early Should I Arrive?",
+    answer: "Please arrive 15-20 minutes before your scheduled lesson time. This allows time for check-in, equipment fitting, and a brief safety orientation before we head to the water. Early arrival ensures we can start your lesson on time and maximizes your time in the water."
+  }
+];
+

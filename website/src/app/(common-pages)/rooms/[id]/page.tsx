@@ -3,7 +3,7 @@ import OnclickDropdown from "@/component/OnclickDropdown";
 import RoomBookingTabs from "@/component/RoomBookingTab";
 import SectionTitleMedium from "@/component/SectionTitleMedium";
 import BookingPoliciesStepper from "@/component/VerticalStepper";
-import { roomsData } from "@/constants/datas";
+import { RoomDetailsFaqs, roomsData } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import Image from "next/image";
@@ -192,7 +192,7 @@ const RoomCardDetails = ({ params }) => {
               {/* Faq*/}
               <div className="border-2 rounded-xl border-gray-200 p-5">
                 <SectionTitleMedium title={"Frequently Asked Questions"} />
-                <FAQSection />
+                <FAQSection faqs={RoomDetailsFaqs} />
               </div>
 
               {/* Reviews --*/}

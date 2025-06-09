@@ -134,3 +134,8 @@ export const getHeader = (title: string) => {
       </Helmet>
   )
 };
+
+// to do list 
+
+* Restaurant & bar page: Implement background swiper.
+* Restaurant page: On click function on banner.

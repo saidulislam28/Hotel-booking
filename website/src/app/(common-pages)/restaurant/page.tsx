@@ -1,4 +1,5 @@
 import AboutRestaurant from "@/component/restaurant/AboutRestaurant";
+import MenuShowcase from "@/component/restaurant/MenuShowcase";
 import RestaurantBanner from "@/component/restaurant/RestaurantBanner";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
@@ -19,6 +20,7 @@ const page = () => {
       <div className="max-w-7xl mx-auto p-5">
         <RestaurantBanner />
         <AboutRestaurant />
+        <MenuShowcase />
       </div>
     </>
   );

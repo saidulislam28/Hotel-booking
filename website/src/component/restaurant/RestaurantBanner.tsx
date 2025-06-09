@@ -24,9 +24,9 @@ export default function RestaurantBanner() {
               <FaClock color="white" /> <span>Open time: 7am - 11pm </span>{" "}
             </p>
           </div>
-          <div className="max-w-64">
+          <div className="">
             <SectionTitleMedium title={"Address"} />
-            <p className="font-medium flex items-start gap-3 mt-4">
+            <p className="font-medium flex items-start gap-3 mt-4 max-w-64">
               <FaMapMarkerAlt size={24} color="white" />{" "}
               <span>
                 S. Ali Tower, plot no-22, Section-6/A, Main road-1, Mirpur-6

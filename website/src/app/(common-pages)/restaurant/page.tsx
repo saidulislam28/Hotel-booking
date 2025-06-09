@@ -1,7 +1,10 @@
+import GenericSwiper from "@/component/home/GenericSwiper";
 import AboutRestaurant from "@/component/restaurant/AboutRestaurant";
 import Menus from "@/component/restaurant/Menus";
 import MenuShowcase from "@/component/restaurant/MenuShowcase";
 import RestaurantBanner from "@/component/restaurant/RestaurantBanner";
+import ReviewCard from "@/component/ReviewCard";
+import { reviewData } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import React from "react";
@@ -23,6 +26,12 @@ const page = () => {
         <AboutRestaurant />
         <MenuShowcase />
         <Menus />
+        <GenericSwiper
+          data={reviewData}
+          CardComponent={ReviewCard}
+          perView={2}
+          title="Every stay has a story"
+        />
       </div>
     </>
   );

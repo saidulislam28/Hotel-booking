@@ -1,3 +1,4 @@
+import RestaurantBanner from "@/component/restaurant/RestaurantBanner";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import React from "react";
@@ -14,6 +15,9 @@ const page = () => {
         ]}
         title={title}
       />
+      <div className="max-w-7xl mx-auto p-5">
+        <RestaurantBanner />
+      </div>
     </>
   );
 };

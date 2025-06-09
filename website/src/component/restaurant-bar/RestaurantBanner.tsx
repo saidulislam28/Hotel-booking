@@ -2,7 +2,7 @@ import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import SectionTitle from "../SectionTitle";
 import RestaurantBannerButton from "../RestaurantBannerButton";
 
-export default function RestaurantBanner() {
+export default function RestaurantBarBanner() {
   return (
     <div
       className="relative h-[800px] bg-cover bg-center w-full"

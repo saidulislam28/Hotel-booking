@@ -1,5 +1,6 @@
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import SectionTitle from "../SectionTitle";
+import RestaurantBannerButton from "../RestaurantBannerButton";
 
 export default function RestaurantBanner() {
   return (
@@ -33,9 +34,7 @@ export default function RestaurantBanner() {
             </p>
           </div>
           <div className="flex flex-col  gap-6">
-            <button className="text-[#B1905E] cursor-pointer hover:text-white bg-white hover:bg-[#B1905E] px-20 rounded-full py-3 font-semibold ">
-              View Menu
-            </button>
+            <RestaurantBannerButton />
             <a href="https://maps.app.goo.gl/yo8vJPC9ocG3FXNT6" target="_blank">
               <button className="text-white  border border-white hover:border-transparent   bg-transparent hover:bg-[#B1905E] px-20 rounded-full py-3 font-semibold cursor-pointer">
                 View Map

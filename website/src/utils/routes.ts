@@ -19,7 +19,7 @@ const Routes = [
     title: "Restaurant and Bar",
     path: "/restaurant-bar",
     icon: true,
-    children: [{ title: "dropdown_option_1", path: "/option_1" }],
+    children: [{ title: "Restaurant", path: "/restaurant" }],
   },
   {
     title: "Local Activities",

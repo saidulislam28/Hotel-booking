@@ -29,9 +29,9 @@ const Routes = [
   },
   {
     title: "Features",
-    path: "/features",
+    path: "",
     icon: true,
-    children: [{ title: "dropdown_option_1", path: "/option_1" }],
+    children: [{ title: "Blog", path: "/blog" }],
   },
   {
     title: "Contact",

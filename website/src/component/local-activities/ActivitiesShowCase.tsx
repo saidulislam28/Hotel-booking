@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle";
 const ActivitiesShowCase = () => {
   return (
     <FadeUpWrapper>
-      <div className="flex items-center gap-5 mt-20">
+      <div className="flex items-center gap-5 my-12">
         <div className="flex flex-col justify-end space-y-6 min-w-[410px]  min-h-[600px]">
           <SectionTitle
             title={"Curious about Surfing? Discover Our San Diego Surf Lessons"}

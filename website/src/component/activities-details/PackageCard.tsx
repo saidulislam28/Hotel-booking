@@ -22,7 +22,7 @@ const PackageCard = ({ item }) => {
       {/* Bottom border (optional footer separator) */}
       <div className="border-t border-gray-300 mt-auto pt-3" />
       <div className="flex items-center justify-between h-12">
-        <h5 className="text-2xl font-bold hover_text group-hover:text-white">
+        <h5 className="text-2xl font-bold text-[#B1905E] group-hover:text-white">
           ${item.price}
         </h5>
         <button

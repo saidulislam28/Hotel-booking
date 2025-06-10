@@ -2,6 +2,7 @@ import PackageCard from "@/component/activities-details/PackageCard";
 import FAQSection from "@/component/Faq";
 import FadeUpWrapper from "@/component/hooks/FadeupWrapper";
 import ActivitiesShowCase from "@/component/local-activities/ActivitiesShowCase";
+import GalleryShowcase from "@/component/local-activities/GalleryShowcase";
 import SectionTitle from "@/component/SectionTitle";
 import SectionTitleMedium from "@/component/SectionTitleMedium";
 import {
@@ -30,6 +31,8 @@ const page = () => {
           <ActivitiesShowCase />
         </div>
       </FadeUpWrapper>
+
+      {/* faq section  */}
       <FadeUpWrapper>
         <div className="max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex items-center justify-between gap-8 my-20">
           <div className="w-[50%]">
@@ -48,6 +51,8 @@ const page = () => {
           </div>
         </div>
       </FadeUpWrapper>
+
+      {/* Package cards  */}
       <FadeUpWrapper>
         <div className="bg-[#F2F4F4] my-10 py-20">
           <div className="max-w-7xl mx-auto p-5">
@@ -66,7 +71,7 @@ const page = () => {
           </div>
         </div>
       </FadeUpWrapper>
-
+      {/* Faq section  */}
       <FadeUpWrapper>
         <div className="max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex flex-row-reverse items-center justify-between gap-8 my-20">
           <div className="w-[50%]">
@@ -83,6 +88,12 @@ const page = () => {
             <SectionTitleMedium title={"What You Also Get"} />
             <FAQSection faqs={servicesAndInstructorsFAQ} />
           </div>
+        </div>
+      </FadeUpWrapper>
+
+      <FadeUpWrapper>
+        <div className="max-w-7xl mx-auto p-5">
+          <GalleryShowcase />
         </div>
       </FadeUpWrapper>
     </>

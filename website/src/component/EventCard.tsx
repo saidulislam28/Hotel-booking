@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 import AnimateButton from "./AnimateButton";
 
-const EventCard = ({item}) => {
+const EventCard = ({ item }) => {
   return (
     <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Room Image */}
@@ -31,11 +31,9 @@ const EventCard = ({item}) => {
         <h1 className="text-black hover:text-[#B1905E] text-xl font-bold">
           {item?.title}
         </h1>
-        <p className="text-[#4F5E71] line-clamp-2">
-          {item?.short_desc}
-        </p>
+        <p className="text-[#4F5E71] line-clamp-2">{item?.short_desc}</p>
         <div className="h-8 flex items-end">
-          <AnimateButton text={"Read More"} />
+          <AnimateButton text={"Read More"} path={`/blog/${item.id}`} />
         </div>
       </div>
     </div>

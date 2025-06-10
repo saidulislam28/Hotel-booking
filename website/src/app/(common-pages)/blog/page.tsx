@@ -18,7 +18,7 @@ const page = () => {
   ];
   return (
     <>
-      <TitleHelmet title="Rooms" />
+      <TitleHelmet title="Blog" />
       <PageTitle
         breadcrumbs={[{ title: "Home", href: "/" }, { title: title }]}
         title={title}

@@ -25,13 +25,35 @@ const Routes = [
     title: "Local Activities",
     path: "/local-activities",
     icon: true,
-    children: [{ title: "Activities Details", path: "/activities-details" }],
+    children: [
+      {
+        title: "Activities Details",
+        path: "/activities-details",
+      },
+    ],
   },
   {
     title: "Features",
     path: "",
     icon: true,
-    children: [{ title: "Blog", path: "/blog" }],
+    children: [
+      {
+        title: "Blog",
+        path: "/blog",
+      },
+      {
+        title: "Wellness & Fitness",
+        path: "/wellness-fitness",
+      },
+      {
+        title: "Events & Meetings",
+        path: "/events-meetings",
+      },
+      {
+        title: "Amenities & Services",
+        path: "/amenities-services",
+      },
+    ],
   },
   {
     title: "Contact",

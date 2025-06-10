@@ -325,38 +325,55 @@ export const SurfPackages = [
   {
     id: 1,
     title: "Daily Open Group Surf Lessons",
-    price: 60.50,
+    price: 60.5,
     features: [
-      { id: 1, feature: "3:1 Student to Surf Instructor Ratio (No Experience Necessary)" },
+      {
+        id: 1,
+        feature:
+          "3:1 Student to Surf Instructor Ratio (No Experience Necessary)",
+      },
       { id: 2, feature: "Wetsuits and Surfboards Included" },
       { id: 3, feature: "What to Bring: Water, Sunscreen, Towel and Swimsuit" },
-      { id: 4, feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30" },
-      { id: 5, feature: "90 Minute Lesson (Join other surfers or bring your own group)" }
-    ]
+      {
+        id: 4,
+        feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30",
+      },
+      {
+        id: 5,
+        feature:
+          "90 Minute Lesson (Join other surfers or bring your own group)",
+      },
+    ],
   },
   {
     id: 2,
     title: "Private Surf Lessons: Customized Coaching",
-    price: 60.50,
+    price: 60.5,
     features: [
       { id: 1, feature: "1:1 Student to Surf Instructor Ratio *Best Seller" },
       { id: 2, feature: "Wetsuits and Surfboards Included" },
       { id: 3, feature: "What to Bring: Water, Sunscreen, Towel and Swimsuit" },
-      { id: 4, feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30" },
-      { id: 5, feature: "90 Minute Lesson" }
-    ]
+      {
+        id: 4,
+        feature: "Surf Lessons offered Daily at: 9, 10:30, 12:30, 2, and 3:30",
+      },
+      { id: 5, feature: "90 Minute Lesson" },
+    ],
   },
   {
     id: 3,
     title: "Surf Lesson Packages",
-    price: 60.50,
+    price: 60.5,
     features: [
       { id: 1, feature: "4 Surf Lessons for the price of 3 *Very Popular" },
       { id: 2, feature: "Wetsuits and Surfboards Included" },
       { id: 3, feature: "What to Bring: Water, Sunscreen, Towel & Swimsuit" },
-      { id: 4, feature: "Surf Lessons offered Daily: 9, 10:30, 12:30, 2, 3:30" }
-    ]
-  }
+      {
+        id: 4,
+        feature: "Surf Lessons offered Daily: 9, 10:30, 12:30, 2, 3:30",
+      },
+    ],
+  },
 ];
 
 export const RoomDetailsFaqs = [
@@ -376,27 +393,31 @@ export const RoomDetailsFaqs = [
     answer: "Shipping typically takes 3-5 business days.",
   },
 ];
- export const servicesAndInstructorsFAQ = [
+export const servicesAndInstructorsFAQ = [
   {
     id: 1,
     question: "Surfboards And Wetsuits",
-    answer: "All surfboards and wetsuits are included in your lesson price. We provide beginner-friendly foam boards in various sizes, and high-quality wetsuits to keep you warm and comfortable in the water. Our equipment is regularly maintained and sanitized for your safety."
+    answer:
+      "All surfboards and wetsuits are included in your lesson price. We provide beginner-friendly foam boards in various sizes, and high-quality wetsuits to keep you warm and comfortable in the water. Our equipment is regularly maintained and sanitized for your safety.",
   },
   {
     id: 2,
     question: "Licensed And Permitted Instructors",
-    answer: "All our surf instructors are licensed professionals with years of experience. They hold valid permits to operate on local beaches and are certified through recognized surf instruction programs. Our team undergoes continuous training to ensure the highest quality instruction."
+    answer:
+      "All our surf instructors are licensed professionals with years of experience. They hold valid permits to operate on local beaches and are certified through recognized surf instruction programs. Our team undergoes continuous training to ensure the highest quality instruction.",
   },
   {
     id: 3,
     question: "Water Safety, First Aid & CPR Certified",
-    answer: "Every instructor on our team is certified in water safety, first aid, and CPR. We prioritize your safety above all else and are fully prepared to handle any emergency situations. Our instructors regularly renew their certifications to maintain the highest safety standards."
+    answer:
+      "Every instructor on our team is certified in water safety, first aid, and CPR. We prioritize your safety above all else and are fully prepared to handle any emergency situations. Our instructors regularly renew their certifications to maintain the highest safety standards.",
   },
   {
     id: 4,
     question: "Availability Across All Seasons",
-    answer: "We offer surf lessons year-round, adapting to seasonal conditions and weather patterns. While summer offers warmer waters and gentler waves perfect for beginners, winter sessions provide more challenging conditions for intermediate surfers. We adjust lesson times and locations based on optimal surf conditions throughout the year."
-  }
+    answer:
+      "We offer surf lessons year-round, adapting to seasonal conditions and weather patterns. While summer offers warmer waters and gentler waves perfect for beginners, winter sessions provide more challenging conditions for intermediate surfers. We adjust lesson times and locations based on optimal surf conditions throughout the year.",
+  },
 ];
 
 // Second FAQ Array - Practical Questions
@@ -404,32 +425,103 @@ export const practicalQuestionsFAQ = [
   {
     id: 1,
     question: "Do You Offer Transportation To The Beach?",
-    answer: "Transportation is not included in our standard lesson packages, but we can arrange pickup services for an additional fee. We'll provide you with detailed directions to our meeting location, and there's typically ample parking available near the beach. Some of our premium packages do include transportation - please ask about availability."
+    answer:
+      "Transportation is not included in our standard lesson packages, but we can arrange pickup services for an additional fee. We'll provide you with detailed directions to our meeting location, and there's typically ample parking available near the beach. Some of our premium packages do include transportation - please ask about availability.",
   },
   {
     id: 2,
     question: "What Beach Will We Be Surfing At?",
-    answer: "We select the best beach location based on current surf conditions, weather, and your skill level. Our most common locations include beginner-friendly beaches with gentle waves and sandy bottoms. We'll confirm the exact location 24 hours before your lesson and provide detailed meeting instructions."
+    answer:
+      "We select the best beach location based on current surf conditions, weather, and your skill level. Our most common locations include beginner-friendly beaches with gentle waves and sandy bottoms. We'll confirm the exact location 24 hours before your lesson and provide detailed meeting instructions.",
   },
   {
     id: 3,
     question: "What If It's Raining On The Day Of My Lesson?",
-    answer: "Light rain doesn't stop us from surfing! However, if there are dangerous weather conditions like thunderstorms or high winds, we'll reschedule your lesson at no extra charge. We monitor weather conditions closely and will contact you if any changes are needed. Your safety is our top priority."
+    answer:
+      "Light rain doesn't stop us from surfing! However, if there are dangerous weather conditions like thunderstorms or high winds, we'll reschedule your lesson at no extra charge. We monitor weather conditions closely and will contact you if any changes are needed. Your safety is our top priority.",
   },
   {
     id: 4,
     question: "What Should I Bring To The Surf Lesson?",
-    answer: "Bring a swimsuit or board shorts, sunscreen (reef-safe preferred), a towel, water bottle, and a change of clothes. We recommend bringing a waterproof bag for your belongings. All surf equipment is provided. Optional items include a waterproof camera, snacks, and flip-flops for easy beach walking."
+    answer:
+      "Bring a swimsuit or board shorts, sunscreen (reef-safe preferred), a towel, water bottle, and a change of clothes. We recommend bringing a waterproof bag for your belongings. All surf equipment is provided. Optional items include a waterproof camera, snacks, and flip-flops for easy beach walking.",
   },
   {
     id: 5,
     question: "Can I Wear My Glasses Or Contact Lenses?",
-    answer: "Contact lenses are generally fine for surfing, though there's always a small risk of losing them in the water. For glasses, we recommend sport straps or consider switching to contacts for the lesson. Some students prefer to surf without vision correction if their prescription isn't too strong, as the activity doesn't require perfect vision."
+    answer:
+      "Contact lenses are generally fine for surfing, though there's always a small risk of losing them in the water. For glasses, we recommend sport straps or consider switching to contacts for the lesson. Some students prefer to surf without vision correction if their prescription isn't too strong, as the activity doesn't require perfect vision.",
   },
   {
     id: 6,
     question: "How Early Should I Arrive?",
-    answer: "Please arrive 15-20 minutes before your scheduled lesson time. This allows time for check-in, equipment fitting, and a brief safety orientation before we head to the water. Early arrival ensures we can start your lesson on time and maximizes your time in the water."
-  }
+    answer:
+      "Please arrive 15-20 minutes before your scheduled lesson time. This allows time for check-in, equipment fitting, and a brief safety orientation before we head to the water. Early arrival ensures we can start your lesson on time and maximizes your time in the water.",
+  },
 ];
 
+export const amenitiesData = [
+  {
+    id: 1,
+    title: "Creative Arts & Crafts",
+    image: "https://example.com/images/arts-crafts.png", // Replace with actual image URL
+    desc: "Our Creative Arts & Crafts sessions give kids a chance to let their imagination run wild. From painting to paper crafts, we provide all the materials and guidance needed for children to express themselves in a safe and inspiring environment. The activity encourages fine motor skills, teamwork, and self-expression. Kids leave with a handmade masterpiece and a smile on their face. This program is great for developing focus, patience, and artistic thinking while having fun and getting a little messy!",
+    schedule: [
+      "Monday: 10 am - 11:30 am",
+      "Wednesday: 3 pm - 4:30 pm",
+      "Saturday: 9 am - 10:30 am",
+    ],
+  },
+  {
+    id: 2,
+    title: "Outdoor Playground Fun",
+    image: "https://example.com/images/outdoor-play.png", // Replace with actual image URL
+    desc: "Outdoor Playground Fun is all about energy, movement, and making new friends. Kids enjoy climbing structures, swings, slides, and group games under the supervision of trained staff. It’s the perfect way for children to build their coordination, strength, and social skills. Our facility ensures safety while keeping the atmosphere full of excitement and laughter. Parents love this time because their kids get a healthy dose of exercise while creating core memories of childhood joy and freedom.",
+    schedule: [
+      "Tuesday: 11 am - 12:30 pm",
+      "Friday: 4 pm - 5:30 pm",
+      "Sunday: 10 am - 12 pm",
+    ],
+  },
+  {
+    id: 3,
+    title: "Story Time & Puppet Shows",
+    image: "https://example.com/images/story-puppets.png", // Replace with actual image URL
+    desc: "Step into a world of imagination during our Story Time & Puppet Shows! Designed for young minds, this activity blends education and entertainment through engaging stories, whimsical puppets, and interactive sessions. It fosters language development, listening skills, and creativity while keeping kids captivated. Each session introduces new characters and adventures that spark curiosity and empathy. Parents often join in, making it a beautiful bonding experience in our cozy storytelling corner.",
+    schedule: [
+      "Monday: 2 pm - 3 pm",
+      "Thursday: 10 am - 11 am",
+      "Saturday: 3 pm - 4:30 pm",
+    ],
+  },
+];
+export const EventData = [
+  {
+    id: 1,
+    title: "Stylish Meeting Spaces",
+    image: "https://example.com/images/arts-crafts.png",
+    desc: "Our Creative Arts & Crafts sessions give kids a chance to let their imagination run wild. From painting to paper crafts, we provide all the materials and guidance needed for children to express themselves in a safe and inspiring environment. The activity encourages fine motor skills, teamwork, and self-expression. Kids leave with a handmade masterpiece and a smile on their face. This program is great for developing focus, patience, and artistic thinking while having fun and getting a little messy!",
+    service: [
+      "Office Supplies",
+      "In-room Printing",
+      "Shipping Services",
+      "Catering Available",
+      "Tea Breaks",
+      "Meeting Registration",
+    ],
+  },
+  {
+    id: 2,
+    title: "Location for the Perfect Wedding",
+    image: "https://example.com/images/outdoor-play.png",
+    desc: "Outdoor Playground Fun is all about energy, movement, and making new friends. Kids enjoy climbing structures, swings, slides, and group games under the supervision of trained staff. It’s the perfect way for children to build their coordination, strength, and social skills. Our facility ensures safety while keeping the atmosphere full of excitement and laughter. Parents love this time because their kids get a healthy dose of exercise while creating core memories of childhood joy and freedom.",
+    service: [
+      "Office Supplies",
+      "In-room Printing",
+      "Shipping Services",
+      "Catering Available",
+      "Tea Breaks",
+      "Meeting Registration",
+    ],
+  },
+];

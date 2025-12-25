@@ -42,9 +42,6 @@ const Booking = () => {
     queryFn: () =>
       Post(`${API_FIND_WHERE}?model=${model}`, {
         // include: {
-        //   room_features: true,
-        //   room_services: true,
-        //   room_bathroom_features: true,
         // },
       }),
     select(data) {

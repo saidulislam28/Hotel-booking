@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 import { FaStar } from "react-icons/fa";
@@ -14,8 +14,8 @@ const ReviewCard = ({ item }) => {
       </div>
 
       {/* Review Text */}
-      <p className="text-[#000000] text-sm leading-relaxed mb-6">
-        {item?.comment}
+      <p className="text-[#000000] text-sm leading-relaxed mb-6 line-clamp-4">
+        {item?.desc}
       </p>
 
       {/* Profile Section */}
@@ -29,9 +29,9 @@ const ReviewCard = ({ item }) => {
         />
         <div>
           <p className="font-semibold text-sm text-black">
-            {item?.profile_name}
+            {item?.author_name}
           </p>
-          <p className="text-sm text-gray-600">{item?.address}</p>
+          <p className="text-sm text-gray-600">{item?.author_address}</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 "use client";
 import ActivitiesCard from "@/component/ActivitiesCard";
-import Card from "@/component/Card";
 import EventCard from "@/component/EventCard";
 import Banner from "@/component/home/Banner";
 import DiscountBanner from "@/component/home/DiscountBanner";
@@ -14,9 +13,7 @@ import RoomSingleCard from "@/component/RoomSingleCard";
 import SectionTitle from "@/component/SectionTitle";
 import {
   activitiesData,
-  eventData,
-  reviewData,
-  serviceData,
+  serviceData
 } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 
@@ -181,7 +178,7 @@ export default function Home() {
           isButtonShow={false}
         />
         <GenericSwiper
-          data={reviewData}
+          data={data?.roomTestimonials}
           CardComponent={ReviewCard}
           perView={2}
           title="Every stay has a story"

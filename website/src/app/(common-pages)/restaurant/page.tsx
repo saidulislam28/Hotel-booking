@@ -6,12 +6,10 @@ import Menus from "@/component/restaurant/Menus";
 import MenuShowcase from "@/component/restaurant/MenuShowcase";
 import RestaurantBanner from "@/component/restaurant/RestaurantBanner";
 import ReviewCard from "@/component/ReviewCard";
-import { reviewData } from "@/constants/datas";
 import { GetData } from "@/services/api/api";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 const title = "The King Restaurant";
 const Restaurant = () => {
   const { data, isLoading } = useQuery({
@@ -23,11 +21,14 @@ const Restaurant = () => {
     },
   });
 
-  const { data: foodTestimonial, isLoading: foodLoading } = useHomeData();
+  const { data: foodData, isLoading: foodLoading } = useHomeData();
 
   console.log("data>>>", data);
 
   if (isLoading) {
+    return <div>Loading......</div>;
+  }
+  if (foodLoading) {
     return <div>Loading......</div>;
   }
 
@@ -48,7 +49,7 @@ const Restaurant = () => {
         <MenuShowcase />
         <Menus data={data} />
         <GenericSwiper
-          data={reviewData}
+          data={foodData?.foodTestimonial}
           CardComponent={ReviewCard}
           perView={2}
           title="Every stay has a story"

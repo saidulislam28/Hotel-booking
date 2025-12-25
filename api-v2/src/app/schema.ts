@@ -288,7 +288,7 @@ export const bookingSchema = new Schema<IBooking>(
     checkout_at: { type: Date, required: false },
     total: { type: Number, required: false },
     subtotal: { type: Number, required: false },
-    stay_nights: { type: Number, required: false },
+    stay_nights: { type: Number, required: true },
     status: {
       type: String,
       enum: Object.values(BOOKING_STATUS),

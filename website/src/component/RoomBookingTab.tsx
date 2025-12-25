@@ -45,6 +45,7 @@ const RoomBookingTabs = ({ id, item }: any) => {
         ...formData,
         total: totalAmount,
         subtotal: totalAmount,
+        stay_nights: nights,
         room: "693ed77d16d349b66081c7bf",
       });
       setIsModalVisible(false);
@@ -331,7 +332,7 @@ const RoomBookingTabs = ({ id, item }: any) => {
               <button
                 type="button"
                 onClick={handleConfirmBooking}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
               >
                 Confirm Booking
               </button>

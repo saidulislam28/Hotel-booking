@@ -81,16 +81,10 @@ const Booking = () => {
   };
 
   const columns = [
-    // {
-    //   title: "Title",
-    //   dataIndex: "title",
-    //   key: "title",
-    // },
     {
-      title: "Price",
-      dataIndex: "price",
-      key: "price",
-      render: (price: number) => <>{formatMoney(price)}</>,
+      title: "#",
+      key: "index",
+      render: (_: any, __: any, index: number) => index + 1,
     },
     {
       title: "Person",

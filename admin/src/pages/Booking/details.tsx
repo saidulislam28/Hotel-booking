@@ -148,6 +148,17 @@ const BookingDetailsPage = () => {
                       {formatMoney(data.total)}
                     </Text>
                   </div>
+                  <div>
+                    <Text
+                      type="secondary"
+                      style={{ display: "block", marginBottom: "4px" }}
+                    >
+                      Stay Nights
+                    </Text>
+                    <Text strong style={{ fontSize: "20px", color: "green" }}>
+                      {data?.stay_nights} Nights
+                    </Text>
+                  </div>
                 </Space>
               </Col>
             </Row>

@@ -169,7 +169,7 @@ const Booking = () => {
         return (
           <Space>
             <Button
-              onClick={() => navigate(`/room-details/${record._id}`)}
+              onClick={() => navigate(`/booking-details/${record._id}`)}
               size="small"
             >
               <EyeOutlined />

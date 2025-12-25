@@ -15,6 +15,7 @@ const Testimonial = lazy(() => import("./pages/Testimonial"));
 const Blogs = lazy(() => import("./pages/Blog"));
 const Tags = lazy(() => import("./pages/Tags"));
 const Booking = lazy(() => import("./pages/Booking"));
+const BookingDetails = lazy(() => import("./pages/Booking/details"));
 const RouterComponent: React.FC = () => {
   return (
     <Suspense
@@ -44,6 +45,7 @@ const RouterComponent: React.FC = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/tags" element={<Tags />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/booking-details/:id" element={<BookingDetails />} />
       </Routes>
     </Suspense>
   );

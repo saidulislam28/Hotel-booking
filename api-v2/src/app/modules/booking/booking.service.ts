@@ -31,7 +31,7 @@ const createBooking = async (payload: Partial<IBooking>) => {
     if (!room) {
       throw new AppError(httpStatus.NOT_FOUND, "Room not found!!!!!!!");
     }
-    const amount = 
+    const amount =
       Number(room?.price) *
       Number(
         (payload?.adult_person_count ?? 0) + (payload?.children_count ?? 0)
@@ -41,7 +41,7 @@ const createBooking = async (payload: Partial<IBooking>) => {
     const booking = await Booking.create(
       [
         {
-          user: user?._id,
+          user: user[0]?._id,
           status: BOOKING_STATUS.PENDING,
           payment_status: PAYMENT_STATUS.UNPAID,
           total: totalAmount,
@@ -90,9 +90,6 @@ const createBooking = async (payload: Partial<IBooking>) => {
     // console.log("ssl payload", sslPayload)
 
     // const sslPayment = await sslService.sslPaymentInit(sslPayload);
-
-    // console.log("payment", sslPayment);
-
     await session.commitTransaction();
     session.endSession();
     return {

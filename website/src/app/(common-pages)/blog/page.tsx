@@ -1,11 +1,13 @@
+"use client";
 import EventCard from "@/component/EventCard";
+import useHomeData from "@/component/hooks/useHomeData";
 import { eventData } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 const title = "Blog";
-const page = () => {
+const Blog = () => {
   const categories = ["Design", "Event", "Gallery", "Hotel", "Uncategorized"];
 
   const tags = [
@@ -16,6 +18,13 @@ const page = () => {
     "Summer View",
     "Swimming",
   ];
+  // localBlogs
+  const { data, isLoading } = useHomeData();
+
+  if (isLoading) {
+    return <div>Loading.....</div>;
+  }
+
   return (
     <>
       <TitleHelmet title="Blog" />
@@ -25,7 +34,7 @@ const page = () => {
       />
       <div className="max-w-7xl mx-auto p-5 flex items-start gap-5">
         <div className="w-[70%] grid grid-cols-2 gap-5">
-          {eventData.map((item, index) => (
+          {data?.localBlogs?.map((item, index) => (
             <EventCard key={index} item={item} />
           ))}
         </div>
@@ -74,4 +83,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Blog;

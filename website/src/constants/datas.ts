@@ -113,6 +113,7 @@ export const roomsData = [
   },
 ];
 
+// blog
 export const insipresData = [
   {
     id: 1,
@@ -224,7 +225,7 @@ export const reviewData = [
     rating: 3,
   },
 ];
-
+//blog
 export const eventData = [
   {
     id: 1,
@@ -407,6 +408,7 @@ export const RoomDetailsFaqs = [
     answer: "Shipping typically takes 3-5 business days.",
   },
 ];
+
 export const servicesAndInstructorsFAQ = [
   {
     id: 1,

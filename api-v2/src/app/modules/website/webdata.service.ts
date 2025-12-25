@@ -48,6 +48,11 @@ const GetSingleRoomData = async (id: string) => {
 
   return room;
 };
+const GetSingleBlog = async (id: string) => {
+  const blog = await Blog.findById(id);
+
+  return blog;
+};
 const GetFoodData = async () => {
   const food = await FoodItem.find({ is_active: true }).sort({
     sort_order: 1,
@@ -61,4 +66,5 @@ export const WebDataService = {
   GetRoomData,
   GetFoodData,
   GetSingleRoomData,
+  GetSingleBlog,
 };

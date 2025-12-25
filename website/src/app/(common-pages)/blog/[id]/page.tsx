@@ -1,17 +1,35 @@
+/* eslint-disable */
+"use client";
 import EventCard from "@/component/EventCard";
+import useHomeData from "@/component/hooks/useHomeData";
 import SectionTitle from "@/component/SectionTitle";
 import { eventData } from "@/constants/datas";
+import { GetData } from "@/services/api/api";
+import { formatDateTime } from "@/utility/formattedDate";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import React from "react";
 import { CiShare2 } from "react-icons/ci";
 import { FaUser } from "react-icons/fa6";
 
-const page = ({ params }) => {
+const BlogDetails = ({ params }: any) => {
   const { id } = params;
-  const blog = eventData.find((data) => data.id === Number(id));
-  const title = blog?.title;
+  const { data: blog, isLoading } = useQuery({
+    queryKey: ["blogs-single-data", id],
+    queryFn: () => GetData(`/web-data/blogs/${id}`),
+    staleTime: 0,
+    select(data) {
+      return data?.data ?? {};
+    },
+  });
+
+  const { data } = useHomeData();
+
+  const title = blog?.title ?? "";
+  const date = formatDateTime(blog?.published_at);
+
   return (
     <>
       <TitleHelmet title={title} />
@@ -35,21 +53,39 @@ const page = ({ params }) => {
           <div className=" p-2 rounded-full bg-gray-300">
             <FaUser size={24} color="white" />
           </div>
-          <p className="text-[#4F5E71]">Saidul | October 27, 2024 |</p>
+          <p className="text-[#4F5E71]">
+            {blog?.author} | {date?.date} |
+          </p>
         </div>
 
         <div className="rounded-xl">
           <Image
             width={1270}
             height={670}
-            src={blog?.image ?? "/banner-min.png"}
+            src={"/banner-min.png"}
             alt="image"
             className="w-[1270px] h-[670px] object-cover rounded-xl"
           />
         </div>
-        <p className="mt-12 max-w-4xl mx-auto text-start text-[#4F5E71]">
+        <p className="mt-12 max-w-7xl mx-auto text-start text-[#4F5E71]">
           {blog?.short_desc}
         </p>
+
+        <div className="mt-8 border border-gray-400 p-5 rounded-2xl text-gray-500">
+          <div
+            className="prose prose-lg max-w-none
+               prose-headings:text-gray-700
+               prose-p:text-gray-600 
+               prose-strong:text-gray-800
+               prose-a:text-blue-600 
+               hover:prose-a:text-blue-800
+               prose-ul:text-gray-600
+               prose-ol:text-gray-600
+               prose-li:text-gray-600"
+            dangerouslySetInnerHTML={{ __html: blog?.content }}
+          />
+        </div>
+
         <div className="w-full flex justify-end my-10">
           <button className="flex items-center gap-2 text-[#B1905E] hover:text-white bg-white hover:bg-[#B1905E] border border-[#B1905E] text-xl px-5 py-2 rounded-full cursor-pointer">
             <CiShare2 className="font-bold" size={24} /> Share
@@ -57,7 +93,7 @@ const page = ({ params }) => {
         </div>
         <SectionTitle title="Related Blogs" className="text-center my-10" />
         <div className=" grid grid-cols-3 gap-5">
-          {eventData.map((item, index) => (
+          {data?.localBlogs?.map((item, index) => (
             <EventCard key={index} item={item} />
           ))}
         </div>
@@ -66,4 +102,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default BlogDetails;

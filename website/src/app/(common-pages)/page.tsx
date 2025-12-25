@@ -8,13 +8,13 @@ import EventHighlights from "@/component/home/EventHighlights";
 import GenericSwiper from "@/component/home/GenericSwiper";
 import OfferSection from "@/component/home/OffersSection";
 import useHomeData from "@/component/hooks/useHomeData";
+import OurServiceCard from "@/component/OurServiceCard";
 import ReviewCard from "@/component/ReviewCard";
 import RoomSingleCard from "@/component/RoomSingleCard";
 import SectionTitle from "@/component/SectionTitle";
 import {
   activitiesData,
   eventData,
-  insipresData,
   reviewData,
   serviceData,
 } from "@/constants/datas";
@@ -152,7 +152,7 @@ export default function Home() {
         <div className="mt-22 mb-10">
           <SectionTitle title={"Offers to inspire you"} />
         </div>
-        <OfferSection data={insipresData} />
+        <OfferSection data={data?.featuredBlogs} />
 
         <GenericSwiper
           data={roomsData}
@@ -166,7 +166,7 @@ export default function Home() {
 
         <GenericSwiper
           data={serviceData}
-          CardComponent={Card}
+          CardComponent={OurServiceCard}
           perView={3}
           title="Our Services"
           isButtonShow={false}
@@ -188,7 +188,7 @@ export default function Home() {
           isButtonShow={false}
         />
         <GenericSwiper
-          data={eventData}
+          data={data?.localBlogs}
           CardComponent={EventCard}
           perView={3}
           title="Inspiration, guides, stories"

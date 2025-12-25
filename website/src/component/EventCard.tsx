@@ -12,7 +12,7 @@ const EventCard = ({ item }) => {
           <Image
             width={400}
             height={300}
-            src={item?.image}
+            src={"/banner-min.png"}
             alt={"banner"}
             className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-full object-cover cursor-pointer"
           />
@@ -26,14 +26,16 @@ const EventCard = ({ item }) => {
       </div>
 
       {/* Room Details */}
-      <div className="p-3 flex-1 mt-20 space-y-2">
+      <div className="p-3 flex-1 mt-20 space-y-2 min-h-[200px]">
         <p className="text-[#4F5E71]">7 june, 2024</p>
         <h1 className="text-black hover:text-[#B1905E] text-xl font-bold">
           {item?.title}
         </h1>
-        <p className="text-[#4F5E71] line-clamp-2">{item?.short_desc}</p>
+        <p className="text-[#4F5E71] line-clamp-2 min-h-[50px]">
+          {item?.short_desc}
+        </p>
         <div className="h-8 flex items-end">
-          <AnimateButton text={"Read More"} path={`/blog/${item.id}`} />
+          <AnimateButton text={"Read More"} path={`/blog/${item._id}`} />
         </div>
       </div>
     </div>

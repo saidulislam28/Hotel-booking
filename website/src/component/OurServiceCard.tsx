@@ -12,7 +12,7 @@ interface IItem {
   short_desc: string;
 }
 
-const Card = ({ item }: { item: any }) => {
+const OurServiceCard = ({ item }: { item: any }) => {
   return (
     <FadeUpWrapper>
       <div className="flex flex-col gap-5 h-[455px]">
@@ -29,7 +29,7 @@ const Card = ({ item }: { item: any }) => {
         <div className="flex flex-col gap-2 items-center">
           <h2 className="text-3xl font-bold">{item?.title}</h2>
           <p className="text-[#4F5E71]">{item?.short_desc}</p>
-          <Link href={`/blog/${item._id}`} className="h-12 flex justify-center">
+          <Link href={item?.href} className="h-12 flex justify-center">
             <AnimateButton text={"Read More"} />
           </Link>
         </div>
@@ -38,4 +38,4 @@ const Card = ({ item }: { item: any }) => {
   );
 };
 
-export default Card;
+export default OurServiceCard;

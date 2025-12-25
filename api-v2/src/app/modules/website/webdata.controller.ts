@@ -30,13 +30,27 @@ const GetRoomData = CatchAsync(
 );
 const GetSingleRoomData = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const {id} = req.params;
+    const { id } = req.params;
     console.log("paramsss", id);
     const data = await WebDataService.GetSingleRoomData(id);
 
     sendResponse(res, {
       success: true,
       message: "Room data retrieved Successfully",
+      statusCode: httpStatus.CREATED,
+      data: data,
+    });
+  }
+);
+const GetSingleBlog = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    console.log("paramsss", id);
+    const data = await WebDataService.GetSingleBlog(id);
+
+    sendResponse(res, {
+      success: true,
+      message: "Blog data retrieved Successfully",
       statusCode: httpStatus.CREATED,
       data: data,
     });
@@ -60,4 +74,5 @@ export const WebDataController = {
   GetRoomData,
   GetFoodData,
   GetSingleRoomData,
+  GetSingleBlog,
 };

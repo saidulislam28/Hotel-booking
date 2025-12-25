@@ -3,7 +3,7 @@ import React from "react";
 import MenuCard from "../MenuCard";
 import FadeUpWrapper from "../hooks/FadeupWrapper";
 
-const Menus = () => {
+const Menus = ({ data }: any) => {
   return (
     <FadeUpWrapper>
       <div className="mt-20">
@@ -11,7 +11,7 @@ const Menus = () => {
           Our specials Menu
         </h1>
         <div className="grid grid-cols-4 gap-8">
-          {foodItems.map((item, index) => (
+          {data?.map((item, index) => (
             <MenuCard key={index} item={item}></MenuCard>
           ))}
         </div>

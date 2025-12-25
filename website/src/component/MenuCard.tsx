@@ -1,3 +1,4 @@
+import { formatMoney } from "@/utility/formatMoney";
 import Image from "next/image";
 import React from "react";
 
@@ -8,14 +9,16 @@ const MenuCard = ({ item }) => {
         <Image
           width={150}
           height={250}
-          src={item?.image}
+          src={"/Food.png"}
           alt="menus coming"
           prefix="blur"
           className="object-cover"
         />
       </div>
       <h4 className="text-xl font-bold">{item?.title}</h4>
-      <h5 className="text-lg font-bold primary_text">${item?.price}</h5>
+      <h5 className="text-lg font-bold primary_text">
+        {formatMoney(item?.price)}
+      </h5>
     </div>
   );
 };

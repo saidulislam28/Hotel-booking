@@ -46,12 +46,13 @@ const Restaurant = () => {
         <RestaurantBanner />
         <AboutRestaurant />
         <MenuShowcase />
-        <Menus />
+        <Menus data={data} />
         <GenericSwiper
           data={reviewData}
           CardComponent={ReviewCard}
           perView={2}
           title="Every stay has a story"
+          isButtonShow={false}
         />
       </div>
     </>

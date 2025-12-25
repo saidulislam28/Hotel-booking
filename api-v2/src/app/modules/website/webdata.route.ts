@@ -6,6 +6,7 @@ const router = Router();
 router.get("/", WebDataController.GetWebData);
 router.get("/rooms", WebDataController.GetRoomData);
 router.get("/rooms/:id", WebDataController.GetSingleRoomData);
+router.get("/blogs/:id", WebDataController.GetSingleBlog);
 router.get("/foods", WebDataController.GetFoodData);
 
 export const WebRouter = router;

@@ -1,0 +1,181 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import bcryptjs from "bcryptjs";
+import httpStatus from "http-status-codes";
+import AppError from "../../../helpers/CustomError";
+import {
+  createNewAccessTokenWithRefreshToken,
+  createUserTokens,
+} from "../../../utils/userTokens";
+import { IAuthProvider, IUser } from "../user/user.interface";
+import { JwtPayload } from "jsonwebtoken";
+import { envVars } from "../../../configs/env";
+import { User } from "../../model";
+
+const credentialsLogin = async (payload: Partial<IUser>) => {
+  const { email, password } = payload;
+
+  const isUserExist = await User.findOne({ email: email });
+
+  if (!isUserExist) {
+    throw new AppError(httpStatus.BAD_REQUEST, "user not exist");
+  }
+  const isMatchPassword = await bcryptjs.compare(
+    password as string,
+    isUserExist.password as string
+  );
+
+  if (!isMatchPassword) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Password not Matched");
+  }
+
+  const { accessToken, jwtRefreshToken } = createUserTokens(isUserExist);
+
+  const userWithoutPassword = await User.findOne({ email }).select(
+    "-password -auths"
+  );
+  const userData = userWithoutPassword?.toObject();
+
+  return {
+    ...userData,
+    accessToken,
+    jwtRefreshToken,
+  };
+};
+const getNewAccessToken = async (refreshToken: string) => {
+  const NewRefreshToken = await createNewAccessTokenWithRefreshToken(
+    refreshToken
+  );
+
+  return { accessToken: NewRefreshToken };
+};
+const ChangePassword = async (
+  oldPassword: string,
+  newPassword: string,
+  decodedToken: JwtPayload
+) => {
+  console.log(decodedToken);
+
+  const isUserExist = await User.findOne({ email: decodedToken.email });
+
+  if (!isUserExist) {
+    throw new AppError(httpStatus.BAD_REQUEST, "User not found");
+  }
+
+  const isPasswordMatched = await bcryptjs.compare(
+    oldPassword,
+    isUserExist?.password as string
+  );
+
+  if (!isPasswordMatched) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Password Not matched!!!");
+  }
+
+  const hashedPassword = await bcryptjs.hash(newPassword, 10);
+
+  const updatePassword = await User.findOneAndUpdate(
+    { email: decodedToken.email },
+    { password: hashedPassword },
+    { new: true }
+  );
+
+  return true;
+};
+const ResetPassword = async (
+  oldPassword: string,
+  newPassword: string,
+  decodedToken: JwtPayload
+) => {
+  console.log(decodedToken);
+
+  const isUserExist = await User.findOne({ email: decodedToken.email });
+
+  if (!isUserExist) {
+    throw new AppError(httpStatus.BAD_REQUEST, "User not found");
+  }
+
+  const isPasswordMatched = await bcryptjs.compare(
+    oldPassword,
+    isUserExist?.password as string
+  );
+
+  if (!isPasswordMatched) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Password Not matched!!!");
+  }
+
+  const hashedPassword = await bcryptjs.hash(newPassword, 10);
+
+  const updatePassword = await User.findOneAndUpdate(
+    { email: decodedToken.email },
+    { password: hashedPassword },
+    { new: true }
+  );
+
+  return true;
+};
+const SetPassword = async (userId: string, plainPassword: string) => {
+  const user = await User.findById(userId);
+
+  if (!user) {
+    throw new AppError(404, "User not found!!!");
+  }
+
+  if (user.password && user.auths.some((obj) => obj.provider === "google")) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "You have already set your password"
+    );
+  }
+
+  const hashedPassword = await bcryptjs.hash(plainPassword, 10);
+
+  const credentialProvider: IAuthProvider = {
+    provider: "credentials",
+    providerId: user.email,
+  };
+
+  const auths: IAuthProvider[] = [...user.auths, credentialProvider];
+
+  user.password = hashedPassword;
+
+  user.auths = auths;
+
+  await user.save();
+};
+const ForgotPassword = async (userId: string, plainPassword: string) => {
+  const user = await User.findById(userId);
+
+  if (!user) {
+    throw new AppError(404, "User not found!!!");
+  }
+
+  if (user.password && user.auths.some((obj) => obj.provider === "google")) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "You have already set your password"
+    );
+  }
+
+  const hashedPassword = await bcryptjs.hash(plainPassword, 10);
+
+  const credentialProvider: IAuthProvider = {
+    provider: "credentials",
+    providerId: user.email,
+  };
+
+  const auths: IAuthProvider[] = [...user.auths, credentialProvider];
+
+  user.password = hashedPassword;
+
+  user.auths = auths;
+
+  await user.save();
+};
+
+export const AuthService = {
+  credentialsLogin,
+  getNewAccessToken,
+  ResetPassword,
+  ChangePassword,
+  SetPassword,
+  ForgotPassword,
+};

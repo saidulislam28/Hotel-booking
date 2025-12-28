@@ -170,28 +170,28 @@ export const activitiesData = [
     id: 1,
     title: "Festival",
     short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
-    image: "/banner-min.png",
+    image: "/festival.avif",
     href: "/activities-details",
   },
   {
     id: 2,
     title: "Diving",
     short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
-    image: "/banner-min.png",
+    image: "/diving.avif",
     href: "/activities-details",
   },
   {
     id: 3,
     title: "Surfing",
     short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
-    image: "/banner-min.png",
+    image: "/surfing.avif",
     href: "/activities-details",
   },
   {
     id: 4,
     title: "Kayaking",
     short_desc: "Cancun’s a pretty well-known spot for spring breakers.",
-    image: "/banner-min.png",
+    image: "/kayaking.avif",
     href: "/activities-details",
   },
 ];
@@ -539,5 +539,68 @@ export const EventData = [
       "Tea Breaks",
       "Meeting Registration",
     ],
+  },
+];
+
+const facilities = [
+  {
+    id: 1,
+    image: "/banner-min.png",
+    subtitle: "Spa & Wellness",
+    title: "Relaxation Sauna & Steam Room",
+    description:
+      "Experience ultimate relaxation in our traditional Finnish sauna and aromatherapy steam room. Perfect for detoxifying your body, improving circulation, and relieving muscle tension after a long day of travel or business meetings.",
+    openHours: "6:00 AM - 10:00 PM",
+    isReverse: false,
+  },
+  {
+    id: 2,
+    image: "/banner-min.png",
+    subtitle: "Fitness Center",
+    title: "State-of-the-Art Gym Equipment",
+    description:
+      "Stay committed to your fitness routine with our fully equipped gymnasium featuring cardio machines, free weights, resistance training equipment, and personal training sessions available upon request. Complimentary towels and water provided.",
+    openHours: "24 Hours",
+    isReverse: true,
+  },
+  {
+    id: 3,
+    image: "/banner-min.png",
+    subtitle: "Spa Services",
+    title: "Massage & Body Treatments",
+    description:
+      "Indulge in our signature massage therapies including Swedish, deep tissue, hot stone, and aromatherapy treatments. Our licensed therapists customize each session to address your specific needs and preferences.",
+    openHours: "9:00 AM - 9:00 PM",
+    isReverse: false,
+  },
+  {
+    id: 4,
+    image: "/banner-min.png",
+    subtitle: "Wellness Programs",
+    title: "Yoga & Meditation Studio",
+    description:
+      "Join our daily yoga and meditation classes in a serene environment designed to restore balance and harmony. Suitable for all levels from beginners to advanced practitioners. Private sessions also available.",
+    openHours: "6:00 AM - 8:00 PM",
+    isReverse: true,
+  },
+  {
+    id: 5,
+    image: "/banner-min.png",
+    subtitle: "Spa & Fitness",
+    title: "Indoor Swimming Pool & Jacuzzi",
+    description:
+      "Take a refreshing dip in our heated indoor pool or unwind in the bubbling jacuzzi. Perfect for low-impact exercise, relaxation, or spending quality time with family. Pool towels and robes provided.",
+    openHours: "6:00 AM - 11:00 PM",
+    isReverse: false,
+  },
+  {
+    id: 6,
+    image: "/banner-min.png",
+    subtitle: "Beauty & Wellness",
+    title: "Facial & Skin Care Treatments",
+    description:
+      "Rejuvenate your skin with our luxurious facial treatments using premium organic products. From anti-aging therapies to deep cleansing and hydration, our estheticians will help you achieve glowing, healthy skin.",
+    openHours: "10:00 AM - 8:00 PM",
+    isReverse: true,
   },
 ];

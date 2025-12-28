@@ -8,7 +8,7 @@ const ActivitiesCard = ({ item }) => {
     <div
       className="relative rounded-lg overflow-hidden h-[400px] flex items-end p-6"
       style={{
-        backgroundImage: "url('/banner-min.png')",
+        backgroundImage: `url(${item?.image ?? "/banner-min.png"})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

@@ -1,6 +1,5 @@
-import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
-import SectionTitleMedium from "../SectionTitleMedium";
 import SectionTitle from "../SectionTitle";
+import SectionTitleMedium from "../SectionTitleMedium";
 
 export default function LocalBanner() {
   return (

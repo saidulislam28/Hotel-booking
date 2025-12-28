@@ -27,7 +27,7 @@ const LocalActivitiesCard = ({ item }) => {
         ></div>
         <div className="h-12 flex items-center justify-between">
           <p className="text-[#4F5E71]">London SE16 3TP, UK</p>
-          <AnimateButton text={"More Info"} />
+          <AnimateButton text={"More Info"} path={item?.href} />
         </div>
       </div>
     </div>

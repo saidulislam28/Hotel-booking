@@ -480,7 +480,7 @@ export const amenitiesData = [
   {
     id: 1,
     title: "Creative Arts & Crafts",
-    image: "https://example.com/images/arts-crafts.png", // Replace with actual image URL
+    image: "/arts_crafts.avif", // Replace with actual image URL
     desc: "Our Creative Arts & Crafts sessions give kids a chance to let their imagination run wild. From painting to paper crafts, we provide all the materials and guidance needed for children to express themselves in a safe and inspiring environment. The activity encourages fine motor skills, teamwork, and self-expression. Kids leave with a handmade masterpiece and a smile on their face. This program is great for developing focus, patience, and artistic thinking while having fun and getting a little messy!",
     schedule: [
       "Monday: 10 am - 11:30 am",
@@ -491,7 +491,7 @@ export const amenitiesData = [
   {
     id: 2,
     title: "Outdoor Playground Fun",
-    image: "https://example.com/images/outdoor-play.png", // Replace with actual image URL
+    image: "/kids.png", // Replace with actual image URL
     desc: "Outdoor Playground Fun is all about energy, movement, and making new friends. Kids enjoy climbing structures, swings, slides, and group games under the supervision of trained staff. It’s the perfect way for children to build their coordination, strength, and social skills. Our facility ensures safety while keeping the atmosphere full of excitement and laughter. Parents love this time because their kids get a healthy dose of exercise while creating core memories of childhood joy and freedom.",
     schedule: [
       "Tuesday: 11 am - 12:30 pm",
@@ -502,7 +502,7 @@ export const amenitiesData = [
   {
     id: 3,
     title: "Story Time & Puppet Shows",
-    image: "https://example.com/images/story-puppets.png", // Replace with actual image URL
+    image: "/puppets.avif", // Replace with actual image URL
     desc: "Step into a world of imagination during our Story Time & Puppet Shows! Designed for young minds, this activity blends education and entertainment through engaging stories, whimsical puppets, and interactive sessions. It fosters language development, listening skills, and creativity while keeping kids captivated. Each session introduces new characters and adventures that spark curiosity and empathy. Parents often join in, making it a beautiful bonding experience in our cozy storytelling corner.",
     schedule: [
       "Monday: 2 pm - 3 pm",
@@ -515,7 +515,7 @@ export const EventData = [
   {
     id: 1,
     title: "Stylish Meeting Spaces",
-    image: "https://example.com/images/arts-crafts.png",
+    image: "/meeting_space.avif",
     desc: "Our Creative Arts & Crafts sessions give kids a chance to let their imagination run wild. From painting to paper crafts, we provide all the materials and guidance needed for children to express themselves in a safe and inspiring environment. The activity encourages fine motor skills, teamwork, and self-expression. Kids leave with a handmade masterpiece and a smile on their face. This program is great for developing focus, patience, and artistic thinking while having fun and getting a little messy!",
     service: [
       "Office Supplies",
@@ -529,7 +529,7 @@ export const EventData = [
   {
     id: 2,
     title: "Location for the Perfect Wedding",
-    image: "https://example.com/images/outdoor-play.png",
+    image: "/wedding.avif",
     desc: "Outdoor Playground Fun is all about energy, movement, and making new friends. Kids enjoy climbing structures, swings, slides, and group games under the supervision of trained staff. It’s the perfect way for children to build their coordination, strength, and social skills. Our facility ensures safety while keeping the atmosphere full of excitement and laughter. Parents love this time because their kids get a healthy dose of exercise while creating core memories of childhood joy and freedom.",
     service: [
       "Office Supplies",

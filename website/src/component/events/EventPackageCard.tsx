@@ -29,15 +29,15 @@ const EventPackageCard = ({ item, index }) => {
               ))}
             </div>
           </div>
-          <button className="text-[#B1905E] border border-[#B1905E] cursor-pointer hover:text-white bg-white hover:bg-[#B1905E] px-5 rounded-full py-3 font-semibold">
-            Make an Appointment
-          </button>
+          <h5 className="border w-fit border-[#B1905E] text-white  bg-[#B1905E] px-5 rounded-full py-3 font-semibold ">
+            Call: 01639124568
+          </h5>
         </div>
         <div className="w-[50%]">
           <Image
             width={500}
             height={400}
-            src={"/kids.png"}
+            src={item?.image}
             alt="kids"
             className="w-full h-[400px] object-cover rounded-xl"
           />

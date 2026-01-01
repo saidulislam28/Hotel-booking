@@ -39,7 +39,7 @@ const page = () => {
             <Image
               width={520}
               height={540}
-              src={"/Menu.png"}
+              src={"/activity_details.png"}
               alt="menus coming"
               prefix="blur"
               className="h-full w-full object-cover"
@@ -78,7 +78,7 @@ const page = () => {
             <Image
               width={520}
               height={540}
-              src={"/Menu.png"}
+              src={"/boy2.png"}
               alt="menus coming"
               prefix="blur"
               className="h-full w-full object-cover"

@@ -7,7 +7,7 @@ const DiscountBanner = () => {
     <FadeUpWrapper>
       <div className="relative w-full h-[420px] rounded-xl overflow-hidden my-10">
         <Image
-          src="/banner-min.png"
+          src="/hotel_booking.avif"
           alt="Hotel Banner"
           layout="fill"
           objectFit="cover"

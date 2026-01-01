@@ -14,7 +14,7 @@ const EventHighlights = () => {
           <div
             className="relative rounded-2xl overflow-hidden h-[300px] flex items-end p-6"
             style={{
-              backgroundImage: "url('/banner-min.png')",
+              backgroundImage: "url('/food_and_earn.avif')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -38,7 +38,7 @@ const EventHighlights = () => {
           <div
             className="relative rounded-2xl overflow-hidden h-[300px] flex items-end p-6"
             style={{
-              backgroundImage: "url('/banner-min.png')",
+              backgroundImage: "url('/party.avif')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

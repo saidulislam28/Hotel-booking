@@ -4,7 +4,7 @@ export default function Banner() {
   return (
     <div
       className="relative h-[700px] bg-cover bg-center w-full"
-      style={{ backgroundImage: "url('/banner-min.png')" }}
+      style={{ backgroundImage: "url('/home_banner.avif')" }}
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>

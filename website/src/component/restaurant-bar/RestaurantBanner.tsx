@@ -6,7 +6,7 @@ export default function RestaurantBarBanner() {
   return (
     <div
       className="relative h-[800px] bg-cover bg-center w-full"
-      style={{ backgroundImage: "url('/banner-min.png')" }}
+      style={{ backgroundImage: "url('/rest_bar.avif')" }}
     >
       {/* Dark Overlay */}
       <div

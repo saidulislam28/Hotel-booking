@@ -144,7 +144,7 @@ export const serviceData = [
     title: "Spa & Wellness",
     short_desc: "Up to 20% off food and services",
     buttonText: "Read More",
-    image: "/banner-min.png",
+    image: "/wellness.avif",
     href: "/wellness-fitness",
   },
   {
@@ -152,7 +152,7 @@ export const serviceData = [
     title: "Amenities & Services",
     short_desc: "It’s the perfect way for children to build",
     buttonText: "Read More",
-    image: "/banner-min.png",
+    image: "/amenities.avif",
     href: "/amenities-services",
   },
   {
@@ -160,7 +160,7 @@ export const serviceData = [
     title: "Restaurant",
     short_desc: "Children eat free, exciting fun activities.",
     buttonText: "Read More",
-    image: "/banner-min.png",
+    image: "/restaurant.avif",
     href: "/restaurant",
   },
 ];

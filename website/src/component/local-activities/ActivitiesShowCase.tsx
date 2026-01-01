@@ -13,23 +13,29 @@ const ActivitiesShowCase = () => {
           <div className="rounded-xl mt-6">
             <Image
               width={400}
-              height={290}
-              src={"/meal.jpg"}
+              height={350}
+              src={"/festival.avif"}
               alt="menus coming"
-              className="w-full rounded-xl object-cover"
+              className="w-full h-[400px] rounded-xl object-cover"
               prefix="blur"
             />
           </div>
         </div>
         <div className="flex flex-col justify-end space-y-5  min-h-[600px] min-w-[410px]">
-          <p className="text-[#4F5E71]">From beginners to advanced riders, we leave no stone unturned in our quest to provide the best surfing instructors. Each of our instructors is not only highly skilled but also possesses lifeguard and CPR certifications, ensuring your safety while you master the fundamentals during your very first surf lessons</p>
+          <p className="text-[#4F5E71]">
+            From beginners to advanced riders, we leave no stone unturned in our
+            quest to provide the best surfing instructors. Each of our
+            instructors is not only highly skilled but also possesses lifeguard
+            and CPR certifications, ensuring your safety while you master the
+            fundamentals during your very first surf lessons
+          </p>
           <p className="text-[#4F5E71]">Phone: +1 2345 6789</p>
           <p className="text-[#4F5E71]">Email: surfingcamp@gmail.com</p>
           <div className="rounded-xl">
             <Image
               width={400}
               height={270}
-              src={"/menu.jpg"}
+              src={"/surfing.avif"}
               alt="menus coming"
               className="w-full  rounded-xl object-cover"
               prefix="blur"
@@ -42,7 +48,7 @@ const ActivitiesShowCase = () => {
             <Image
               width={400}
               height={600}
-              src={"/Cocktails.png"}
+              src={"/kayaking.avif"}
               alt="menus coming"
               className="w-full h-[600px] rounded-xl "
               prefix="blur"

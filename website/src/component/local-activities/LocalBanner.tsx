@@ -5,7 +5,7 @@ export default function LocalBanner() {
   return (
     <div
       className="relative h-[450px] bg-cover bg-center rounded-xl"
-      style={{ backgroundImage: "url('/banner-min.png')" }}
+      style={{ backgroundImage: "url('/local_activities.avif')" }}
     >
       {/* Dark Overlay */}
       <div className="relative z-20 flex p-8 text-white h-full px-4">

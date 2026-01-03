@@ -29,6 +29,31 @@ const GetRoomData = CatchAsync(
     });
   }
 );
+const GetBlogsData = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const query: any = req.query;
+    const data = await WebDataService.GetBlogsData(query);
+
+    sendResponse(res, {
+      success: true,
+      message: "Room data retrieved Successfully",
+      statusCode: httpStatus.CREATED,
+      data: data,
+    });
+  }
+);
+const GetBlogTags = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const data = await WebDataService.GetBlogTags();
+
+    sendResponse(res, {
+      success: true,
+      message: "Room data retrieved Successfully",
+      statusCode: httpStatus.CREATED,
+      data: data,
+    });
+  }
+);
 const GetSingleRoomData = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
@@ -76,4 +101,6 @@ export const WebDataController = {
   GetFoodData,
   GetSingleRoomData,
   GetSingleBlog,
+  GetBlogsData,
+  GetBlogTags,
 };

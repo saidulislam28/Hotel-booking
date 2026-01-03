@@ -1,5 +1,5 @@
 import { roomOptions } from "../../constants/roomTypes";
-import { Blog, FoodItem, Room, Testimonial } from "../../model";
+import { Blog, FoodItem, Room, Tags, Testimonial } from "../../model";
 
 const GetWebData = async () => {
   const blogs = await Blog.find({ is_active: true }).sort({ sort_order: 1 });
@@ -33,6 +33,38 @@ const GetWebData = async () => {
   };
 };
 
+const GetBlogsData = async (searchQuery: any) => {
+  const query: any = { is_active: true };
+
+  if (searchQuery?.tags) {
+    query.tags = searchQuery?.tags;
+  }
+
+  if (searchQuery?.searchText && searchQuery.searchText.trim() !== "") {
+    const searchText = searchQuery.searchText.trim();
+
+    query.$or = [
+      { title: { $regex: searchText, $options: "i" } },
+      { content: { $regex: searchText, $options: "i" } },
+      { short_desc: { $regex: searchText, $options: "i" } },
+    ];
+  }
+  const totalBlog = await Blog.countDocuments({ is_active: true });
+
+  const blog = await Blog.find(query).sort({
+    sort_order: 1,
+  });
+
+  return {
+    total_blog: totalBlog,
+    filtered_blog: blog.length,
+    blog,
+  };
+};
+const GetBlogTags = async () => {
+  const tags = await Tags.find({ is_active: true });
+  return tags;
+};
 const GetRoomData = async (searchQuery: any) => {
   const query: any = { is_active: true };
 
@@ -93,4 +125,6 @@ export const WebDataService = {
   GetFoodData,
   GetSingleRoomData,
   GetSingleBlog,
+  GetBlogsData,
+  GetBlogTags,
 };

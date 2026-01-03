@@ -167,3 +167,15 @@ stay_nights:
 status:
 payment_status:
 price_per_night:
+
+
+---------------------------------------------------------------------------
+
+1. mobile responsive.
+2. navbar fixed for mobile specially.
+3. add search feature on banner.
+4. Type base room filtering. --- working
+5. profile section and bookings section for each user. where booking will show for user.
+6. Dynamic settings for website/CMS system.
+7. If possible implement email send system for booking.
+8. Blog filtering.

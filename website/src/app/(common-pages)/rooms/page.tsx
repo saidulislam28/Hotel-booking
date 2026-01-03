@@ -1,24 +1,28 @@
 "use client";
 import OnclickDropdown from "@/component/OnclickDropdown";
 import RoomSingleCard from "@/component/RoomSingleCard";
-import { roomsData } from "@/constants/datas";
 import { GetData } from "@/services/api/api";
 import { GET_ROOM_LIST } from "@/services/api/endpoints";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 const Rooms = () => {
-  const { data, isLoading } = useQuery({
+  const [selectedValue, setSelectedValue] = useState("Default (All)");
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["rooms-data"],
-    queryFn: () => GetData(GET_ROOM_LIST),
+    queryFn: () => GetData(`${GET_ROOM_LIST}?type=${selectedValue}`),
     staleTime: 0,
     select(data) {
+      console.log("data from another mother>", data);
       return data?.data ?? [];
     },
   });
 
-  console.log("data>>>", data);
+  useEffect(() => {
+    refetch();
+  }, [selectedValue]);
 
   if (isLoading) {
     return <div>Loading......</div>;
@@ -38,16 +42,18 @@ const Rooms = () => {
         {/* filtering section  */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-5">
-            <button className="text-md bg-[#B1905E] px-5 py-2 text-white font-semibold rounded-full hover:cursor-pointer hover:bg-[#ccae81]">
-              Filter By
-            </button>
-            <p className="text-[#4F5E71]">Showing 1 - 12 of 23 results</p>
+            <p className="text-[#4F5E71]">
+              Showing {data?.filtered_room} of {data?.total_room} results
+            </p>
           </div>
-          <OnclickDropdown />
+          <OnclickDropdown
+            selectedValue={selectedValue}
+            setSelectedValue={setSelectedValue}
+          />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 my-8">
           {/* {roomsData?.map((item, ind) => ( */}
-          {data?.map((item, ind) => (
+          {data?.room?.map((item, ind) => (
             <RoomSingleCard key={ind} item={item} />
           ))}
         </div>

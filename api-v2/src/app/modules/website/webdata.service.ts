@@ -1,3 +1,4 @@
+import { roomOptions } from "../../constants/roomTypes";
 import { Blog, FoodItem, Room, Testimonial } from "../../model";
 
 const GetWebData = async () => {
@@ -32,13 +33,38 @@ const GetWebData = async () => {
   };
 };
 
-const GetRoomData = async () => {
-  const room = await Room.find({ is_active: true }).sort({
+const GetRoomData = async (searchQuery: any) => {
+  const query: any = { is_active: true };
+
+  if (searchQuery?.type === roomOptions.is_deluxe) {
+    query.is_deluxe = true;
+  }
+  if (searchQuery?.type === roomOptions.is_double) {
+    query.is_double = true;
+  }
+  if (searchQuery?.type === roomOptions.is_executive) {
+    query.is_executive = true;
+  }
+  if (searchQuery?.type === roomOptions.is_featured) {
+    query.is_featured = true;
+  }
+  if (searchQuery?.type === roomOptions.is_suite) {
+    query.is_suite = true;
+  }
+
+  const totalRoom = await Room.countDocuments({ is_active: true });
+
+  const room = await Room.find(query).sort({
     sort_order: 1,
   });
 
-  return room;
+  return {
+    total_room: totalRoom,
+    filtered_room: room.length,
+    room,
+  };
 };
+
 const GetSingleRoomData = async (id: string) => {
   const room = await Room.findById(id).populate([
     { path: "room_services", select: "title" },

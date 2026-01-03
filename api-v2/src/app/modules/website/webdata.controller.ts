@@ -18,7 +18,8 @@ const GetWebData = CatchAsync(
 );
 const GetRoomData = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const data = await WebDataService.GetRoomData();
+    const query: any = req.query;
+    const data = await WebDataService.GetRoomData(query);
 
     sendResponse(res, {
       success: true,

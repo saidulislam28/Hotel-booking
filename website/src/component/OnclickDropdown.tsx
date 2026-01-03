@@ -1,28 +1,40 @@
-"use client"
+/* eslint-disable */
+"use client";
+import { roomOptions } from "@/constants/roomTypes";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const OnclickDropdown = () => {
+const OnclickDropdown = ({ selectedValue, setSelectedValue }: any) => {
   const [open, setOpen] = useState(false);
 
-  // Optional: close dropdown when clicked outside
-  const handleToggle = () => setOpen((prev) => !prev);
+  const handleOptionClick = (id: string, name: string) => {
+    setSelectedValue(id);
+    setOpen(false);
+  };
 
   return (
     <div className="relative">
-      <p
-        onClick={handleToggle}
-        className="flex items-center gap-5 bg-[#F2F4F4] px-5 py-2 text-[#4F5E71] rounded-lg cursor-pointer select-none"
+      {/* Clickable Button */}
+      <div
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between bg-[#F2F4F4] px-5 py-2 text-[#4F5E71] rounded-lg cursor-pointer w-64"
       >
-        Default (Random)
+        <span>{selectedValue}</span>
         <IoIosArrowDown />
-      </p>
+      </div>
 
+      {/* Dropdown Options */}
       {open && (
-        <div className="absolute z-50 mt-1 shadow-lg rounded-lg min-w-50 bg-[#F2F4F4]">
-          <p className="block px-6 py-4 rounded-lg font-semibold text-[#4F5E71] hover:text-[#B1905E] cursor-pointer">
-            hello
-          </p>
+        <div className="absolute top-full mt-1 bg-white shadow-lg rounded-lg w-full">
+          {roomOptions.map((option) => (
+            <div
+              key={option.id}
+              onClick={() => handleOptionClick(option.id, option.name)}
+              className="px-5 py-3 hover:bg-gray-100 cursor-pointer"
+            >
+              {option.name}
+            </div>
+          ))}
         </div>
       )}
     </div>

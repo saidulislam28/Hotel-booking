@@ -13,8 +13,7 @@ import {
 interface User {
   id: string;
   email: string;
-  first_name: string;
-  last_name: string;
+  name: string;
 }
 
 interface AuthContextType {
@@ -53,7 +52,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       setLoading(true);
       const response = await Post("auth/login", { email, password });
-      console.log("data>>>>>", response);
       const data = response?.data;
       if (response?.success) {
         localStorage.setItem("auth_token", data?.accessToken);

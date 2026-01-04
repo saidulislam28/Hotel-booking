@@ -5,11 +5,29 @@ import Routes from "@/utils/routes";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IoIosArrowDown } from "react-icons/io";
+import { useState } from "react";
+import { IoIosArrowDown, IoIosLogOut } from "react-icons/io";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const { user } = useAuth();
+  const [open, setOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const firstLetter = user?.name?.trim()?.charAt(0)?.toUpperCase() || "?";
+  const getColorFromLetter = (letter: string) => {
+    const colors = [
+      "#EF4444", // red
+      "#F97316", // orange
+      "#F59E0B", // amber
+      "#10B981", // green
+      "#3B82F6", // blue
+      "#6366F1", // indigo
+      "#8B5CF6", // violet
+      "#EC4899", // pink
+    ];
+
+    const charCode = letter.charCodeAt(0);
+    return colors[charCode % colors.length];
+  };
 
   return (
     <div className="h-20 bg-white relative z-50 shadow-md hidden md:block">
@@ -89,7 +107,42 @@ const Navbar = () => {
             </div>
           </div>
           {user ? (
-            <>saidul</>
+            <>
+              <div className="relative">
+                {/* Clickable Button */}
+                <h2
+                  onClick={() => setOpen(!open)}
+                  className="flex items-center justify-center h-12 w-12 rounded-full cursor-pointer font-semibold text-white select-none"
+                  style={{ backgroundColor: getColorFromLetter(firstLetter) }}
+                >
+                  {firstLetter}
+                </h2>
+
+                {/* Dropdown Options */}
+                {open && (
+                  <div className="absolute top-full mt-1 bg-white shadow-lg w-full min-w-32">
+                    <Link href={"/profile"}>
+                      <h4 className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500">
+                        {"Profile"}
+                      </h4>
+                    </Link>
+                    <Link href={"/"}>
+                      <h4 className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500">
+                        {"Bookings"}
+                      </h4>
+                    </Link>
+
+                    <h4
+                      onClick={() => signOut()}
+                      className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500 flex items-center justify-between gap-2"
+                    >
+                      <span>Logout</span>
+                      <IoIosLogOut />
+                    </h4>
+                  </div>
+                )}
+              </div>
+            </>
           ) : (
             <Link href={"/login"}>
               <button className="text-md bg-[#B1905E] px-5 py-2 text-white font-semibold rounded-full hover:cursor-pointer hover:bg-[#ccae81] mb-0 hover:mb-5 transition-all duration-400 ease-in-out">

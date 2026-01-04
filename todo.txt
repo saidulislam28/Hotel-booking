@@ -178,4 +178,5 @@ price_per_night:
 5. profile section and bookings section for each user. where booking will show for user.
 6. Dynamic settings for website/CMS system.
 7. If possible implement email send system for booking.
-8. Blog filtering.
+8. Blog filtering. -- done
+9. Pagination on room and blog page.

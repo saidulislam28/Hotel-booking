@@ -16,25 +16,25 @@ const updateUser = async (
     throw new AppError(httpStatus.BAD_REQUEST, "User not found");
   }
 
-  if (payload.role) {
-    if (decodedToken.role === Role.USER || decodedToken.role === Role.GUIDE) {
-      throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
-    }
+  // if (payload.role) {
+  //   if (decodedToken.role === Role.USER || decodedToken.role === Role.GUIDE) {
+  //     throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
+  //   }
 
-    if (payload.role === Role.SUPER_ADMIN && decodedToken.role === Role.ADMIN) {
-      throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
-    }
-  }
+  //   if (payload.role === Role.SUPER_ADMIN && decodedToken.role === Role.ADMIN) {
+  //     throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
+  //   }
+  // }
 
-  if (payload.isActive || payload.isDeleted || payload.isVerified) {
-    if (decodedToken.role === Role.USER || decodedToken.role === Role.GUIDE) {
-      throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
-    }
-  }
+  // if (payload.isActive || payload.isDeleted || payload.isVerified) {
+  //   if (decodedToken.role === Role.USER || decodedToken.role === Role.GUIDE) {
+  //     throw new AppError(httpStatus.FORBIDDEN, "You are Not Authorized");
+  //   }
+  // }
 
-  if (payload.password) {
-    payload.password = await bcryptjs.hash(payload.password, 10);
-  }
+  // if (payload.password) {
+  //   payload.password = await bcryptjs.hash(payload.password, 10);
+  // }
 
   const newUpdateUser = await User.findByIdAndUpdate(userId, payload, {
     new: true,

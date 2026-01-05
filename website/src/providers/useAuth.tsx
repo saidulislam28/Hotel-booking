@@ -11,9 +11,15 @@ import {
 } from "react";
 
 interface User {
-  id: string;
+  _id: string;
   email: string;
   name: string;
+  phone?: string;
+}
+interface UpdateProfileData {
+  name?: string;
+  email?: string;
+  phone?: string;
 }
 
 interface AuthContextType {
@@ -26,6 +32,7 @@ interface AuthContextType {
   ) => Promise<{ status: "success" | "failed"; message: string }>;
   signOut: () => void;
   loading: boolean;
+  updateUserProfile: (updatedData: UpdateProfileData) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -86,6 +93,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     navigate.push("/login");
   };
 
+  const updateUserProfile = async (updatedData: UpdateProfileData) => {
+    if (!user) {
+      throw new Error("No user found");
+    }
+
+    try {
+      // Update the user object with only name, email, and phone
+      const updatedUser = {
+        ...user,
+        ...(updatedData.name !== undefined && { name: updatedData.name }),
+        ...(updatedData.email !== undefined && { email: updatedData.email }),
+        ...(updatedData.phone !== undefined && { phone: updatedData.phone }),
+      };
+
+      // Update state
+      setUser(updatedUser);
+
+      // Update localStorage
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+
+      console.log("Profile updated successfully:", updatedData);
+      console.log("Updated user object:", updatedUser);
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+      throw error;
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -95,6 +130,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signIn,
         signOut,
         loading,
+        updateUserProfile,
       }}
     >
       {children}

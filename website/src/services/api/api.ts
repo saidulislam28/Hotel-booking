@@ -7,7 +7,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async (config: any) => {
-    const access_token = localStorage.getItem("access_token");
+    const access_token = localStorage.getItem("auth_token");
 
     if (access_token) {
       config.headers = {
@@ -28,5 +28,9 @@ export const GetData = async (url: string) => {
 };
 export const Post = async (url: string, data: any) => {
   const res = await instance.post(url, data);
+  return res?.data;
+};
+export const Patch = async (url: string, data: any) => {
+  const res = await instance.patch(url, data);
   return res?.data;
 };

@@ -20,6 +20,7 @@ router.get(
   userController.getAllUsers
 );
 router.get("/me", checkAuth(...Object.values(Role)), userController.getMe);
+router.get("/my-bookings", checkAuth(Role.USER), userController.getMyBookings);
 
 router.patch(
   "/:id",

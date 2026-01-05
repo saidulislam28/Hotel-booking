@@ -3,7 +3,7 @@ import AppError from "../../../helpers/CustomError";
 import { IAuthProvider, IUser, Role } from "./user.interface";
 import bcryptjs from "bcryptjs";
 import { JwtPayload } from "jsonwebtoken";
-import { User } from "../../model";
+import { Booking, User } from "../../model";
 
 const updateUser = async (
   userId: string,
@@ -71,9 +71,22 @@ const createUser = async (payload: Partial<IUser>) => {
 };
 
 const getMe = async (userId: string) => {
-  const user = await User.findById(userId).select("-password")
+  const user = await User.findById(userId).select("-password");
 
-  return user
+  return user;
+};
+const getMyBookings = async (userId: string) => {
+  try {
+    const bookings = await Booking.find({ user: userId })
+      .populate("user", "_id name email phone")
+      .populate(
+        "room",
+        "title price bed_count max_person floor room_size floor"
+      );
+    return bookings;
+  } catch (error) {
+    console.log("error", error);
+  }
 };
 const getAllUsers = async () => {
   const users = await User.find({});
@@ -92,5 +105,6 @@ export const userService = {
   createUser,
   getAllUsers,
   updateUser,
-  getMe
+  getMe,
+  getMyBookings,
 };

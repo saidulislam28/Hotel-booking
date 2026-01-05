@@ -24,7 +24,7 @@ const updateUserController = CatchAsync(
       message: "User updated Successfully",
       statusCode: httpStatus.OK,
       data: user,
-    });    
+    });
   }
 );
 
@@ -79,9 +79,22 @@ const getAllUsers = CatchAsync(
     // });
   }
 );
+const getMyBookings = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user: any = req?.user;
+    console.log("user", user);
+    const result: any = await userService.getMyBookings(user?.userId);
+
+    sendResponse(res, {
+      success: true,
+      message: "User retrieved Successfully",
+      statusCode: httpStatus.CREATED,
+      data: result,
+    });
+  }
+);
 const getMe = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-
     const decodedToken = req.user as JwtPayload;
 
     const data = await userService.getMe(decodedToken.userId);
@@ -92,7 +105,6 @@ const getMe = CatchAsync(
       statusCode: httpStatus.OK,
       data: data,
     });
-
   }
 );
 
@@ -100,5 +112,6 @@ export const userController = {
   createUser,
   getAllUsers,
   updateUserController,
-  getMe
+  getMe,
+  getMyBookings,
 };

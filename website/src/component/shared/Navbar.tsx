@@ -126,7 +126,7 @@ const Navbar = () => {
                         {"Profile"}
                       </h4>
                     </Link>
-                    <Link href={"/"}>
+                    <Link href={"/my-bookings"}>
                       <h4 className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500">
                         {"Bookings"}
                       </h4>

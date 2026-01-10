@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 const Rooms = () => {
-  const [selectedValue, setSelectedValue] = useState("Default (All)");
+  const [selectedValue, setSelectedValue] = useState<string>("Default (All)");
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["rooms-data"],
     queryFn: () => GetData(`${GET_ROOM_LIST}?type=${selectedValue}`),

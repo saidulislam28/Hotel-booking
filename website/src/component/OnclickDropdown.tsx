@@ -4,13 +4,22 @@ import { roomOptions } from "@/constants/roomTypes";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const OnclickDropdown = ({ selectedValue, setSelectedValue }: any) => {
+const OnclickDropdown = ({
+  selectedValue,
+  setSelectedValue,
+}: {
+  selectedValue: string;
+  setSelectedValue: any;
+}) => {
   const [open, setOpen] = useState(false);
 
   const handleOptionClick = (id: string, name: string) => {
     setSelectedValue(id);
     setOpen(false);
   };
+  const selectedOption = roomOptions.find(
+    (option) => option.id === selectedValue
+  );
 
   return (
     <div className="relative">
@@ -19,7 +28,9 @@ const OnclickDropdown = ({ selectedValue, setSelectedValue }: any) => {
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between bg-[#F2F4F4] px-5 py-2 text-[#4F5E71] rounded-lg cursor-pointer w-64"
       >
-        <span>{selectedValue}</span>
+        {selectedValue && (
+          <span>{selectedOption?.name || "Default (All)"}</span>
+        )}
         <IoIosArrowDown />
       </div>
 

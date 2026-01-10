@@ -5,7 +5,7 @@ import { GetData } from "@/services/api/api";
 import TitleHelmet from "@/utils/Helmet";
 import PageTitle from "@/utils/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IoRefreshOutline, IoSearch } from "react-icons/io5";
 const title = "Blog";
 const Blog = () => {
@@ -21,13 +21,15 @@ const Blog = () => {
 
   const [blogQuery, setBlogQuery] = useState<string>("");
   const [searchText, setSearchText] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+
   const [selectTag, setSelectTags] = useState<string | null>(null);
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["website-data-blogs"],
     queryFn: () =>
       GetData(
-        `${"/web-data/blogs"}?tags=${blogQuery}&searchText=${searchText}`
+        `${"/web-data/blogs"}?tags=${blogQuery}&searchText=${searchText}&page=${page}&limit=${5}`
       ),
     staleTime: 0,
     select(data) {
@@ -46,9 +48,44 @@ const Blog = () => {
     },
   });
 
+  const pageLength = data?.totalPages || 1;
+
+  const pageArray = useMemo(() => {
+    const total = pageLength;
+    const current = page;
+
+    if (total <= 5) {
+      return Array.from({ length: total }, (_, i) => i + 1);
+    }
+
+    const pages: (number | string)[] = [];
+
+    pages.push(1);
+
+    if (current > 3) {
+      pages.push("...");
+    }
+
+    for (
+      let i = Math.max(2, current - 1);
+      i <= Math.min(total - 1, current + 1);
+      i++
+    ) {
+      pages.push(i);
+    }
+
+    if (current < total - 2) {
+      pages.push("...");
+    }
+
+    pages.push(total);
+
+    return pages;
+  }, [page, pageLength]);
+
   useEffect(() => {
     refetch();
-  }, [blogQuery, searchText]);
+  }, [blogQuery, searchText, page]);
 
   if (isLoading) {
     return <div>Loading.....</div>;
@@ -77,7 +114,7 @@ const Blog = () => {
       />
       <div className="max-w-7xl mx-auto p-5 flex items-start gap-5">
         <div className="w-[70%] grid grid-cols-2 gap-5">
-          {data?.blog?.map((item, index) => (
+          {data?.blog?.map((item: any, index: number) => (
             <EventCard key={index} item={item} />
           ))}
         </div>
@@ -136,6 +173,46 @@ const Blog = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="my-10 text-center">
+        <button
+          onClick={() => {
+            setPage(page - 1);
+          }}
+          className={` rounded-md text-white cursor-pointer ${
+            page === 1 ? "bg-gray-400" : "bg-[#B1905E] border border-[#B1905E]"
+          }  p-2 mx-1`}
+          disabled={page === 1}
+        >
+          Prev
+        </button>
+
+        {pageArray?.map((data: any, ind) => (
+          <button
+            onClick={() => {
+              setPage(data);
+            }}
+            key={ind}
+            className={`border border-[#B1905E] rounded-md  cursor-pointer hover:bg-[#B1905E] p-2 mx-1 ${
+              data == page ? "bg-[#B1905E] text-white" : "bg-white text-black"
+            }`}
+          >
+            {data}
+          </button>
+        ))}
+        <button
+          onClick={() => {
+            setPage(page + 1);
+          }}
+          className={` rounded-md text-white cursor-pointer ${
+            page === data?.totalPages
+              ? "bg-gray-400"
+              : "bg-[#B1905E] border border-[#B1905E]"
+          }  p-2 mx-1`}
+          disabled={page === data?.totalPages}
+        >
+          Next
+        </button>
       </div>
     </>
   );

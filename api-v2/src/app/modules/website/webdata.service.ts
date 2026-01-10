@@ -36,6 +36,10 @@ const GetWebData = async () => {
 const GetBlogsData = async (searchQuery: any) => {
   const query: any = { is_active: true };
 
+  const page = Number(searchQuery.page) || 1;
+  const limit = Number(searchQuery.limit) || 1;
+  const skip = (page - 1) * limit;
+
   if (searchQuery?.tags) {
     query.tags = searchQuery?.tags;
   }
@@ -51,14 +55,18 @@ const GetBlogsData = async (searchQuery: any) => {
   }
   const totalBlog = await Blog.countDocuments({ is_active: true });
 
-  const blog = await Blog.find(query).sort({
-    sort_order: 1,
-  });
+  const blog = await Blog.find(query)
+    .sort({
+      sort_order: 1,
+    })
+    .skip(skip)
+    .limit(limit);
 
   return {
     total_blog: totalBlog,
     filtered_blog: blog.length,
     blog,
+    totalPages: Math.ceil(totalBlog / limit),
   };
 };
 const GetBlogTags = async () => {
@@ -67,6 +75,10 @@ const GetBlogTags = async () => {
 };
 const GetRoomData = async (searchQuery: any) => {
   const query: any = { is_active: true };
+
+  const page = Number(searchQuery.page) || 1;
+  const limit = Number(searchQuery.limit) || 1;
+  const skip = (page - 1) * limit;
 
   if (searchQuery?.type === roomOptions.is_deluxe) {
     query.is_deluxe = true;
@@ -86,14 +98,18 @@ const GetRoomData = async (searchQuery: any) => {
 
   const totalRoom = await Room.countDocuments({ is_active: true });
 
-  const room = await Room.find(query).sort({
-    sort_order: 1,
-  });
+  const room = await Room.find(query)
+    .sort({
+      sort_order: 1,
+    })
+    .skip(skip)
+    .limit(limit);
 
   return {
     total_room: totalRoom,
     filtered_room: room.length,
     room,
+    totalPages: Math.ceil(totalRoom / limit),
   };
 };
 

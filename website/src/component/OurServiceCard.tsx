@@ -15,7 +15,7 @@ interface IItem {
 const OurServiceCard = ({ item }: { item: any }) => {
   return (
     <FadeUpWrapper>
-      <div className="flex flex-col gap-5 h-[455px]">
+      <div className="flex flex-col gap-5 h-[315px] md:h-[405px]">
         <div className="overflow-hidden rounded-xl w-full">
           <Image
             width={400}
@@ -27,9 +27,9 @@ const OurServiceCard = ({ item }: { item: any }) => {
           />
         </div>
         <div className="flex flex-col gap-2 items-center">
-          <h2 className="text-3xl font-bold">{item?.title}</h2>
+          <h2 className="text-xl md:text-3xl font-bold">{item?.title}</h2>
           <p className="text-[#4F5E71]">{item?.short_desc}</p>
-          <Link href={item?.href} className="h-12 flex justify-center">
+          <Link href={item?.href} className="h-5 md:h-12 flex justify-center">
             <AnimateButton text={"Read More"} />
           </Link>
         </div>

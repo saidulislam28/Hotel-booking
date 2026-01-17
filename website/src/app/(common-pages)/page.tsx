@@ -11,10 +11,7 @@ import OurServiceCard from "@/component/OurServiceCard";
 import ReviewCard from "@/component/ReviewCard";
 import RoomSingleCard from "@/component/RoomSingleCard";
 import SectionTitle from "@/component/SectionTitle";
-import {
-  activitiesData,
-  serviceData
-} from "@/constants/datas";
+import { activitiesData, serviceData } from "@/constants/datas";
 import TitleHelmet from "@/utils/Helmet";
 
 const roomsData = [
@@ -146,7 +143,7 @@ export default function Home() {
       <TitleHelmet title="Home" />
       <Banner />
       <div className="max-w-7xl mx-auto">
-        <div className="mt-22 mb-10">
+        <div className="mt-10 md:mt-22 mb-5 md:mb-10 px-5 md:px-0">
           <SectionTitle title={"Offers to inspire you"} />
         </div>
         <OfferSection data={data?.featuredBlogs} />
@@ -174,7 +171,7 @@ export default function Home() {
           data={activitiesData}
           CardComponent={ActivitiesCard}
           perView={4}
-          title="Make the most of your long weekend"
+          title="Unwind This Long Weekend"
           isButtonShow={false}
         />
         <GenericSwiper

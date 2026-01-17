@@ -36,7 +36,7 @@ const OnclickDropdown = ({
 
       {/* Dropdown Options */}
       {open && (
-        <div className="absolute top-full mt-1 bg-white shadow-lg rounded-lg w-full">
+        <div className="absolute top-full mt-1 bg-white shadow-lg rounded-lg w-full z-10">
           {roomOptions.map((option) => (
             <div
               key={option.id}

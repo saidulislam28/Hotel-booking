@@ -3,7 +3,7 @@ import { IoSearch } from "react-icons/io5";
 export default function Banner() {
   return (
     <div
-      className="relative h-[700px] bg-cover bg-center w-full"
+      className="relative h-[500px] md:h-[700px] bg-cover bg-center w-full"
       style={{ backgroundImage: "url('/home_banner.avif')" }}
     >
       {/* Dark Overlay */}
@@ -12,10 +12,10 @@ export default function Banner() {
       {/* Content goes above the overlay */}
 
       <div className="relative z-20 flex flex-col justify-center items-center text-white h-full px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-2">
+        <h1 className="text-2xl md:text-5xl font-bold text-center mb-2">
           The Perfect Beachfront Destination
         </h1>
-        <p className="text-lg md:text-xl text-center mb-8">
+        <p className="text-md md:text-xl text-center mb-8">
           Experience A Refreshing Approach To Your Stay At The Beach Hotel
         </p>
 

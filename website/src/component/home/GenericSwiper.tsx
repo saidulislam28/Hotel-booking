@@ -51,50 +51,6 @@ const GenericSwiper = ({
     }
   };
 
-  // const renderStars = (rating, reviews) => {
-  //   if (rating === 0) {
-  //     return (
-  //       <div className="flex items-center text-gray-400">
-  //         <Star className="w-4 h-4 mr-1" />
-  //         <span className="text-sm">0/5</span>
-  //       </div>
-  //     );
-  //   }
-
-  //   const stars = [];
-  //   const fullStars = Math.floor(rating);
-  //   const hasHalfStar = rating % 1 !== 0;
-
-  //   for (let i = 0; i < fullStars; i++) {
-  //     stars.push(
-  //       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-  //     );
-  //   }
-
-  //   if (hasHalfStar) {
-  //     stars.push(
-  //       <Star
-  //         key="half"
-  //         className="w-4 h-4 fill-yellow-400/50 text-yellow-400"
-  //       />
-  //     );
-  //   }
-
-  //   const emptyStars = 5 - Math.ceil(rating);
-  //   for (let i = 0; i < emptyStars; i++) {
-  //     stars.push(<Star key={`empty-${i}`} className="w-4 h-4 text-gray-300" />);
-  //   }
-
-  //   return (
-  //     <div className="flex items-center">
-  //       <div className="flex mr-2">{stars}</div>
-  //       <span className="text-sm text-gray-600">
-  //         {rating}/5{" "}
-  //         {reviews > 0 && `(${reviews} review${reviews > 1 ? "s" : ""})`}
-  //       </span>
-  //     </div>
-  //   );
-  // };
   const repeatedData = data.length < perView + 1 ? [...data, ...data] : data;
   return (
     <FadeUpWrapper>
@@ -106,17 +62,17 @@ const GenericSwiper = ({
           <div className="flex space-x-2">
             <button
               onClick={handlePrevSlide}
-              className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
-        bg-white hover:bg-[#B1905E] cursor-pointer"
+              className="p-2 rounded-full border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
+        bg-white hover:bg-[#B1905E] cursor-pointer border"
             >
-              <ChevronLeft className="w-8 h-8 text-black hover:text-white" />
+              <ChevronLeft className="w-8 md:w-3 h-8 md:h-3  text-black hover:text-white" />
             </button>
             <button
               onClick={handleNextSlide}
               className="p-2 rounded-full border border-gray-300 transition-colors duration-200 text-[#B1905E] hover:text-white
         bg-white hover:bg-[#B1905E] cursor-pointer"
             >
-              <ChevronRight className="w-8 h-8 text-black hover:text-white" />
+              <ChevronRight className="w-8  md:w-3 h-8 md:h-3 text-black hover:text-white" />
             </button>
           </div>
         </div>
@@ -129,9 +85,9 @@ const GenericSwiper = ({
           breakpoints={breakpoints}
           loop={true}
         >
-          {repeatedData?.map((room, index) => (
+          {repeatedData?.map((data: any, index: number) => (
             <SwiperSlide key={index}>
-              <CardComponent item={room} />
+              <CardComponent item={data} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -142,7 +98,7 @@ const GenericSwiper = ({
             className="mt-10 flex justify-center"
           >
             <button
-              className="px-5 py-3.5 rounded-full border-2 border-[#B1905E] text-md font-bold text-[#B1905E] hover:text-white
+              className="px-5 py-2 md:py-3.5 rounded-full border-2 border-[#B1905E] text-sm md:text-md font-bold text-[#B1905E] hover:text-white
         bg-white hover:bg-[#B1905E] cursor-pointer"
             >
               {buttonText}

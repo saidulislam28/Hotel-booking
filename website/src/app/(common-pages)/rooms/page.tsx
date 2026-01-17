@@ -81,7 +81,7 @@ const Rooms = () => {
         {/* filtering section  */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-5">
-            <p className="text-[#4F5E71]">
+            <p className="text-[#4F5E71] hidden md:block">
               Showing {data?.filtered_room} of {data?.total_room} results
             </p>
           </div>

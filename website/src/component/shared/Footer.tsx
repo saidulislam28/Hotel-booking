@@ -189,8 +189,10 @@ const Footer = () => {
           className="my-5"
           style={{ borderTop: "0.5px solid #9CA3AF" }}
         ></div>
-        <div className="flex justify-between items-center">
-          <p>Copyright © 2025 Sailing WP. All Rights Reserved</p>
+        <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between items-center">
+          <p className="text-center md:text-start">
+            Copyright © 2025 Sailing WP. All Rights Reserved
+          </p>
           <div className="flex items-center gap-2">
             <Image src={"/globe.svg"} alt="globe" width={20} height={20} />
             <p>English | USD</p>

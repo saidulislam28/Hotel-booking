@@ -171,7 +171,7 @@ price_per_night:
 
 ---------------------------------------------------------------------------
 
-1. mobile responsive.
+1. mobile responsive.-- working
 2. navbar fixed for mobile.
 3. add search feature on banner.
 4. Type base room filtering. ---  ##done
@@ -179,4 +179,4 @@ price_per_night:
 6. Dynamic settings for website/CMS system.
 7. If possible implement email send system for booking.
 8. Blog filtering. -- done
-9. Pagination on room and blog page.
+9. Pagination on room and blog page.--- ##done

@@ -7,7 +7,7 @@ const EventCard = ({ item }) => {
   return (
     <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Room Image */}
-      <div className="relative h-44 md:h-48 bg-gray-200">
+      <div className="relative h-48 bg-gray-200">
         <div className="overflow-hidden rounded-t-xl w-full">
           <Image
             width={400}

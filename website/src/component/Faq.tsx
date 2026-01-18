@@ -3,10 +3,9 @@
 import { useState, useRef } from "react";
 
 const FAQSection = ({
-  faqs
+  faqs,
 }: {
   faqs: { id: number; question: string; answer: string }[];
-
 }) => {
   const [openId, setOpenId] = useState(null);
   const refs = useRef({});

@@ -118,7 +118,7 @@ const RoomCardDetails = ({ params }: any) => {
   ];
 
   return (
-    <>
+    <div className=" p-4">
       <TitleHelmet title={details?.title ?? "Room Details"} />
       <PageTitle
         breadcrumbs={[
@@ -128,9 +128,9 @@ const RoomCardDetails = ({ params }: any) => {
         ]}
         title={details?.title}
       />
-      <div className="max-w-7xl mx-auto p-4 ">
-        <div className="flex items-start gap-8">
-          <div className="w-[70%]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start gap-8">
+          <div className="w-full md:w-[70%]">
             <Image
               width={840}
               height={475}
@@ -141,25 +141,27 @@ const RoomCardDetails = ({ params }: any) => {
             {/* details  */}
             <div className="space-y-5 mt-5 flex flex-col">
               <div className="flex items-center justify-between">
-                <h4 className="flex items-center gap-2">
+                <h4 className="flex items-center flex-col md:flex-row gap-2 max-w-1/4 md:max-w-full min-w-1/4  md:min-w-full ">
                   <FaStar color="#4F5E71" size={18} />
-                  <span className="text-[#4F5E71]">4.5/5 (2 reviews)</span>
+                  <span className="text-[#4F5E71] text-center">
+                    4.5/5 (2 reviews)
+                  </span>
                 </h4>
-                <h4 className="flex items-center gap-2">
+                <h4 className="flex items-center flex-col md:flex-row gap-2 max-w-1/4 md:max-w-full min-w-1/4  md:min-w-full ">
                   <IoResizeOutline color="#4F5E71" size={18} />
-                  <span className="text-[#4F5E71]">
+                  <span className="text-[#4F5E71] text-center">
                     Room Size: {details?.room_size} sqft
                   </span>
                 </h4>
-                <h4 className="flex items-center gap-2">
+                <h4 className="flex items-center flex-col md:flex-row gap-2 max-w-1/4 md:max-w-full min-w-1/4  md:min-w-full ">
                   <IoBedOutline color="#4F5E71" size={18} />
-                  <span className="text-[#4F5E71]">
+                  <span className="text-[#4F5E71] text-center">
                     Bed: {details?.bed_count} Beds
                   </span>
                 </h4>
-                <h4 className="flex items-center gap-2">
+                <h4 className="flex items-center flex-col md:flex-row gap-2 max-w-1/4 md:max-w-full min-w-1/4  md:min-w-full ">
                   <CiUser color="#4F5E71" size={18} />
-                  <span className="text-[#4F5E71]">
+                  <span className="text-[#4F5E71] text-center">
                     Max: {details?.max_person} Adults
                   </span>
                 </h4>
@@ -193,7 +195,7 @@ const RoomCardDetails = ({ params }: any) => {
                 {/* service and amenities */}
                 <div>
                   <SectionTitleMedium title={"Service and Amenities"} />
-                  <div className="grid grid-cols-2  gap-y-2 max-w-3xl mt-6">
+                  <div className="grid grid-cols-2  gap-y-2 gap-x-10 md:gap-x-0 max-w-3xl mt-6">
                     {details?.room_services?.map((item: any) => (
                       <div className="flex items-center gap-5" key={item?._id}>
                         <FaCheckDouble color="lightgreen" />
@@ -209,7 +211,7 @@ const RoomCardDetails = ({ params }: any) => {
                 {/* Room Features */}
                 <div>
                   <SectionTitleMedium title={"Room Features"} />
-                  <div className="grid grid-cols-2  gap-y-2 max-w-3xl mt-6">
+                  <div className="grid grid-cols-2  gap-y-2 gap-x-10 md:gap-x-0 max-w-3xl mt-6">
                     {details?.room_features?.map((item: any) => (
                       <div className="flex items-center gap-5" key={item?._id}>
                         <FaCheckDouble color="lightgreen" />
@@ -225,7 +227,7 @@ const RoomCardDetails = ({ params }: any) => {
                 {/* Bathroom */}
                 <div>
                   <SectionTitleMedium title={"Bathroom"} />
-                  <div className="grid grid-cols-2  gap-y-2 max-w-3xl mt-6">
+                  <div className="grid grid-cols-2  gap-y-2 gap-x-10 md:gap-x-0 max-w-3xl mt-6">
                     {details?.room_bathroom_features?.map((item: any) => (
                       <div className="flex items-center gap-5" key={item.id}>
                         <FaCheckDouble color="lightgreen" />
@@ -244,12 +246,12 @@ const RoomCardDetails = ({ params }: any) => {
               <div className="border-2 rounded-xl border-gray-200 p-5">
                 <SectionTitleMedium title={"Pricing plan"} />
                 <div className="mt-6">
-                  <h2 className=" font-semibold text-lg">Regular plan</h2>
-                  <div className="flex items-center justify-between gap-10">
+                  <h2 className=" font-semibold text-lg">Regular</h2>
+                  <div className="grid grid-cols-3 md:grid-cols-7 gap-5 ">
                     {Price_plan?.map((plan, index) => (
                       <div
                         key={index}
-                        className="mt-5 flex flex-col gap-3 secondary_text"
+                        className="mt-5 flex flex-col gap-3 items-center secondary_text border-b-[0.5px] border-t-[0.5px] w-[70%] border-gray-300"
                       >
                         <h1 className="font-medium text-lg">{plan?.title}</h1>
                         <h5>${details?.price}</h5>
@@ -276,11 +278,11 @@ const RoomCardDetails = ({ params }: any) => {
                 <div className="mt-10">
                   {/* review filtering  */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-5">
-                      <button className="text-md border border-[#B1905E] px-5 py-2 primary_text hover:text-white font-semibold rounded-full cursor-pointer hover:bg-[#ccae81]">
+                    <div className="flex items-center gap-2 md:gap-5">
+                      <button className="text-sm md:text-md border border-[#B1905E] px-2 md:px-5 py-2 md:py-2 primary_text hover:text-white font-semibold rounded-lg md:rounded-full cursor-pointer hover:bg-[#ccae81]">
                         All
                       </button>
-                      <button className="text-md border border-[#B1905E] px-5 py-2 primary_text hover:text-white font-semibold rounded-full cursor-pointer hover:bg-[#ccae81]">
+                      <button className="text-sm md:text-md border border-[#B1905E] px-2 md:px-5 py-2 md:py-2 primary_text hover:text-white font-semibold rounded-lg md:rounded-full cursor-pointer hover:bg-[#ccae81]">
                         With Photos Only
                       </button>
                     </div>
@@ -309,14 +311,14 @@ const RoomCardDetails = ({ params }: any) => {
                         height={150}
                         src="/banner-min.png"
                         alt="banner"
-                        className="object-cover h-full rounded-xl"
+                        className="object-cover h-full w-32 md:w-40  rounded-xl"
                       />
                       <Image
                         width={150}
                         height={150}
                         src="/banner-min.png"
                         alt="banner"
-                        className="object-cover h-full rounded-xl"
+                        className="object-cover h-full w-32 md:w-40  rounded-xl"
                       />
                     </div>
                   </div>
@@ -324,12 +326,12 @@ const RoomCardDetails = ({ params }: any) => {
               </div>
             </div>
           </div>
-          <div className="w-[30%]">
+          <div className="w-full md:w-[30%]">
             <RoomBookingTabs id={"690e323cb23c7ea86bc06c4f"} item={details} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

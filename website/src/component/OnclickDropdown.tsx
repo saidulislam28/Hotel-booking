@@ -26,7 +26,7 @@ const OnclickDropdown = ({
       {/* Clickable Button */}
       <div
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between bg-[#F2F4F4] px-5 py-2 text-[#4F5E71] rounded-lg cursor-pointer w-64"
+        className="flex items-center justify-between bg-[#F2F4F4] px-5 py-2 text-[#4F5E71] rounded-lg cursor-pointer w-auto md:w-64"
       >
         {selectedValue && (
           <span>{selectedOption?.name || "Default (All)"}</span>

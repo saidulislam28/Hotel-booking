@@ -85,7 +85,7 @@ const BookingPoliciesStepper = () => {
       </div>
       <div className="relative">
         {/* Vertical line behind steps */}
-        <div className="absolute top-0 left-4 h-[87%] w-0.5 bg-[#B1905E]" />
+        <div className="absolute top-0 left-4 h-[83%] md:h-[87%] w-0.5 bg-[#B1905E]" />
 
         {/* Step Items */}
         <div className="space-y-8">

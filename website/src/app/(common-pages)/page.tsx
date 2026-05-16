@@ -131,9 +131,6 @@ const roomsData = [
 
 export default function Home() {
   const { data, isLoading } = useHomeData();
-
-  console.log("data>>>", data);
-
   if (isLoading) {
     return <div>Loading.....</div>;
   }

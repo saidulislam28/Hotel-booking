@@ -1,6 +1,7 @@
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import RestaurantBannerButton from "../RestaurantBannerButton";
 import SectionTitleMedium from "../SectionTitleMedium";
+import Link from "next/link";
 
 export default function RestaurantBanner() {
   return (
@@ -45,12 +46,14 @@ export default function RestaurantBanner() {
           </div>
 
           <div className="flex flex-col  gap-4">
-            <RestaurantBannerButton text={"Book a Table"} />
-            <a href="https://maps.app.goo.gl/yo8vJPC9ocG3FXNT6" target="_blank">
+            <Link href="/restaurant#food-reviews" className="w-full">
+              <RestaurantBannerButton text={"Food Reviews"} />
+            </Link>
+            <Link href="/restaurant#menu">
               <button className="text-white  border border-white hover:border-transparent   bg-transparent hover:bg-[#B1905E] px-20 rounded-full py-3 font-semibold cursor-pointer">
                 Browse Menus
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

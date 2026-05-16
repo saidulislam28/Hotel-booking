@@ -51,7 +51,7 @@ const GenericSwiper = ({
     }
   };
 
-  const repeatedData = data.length < perView + 1 ? [...data, ...data] : data;
+  const repeatedData = data?.length < perView + 1 ? [...data, ...data] : data;
   return (
     <FadeUpWrapper>
       <div className="w-full max-w-7xl mx-auto px-4 py-8">

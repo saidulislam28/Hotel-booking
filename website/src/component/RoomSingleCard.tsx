@@ -7,7 +7,7 @@ const RoomSingleCard = ({ item }) => {
 
   return (
     // <Fade direction="up" duration={2000}>
-    <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-5">
       {/* Room Image */}
       <div className="relative h-60 md:h-44 bg-gray-200">
         <div className="overflow-hidden rounded-t-xl w-full">
@@ -35,7 +35,7 @@ const RoomSingleCard = ({ item }) => {
       </div>
 
       {/* Room Details */}
-      <div className="p-4 flex-1">
+      <div className="p-4 flex-1 mt-5">
         <h3 className="hover_text_reverse mb-1 line-clamp-1 cursor-pointer font-semibold">
           {item?.title}
         </h3>

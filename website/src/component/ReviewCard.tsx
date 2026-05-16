@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 const ReviewCard = ({ item }) => {
   return (
-    <div className="bg-[#F2F4F4] p-6 rounded-xl shadow-sm">
+    <div id="food-reviews" className="bg-[#F2F4F4] p-6 rounded-xl shadow-sm">
       {/* Star Ratings */}
       <div className="flex items-center gap-1 mb-4 text-[#B1905E]">
         {[...Array(item?.rating)].map((_, i) => (

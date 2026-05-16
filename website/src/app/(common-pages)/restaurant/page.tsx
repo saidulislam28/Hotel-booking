@@ -23,8 +23,6 @@ const Restaurant = () => {
 
   const { data: foodData, isLoading: foodLoading } = useHomeData();
 
-  console.log("data>>>", data);
-
   if (isLoading) {
     return <div>Loading......</div>;
   }

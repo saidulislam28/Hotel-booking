@@ -4,7 +4,7 @@ import React from "react";
 
 const MenuCard = ({ item }) => {
   return (
-    <div className="flex flex-col gap-5 items-center justify-center h-64 p-8 bg-white hover:bg-[#F2F4F4] rounded-xl cursor-pointer hover:text-[#B1905E]">
+    <div className="flex flex-col gap-1 md:gap-5 items-center justify-center p-2 md:p-8 bg-white hover:bg-[#F2F4F4] rounded-xl cursor-pointer hover:text-[#B1905E] ">
       <div className="">
         <Image
           width={150}
@@ -15,8 +15,8 @@ const MenuCard = ({ item }) => {
           className="object-cover"
         />
       </div>
-      <h4 className="text-xl font-bold">{item?.title}</h4>
-      <h5 className="text-lg font-bold primary_text">
+      <h4 className="text-lg md:text-xl text-center md:text-start font-bold">{item?.title}</h4>
+      <h5 className="text-base md:text-lg font-bold primary_text">
         {formatMoney(item?.price)}
       </h5>
     </div>

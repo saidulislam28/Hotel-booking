@@ -1,9 +1,9 @@
 import MenuCard from "../MenuCard";
 import FadeUpWrapper from "../hooks/FadeupWrapper";
 
-const Menus = ({ data }: any) => {
+const Menus = ({ data }: { data: any[] }) => {
 
-  if (data?.length > 0) {
+  if (data?.length <= 0) {
     return null;
   }
 
@@ -13,7 +13,7 @@ const Menus = ({ data }: any) => {
         <h1 className="text-4xl font-bold text-center mb-16 ">
           Our specials Menu
         </h1>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {data?.map((item, index) => (
             <MenuCard key={index} item={item}></MenuCard>
           ))}

@@ -14,7 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 const title = "The King Restaurant";
 const Restaurant = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["rooms-data"],
+    queryKey: ["menu-data"],
     queryFn: () => GetData("/web-data/foods"),
     staleTime: 0,
     select(data) {
@@ -23,6 +23,8 @@ const Restaurant = () => {
   });
 
   const { data: foodData, isLoading: foodLoading } = useHomeData();
+
+  console.log("food data", data);
 
   if (isLoading) {
     return <div>Loading......</div>;

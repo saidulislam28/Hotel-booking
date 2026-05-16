@@ -5,6 +5,7 @@ import AboutRestaurant from "@/component/restaurant/AboutRestaurant";
 import Menus from "@/component/restaurant/Menus";
 import MenuShowcase from "@/component/restaurant/MenuShowcase";
 import RestaurantBanner from "@/component/restaurant/RestaurantBanner";
+import Schedule from "@/component/restaurant/Schedule";
 import ReviewCard from "@/component/ReviewCard";
 import { GetData } from "@/services/api/api";
 import TitleHelmet from "@/utils/Helmet";
@@ -43,6 +44,7 @@ const Restaurant = () => {
       />
       <div className="max-w-7xl mx-auto p-5">
         <RestaurantBanner />
+        <Schedule />
         <AboutRestaurant />
         <MenuShowcase />
         <Menus data={data} />

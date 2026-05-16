@@ -2,11 +2,12 @@ import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import RestaurantBannerButton from "../RestaurantBannerButton";
 import SectionTitleMedium from "../SectionTitleMedium";
 import Link from "next/link";
+import SectionTitle from "../SectionTitle";
 
 export default function RestaurantBanner() {
   return (
     <div
-      className="relative h-[600px] bg-cover bg-center rounded-xl"
+      className="relative h-[300px] md:h-[600px] bg-cover bg-center rounded-xl"
       style={{ backgroundImage: "url('/restaurant_banner.avif')" }}
     >
       {/* Dark Overlay */}
@@ -14,7 +15,18 @@ export default function RestaurantBanner() {
 
       {/* Content goes above the overlay */}
 
-      <div className="relative z-20 flex items-end p-8 text-white h-full  px-4">
+      <div className="relative z-20 block md:hidden  text-white ">
+        <div className="w-full h-[300px] flex justify-center items-center">
+          <div className="px-2 text-center">
+            <SectionTitle title={"Taste Royalty at The King Restaurant"} />
+            <p className="font-medium text-white/70 mt-2">
+              Enjoy delicious food, a relaxing resort vibe, and unforgettable moments — all in one perfect destination.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-20 hidden md:flex items-end p-8 text-white h-full  px-4">
         <div className="flex justify-between w-full">
           <div>
             <SectionTitleMedium title={"Contact Us"} />

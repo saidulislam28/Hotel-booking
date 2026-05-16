@@ -6,8 +6,8 @@ import FadeUpWrapper from "../hooks/FadeupWrapper";
 const AboutRestaurant = () => {
   return (
     <FadeUpWrapper>
-      <div className="flex items-start justify-between gap-5 mt-20">
-        <div className="w-[60%]">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-5 mt-20">
+        <div className="w-full md:w-[60%]">
           <Image
             width={520}
             height={540}
@@ -17,7 +17,7 @@ const AboutRestaurant = () => {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="w-[40%]">
+        <div className="w-full md:w-[40%]">
           <SectionTitle
             title={"where culinary artistry meets exquisite flavors!"}
           />

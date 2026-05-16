@@ -20,7 +20,7 @@ export default function RestaurantBarBanner() {
       {/* Content goes above the overlay */}
 
       <div className="relative z-20 flex items-end max-w-7xl mx-auto text-white h-[90%]  px-4">
-        <div className="flex justify-between w-full">
+        <div className="flex flex-col md:flex-row justify-between gap-5 md:gap-0 w-full">
           <div>
             <SectionTitle title={"The King Restaurant"} />
             <p className="font-semibold flex items-center gap-3 mt-8">
@@ -36,7 +36,7 @@ export default function RestaurantBarBanner() {
           <div className="flex flex-col  gap-6">
             <RestaurantBannerButton />
             <a href="https://maps.app.goo.gl/yo8vJPC9ocG3FXNT6" target="_blank">
-              <button className="text-white  border border-white hover:border-transparent   bg-transparent hover:bg-[#B1905E] px-20 rounded-full py-3 font-semibold cursor-pointer">
+              <button className="text-white  border border-white hover:border-transparent   bg-transparent hover:bg-[#B1905E] min-w-full px-20 rounded-full py-3 font-semibold cursor-pointer">
                 View Map
               </button>
             </a>

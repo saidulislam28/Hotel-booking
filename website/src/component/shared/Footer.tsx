@@ -80,9 +80,9 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 pb-8 pt-14 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Tagline Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 col-span-2">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gray-800 flex items-center justify-center">
                 <Image
@@ -136,9 +136,6 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          {/* Follow Us and Payment Section */}
-
           {/* Follow Us */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">

@@ -2,6 +2,11 @@ import MenuCard from "../MenuCard";
 import FadeUpWrapper from "../hooks/FadeupWrapper";
 
 const Menus = ({ data }: any) => {
+
+  if (data?.length > 0) {
+    return null;
+  }
+
   return (
     <FadeUpWrapper>
       <div id="menu" className="mt-20">

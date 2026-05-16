@@ -32,10 +32,7 @@ export default function Banner() {
             </div>
           </div>
           {/* Search Button */}
-          <button className="group ml-auto bg-white hover:bg-[#B1905E] text-white p-2  rounded-full flex items-center gap-5 transition-all duration-500 ease-in-out">
-            <span className="transition-all duration-500 ease-in-out">
-              Search
-            </span>
+          <button className="ml-auto bg-white hover:bg-[#B1905E] text-white p-2  rounded-full flex items-center gap-5 transition-all duration-500 ease-in-out cursor-pointer">
             <span className="bg-[#B1905E] text-white  p-2 hover:p-0 rounded-full transition-all duration-500 ease-in-out">
               <IoSearch size={22} />
             </span>

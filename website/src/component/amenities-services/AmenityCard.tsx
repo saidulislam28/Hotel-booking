@@ -9,10 +9,10 @@ const AmenityCard = ({ item, index }) => {
     <FadeUpWrapper>
       <div
         className={`flex items-center  gap-16 mb-30
-    ${index % 2 === 1 ? "flex-row-reverse" : "flex-row"}
+    ${index % 2 === 1 ? "flex-col-reverse md:flex-row-reverse" : "flex-col-reverse md:flex-row"}
     `}
       >
-        <div className="w-[50%] space-y-5">
+        <div className="w-full md:w-[50%] space-y-5">
           <SectionTitle title={item.title} className="mb-5" />
           <p className="text-[#4F5E71] line-clamp-3">{item.desc}</p>
           <div>
@@ -33,7 +33,7 @@ const AmenityCard = ({ item, index }) => {
             Call: 01639124568
           </h5>
         </div>
-        <div className="w-[50%]">
+        <div className="w-full md:w-[50%]">
           <Image
             width={500}
             height={400}

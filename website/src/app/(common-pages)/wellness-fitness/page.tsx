@@ -15,8 +15,8 @@ const page = () => {
       />
       <div className="max-w-7xl mx-auto p-5 flex flex-col gap-20">
         {/* section one  */}
-        <div className="flex items-center gap-10">
-          <div className="flex flex-col  w-[50%]">
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <div className="flex flex-col w-full md:w-[50%]">
             <div>
               <Image
                 height={300}
@@ -42,7 +42,7 @@ const page = () => {
               Open Hours: 6:00 AM - 10:00 PM
             </h5>
           </div>
-          <div className="flex flex-col-reverse  w-[50%]">
+          <div className="flex flex-col-reverse  w-full md:w-[50%]">
             <div>
               <Image
                 height={300}
@@ -70,8 +70,8 @@ const page = () => {
           </div>
         </div>
         {/* section two  */}
-        <div className="flex items-center gap-10">
-          <div className="flex flex-col  w-[50%]">
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <div className="flex flex-col w-full md:w-[50%]">
             <div>
               <Image
                 height={300}
@@ -97,7 +97,7 @@ const page = () => {
               Open Hours: 9:00 AM - 9:00 PM
             </h5>
           </div>
-          <div className="flex flex-col-reverse  w-[50%]">
+          <div className="flex flex-col-reverse w-full md:w-[50%]">
             <div>
               <Image
                 height={300}
@@ -127,8 +127,8 @@ const page = () => {
           </div>
         </div>
         {/* section three  */}
-        <div className="flex items-center gap-10 mb-10">
-          <div className="flex flex-col  w-[50%]">
+        <div className="flex flex-col md:flex-row items-center gap-10 mb-10">
+          <div className="flex flex-col w-full md:w-[50%]">
             <div>
               <Image
                 height={300}
@@ -153,7 +153,7 @@ const page = () => {
               Open Hours: 9:00 PM - 12:00 PM
             </h5>
           </div>
-          <div className="flex flex-col-reverse  w-[50%]">
+          <div className="flex flex-col-reverse w-full md:w-[50%]">
             <div>
               <Image
                 height={300}

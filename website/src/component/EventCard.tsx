@@ -25,7 +25,7 @@ const EventCard = ({ item }) => {
         </div>
       </div>
 
-      <div className="p-3 flex-1 mt-2 md:mt-20 space-y-2 min-h-[200px]">
+      <div className="p-3 flex-1 mt-20 space-y-2 min-h-[200px]">
         <p className="text-[#4F5E71]">7 june, 2024</p>
         <h1 className="text-black hover:text-[#B1905E] text-xl font-bold">
           {item?.title}

@@ -12,7 +12,10 @@ import ReviewCard from "@/component/ReviewCard";
 import RoomSingleCard from "@/component/RoomSingleCard";
 import SectionTitle from "@/component/SectionTitle";
 import { activitiesData, serviceData } from "@/constants/datas";
+import { GetData } from "@/services/api/api";
+import { GET_ROOM_LIST } from "@/services/api/endpoints";
 import TitleHelmet from "@/utils/Helmet";
+import { useQuery } from "@tanstack/react-query";
 
 const roomsData = [
   {
@@ -131,6 +134,20 @@ const roomsData = [
 
 export default function Home() {
   const { data, isLoading } = useHomeData();
+
+  const {
+    data: roomData,
+    isLoading: roomLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["rooms-data"],
+    queryFn: () => GetData(`${GET_ROOM_LIST}?page=${1}&limit=${12}`),
+    staleTime: 0,
+    select(data) {
+      return data?.data ?? [];
+    },
+  });
+
   if (isLoading) {
     return <div>Loading.....</div>;
   }
@@ -146,7 +163,7 @@ export default function Home() {
         <OfferSection data={data?.featuredBlogs} />
 
         <GenericSwiper
-          data={roomsData}
+          data={roomData?.room}
           CardComponent={RoomSingleCard}
           perView={4}
           title="Our rooms & suites"

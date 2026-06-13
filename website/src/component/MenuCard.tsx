@@ -15,7 +15,9 @@ const MenuCard = ({ item }) => {
           className="object-cover"
         />
       </div>
-      <h4 className="text-lg md:text-xl text-center md:text-start font-bold">{item?.title}</h4>
+      <h4 className="text-lg md:text-xl text-center md:text-start font-bold">
+        {item?.title}
+      </h4>
       <h5 className="text-base md:text-lg font-bold primary_text">
         {formatMoney(item?.price)}
       </h5>

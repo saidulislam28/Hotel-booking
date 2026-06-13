@@ -14,9 +14,9 @@ const RoomSingleCard = ({ item }) => {
           <Image
             width={400}
             height={300}
-            src={item?.image ?? "/banner-min.png"}
+            src={item?.image}
             alt={item?.title}
-            className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-full object-cover cursor-pointer"
+            className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-[200px] object-cover cursor-pointer"
           />
         </div>
 

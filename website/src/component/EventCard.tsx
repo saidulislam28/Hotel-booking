@@ -11,10 +11,10 @@ const EventCard = ({ item }) => {
         <div className="overflow-hidden rounded-t-xl w-full">
           <Image
             width={400}
-            height={300}
-            src={"/banner-min.png"}
+            height={300}j
+            src={item?.image}
             alt={"banner"}
-            className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-full object-cover cursor-pointer"
+            className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-[270px] object-cover cursor-pointer"
           />
         </div>
 

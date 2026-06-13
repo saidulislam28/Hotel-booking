@@ -27,7 +27,7 @@ const Card = ({ item }: { item: any }) => {
           />
         </div>
         <div className="flex flex-col gap-2 items-center">
-          <h2 className="text-xl md:text-3xl font-bold">{item?.title}</h2>
+          <h2 className="text-xl md:text-3xl font-bold line-clamp-1">{item?.title}</h2>
           <p className="text-[#4F5E71]">{item?.short_desc}</p>
           <Link href={`/blog/${item._id}`} className="h-5 md:h-12 flex justify-center">
             <AnimateButton text={"Read More"} />

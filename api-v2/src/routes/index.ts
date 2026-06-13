@@ -8,6 +8,7 @@ import { paymentRoutes } from "../app/modules/payment/payment.routes";
 import { CrudRouter } from "../app/modules/crud/crud.route";
 import { RoomRouter } from "../app/modules/admin/room/room.routes";
 import { WebRouter } from "../app/modules/website/webdata.route";
+import { SettingsRouter } from "../app/modules/admin/admin.routes";
 
 export const router = Router();
 
@@ -43,6 +44,10 @@ const moduleRoutes = [
   {
     path: "/admin/room",
     route: RoomRouter,
+  },
+  {
+    path: "/admin/settings",
+    route: SettingsRouter,
   },
   {
     path: "/web-data",

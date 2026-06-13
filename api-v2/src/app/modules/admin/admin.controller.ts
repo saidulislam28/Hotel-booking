@@ -24,7 +24,23 @@ const CreateData = CatchAsync(
     });
   },
 );
+const createSeed = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+
+    const user = req.user;
+    console.log("user", user)
+
+    const seedData = await settingService.createSeed();
+    sendResponse(res, {
+      success: true,
+      message: "settings seed Successfully",
+      statusCode: httpStatus.CREATED,
+      data: seedData,
+    });
+  },
+);
 
 export const SettingsController = {
   CreateData,
+  createSeed,
 };

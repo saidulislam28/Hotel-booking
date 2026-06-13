@@ -4,23 +4,20 @@ import { verifyToken } from "../utils/jwt";
 import { envVars } from "../configs/env";
 import { JwtPayload } from "jsonwebtoken";
 import httpStatus from "http-status-codes";
-import { IsActive } from "../app/modules/user/user.interface";
 import { User } from "../app/model";
 export const checkAuth =
   (...authRoles: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const token: any = req.headers.authorization;
-
-      console.log("token", token);
-      const authToken = token.split(" ")[1];
+      const authToken = token?.split(" ")[1];
       if (!authToken) {
         throw new AppError(403, "Token not given");
       }
 
       const jwtVerifyToken = verifyToken(
         authToken,
-        envVars.JWT_SECRET
+        envVars.JWT_SECRET,
       ) as JwtPayload;
       const isUserExist = await User.findOne({ email: jwtVerifyToken.email });
 
@@ -42,6 +39,7 @@ export const checkAuth =
       //   throw new AppError(httpStatus.BAD_REQUEST, "user is Deleted");
       // }
 
+      console.log("auth roles", authRoles);
       req.user = jwtVerifyToken;
       if (!authRoles.includes(jwtVerifyToken.role)) {
         throw new AppError(403, "You are not permitted to access this route");

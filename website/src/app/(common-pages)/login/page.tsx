@@ -1,5 +1,6 @@
 "use client";
 import { useAuth } from "@/providers/useAuth";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 type Data = { email: string; password: string };
@@ -14,7 +15,6 @@ export default function Login() {
       await signIn(formData.email, formData.password);
     }
   };
-
 
   return (
     <div className="bg-gray-50">
@@ -98,12 +98,12 @@ export default function Login() {
                   </label>
                 </div>
                 <div className="text-sm">
-                  <a
-                    href="jajvascript:void(0);"
+                  <Link
+                    href="/register"
                     className="text-blue-600 hover:underline font-semibold"
                   >
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
               </div>
 

@@ -64,7 +64,7 @@ const BlogDetails = ({ params }: any) => {
             height={670}
             src={"/banner-min.png"}
             alt="image"
-            className="w-[1270px] h-[670px] object-cover rounded-xl"
+            className="w-full md:w-[1270px] h-[350px] md:h-[670px] object-cover rounded-xl"
           />
         </div>
         <p className="mt-12 max-w-7xl mx-auto text-start text-[#4F5E71]">
@@ -92,7 +92,7 @@ const BlogDetails = ({ params }: any) => {
           </button>
         </div>
         <SectionTitle title="Related Blogs" className="text-center my-10" />
-        <div className=" grid grid-cols-3 gap-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data?.localBlogs?.map((item, index) => (
             <EventCard key={index} item={item} />
           ))}

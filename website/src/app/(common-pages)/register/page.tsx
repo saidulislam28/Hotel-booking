@@ -1,31 +1,24 @@
-'use client'
+"use client";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-
-type Data = {name: string; email:string; password: string};
-
+type Data = { name: string; email: string; password: string };
 
 export default function Register() {
+  const { handleSubmit, register } = useForm<Data>();
 
-const { handleSubmit , register} = useForm<Data>();
+  const onSubmit = async (formData: Data) => {
+    console.log(formData);
 
-const onSubmit = async (formData:Data) =>{
+    // try {
 
+    //   const response = await axios.post(CREATE_USER, formData)
+    //   console.log(response)
 
-  console.log(formData)
-
-  // try {
-    
-  //   const response = await axios.post(CREATE_USER, formData)
-  //   console.log(response)
-
-  // } catch (error) {
-  //   console.log(error)
-  // }
-  
-}
-
-
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  };
 
   return (
     <div className="bg-gray-50">
@@ -44,7 +37,7 @@ const onSubmit = async (formData:Data) =>{
                   <input
                     type="text"
                     required
-                    {...register('name')}
+                    {...register("name")}
                     className="w-full text-slate-800 text-sm border border-slate-300 px-4 py-3 rounded-md outline-blue-600"
                     placeholder="Enter user name"
                   />
@@ -70,13 +63,13 @@ const onSubmit = async (formData:Data) =>{
               </div>
               <div>
                 <label className="text-slate-800 text-sm font-medium mb-2 block">
-                 Email
+                  Email
                 </label>
                 <div className="relative flex items-center">
                   <input
                     type="text"
                     required
-                    {...register('email')}
+                    {...register("email")}
                     className="w-full text-slate-800 text-sm border border-slate-300 px-4 py-3 rounded-md outline-blue-600"
                     placeholder="Enter user email"
                   />
@@ -107,7 +100,7 @@ const onSubmit = async (formData:Data) =>{
                 </label>
                 <div className="relative flex items-center">
                   <input
-                    {...register('password')}
+                    {...register("password")}
                     type="password"
                     required
                     className="w-full text-slate-800 text-sm border border-slate-300 px-4 py-3 rounded-md outline-blue-600"
@@ -160,12 +153,12 @@ const onSubmit = async (formData:Data) =>{
               </div>
               <p className="text-slate-800 text-sm !mt-6 text-center">
                 Don{"'"}t have an account?{" "}
-                <a
-                  href="javascript:void(0);"
+                <Link
+                  href="/login"
                   className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
                 >
                   Register here
-                </a>
+                </Link>
               </p>
             </form>
           </div>

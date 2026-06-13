@@ -8,7 +8,7 @@ import { Booking, User } from "../../model";
 const updateUser = async (
   userId: string,
   payload: Partial<IUser>,
-  decodedToken: JwtPayload
+  decodedToken: JwtPayload,
 ) => {
   const isUserExist = await User.findOne({ _id: userId });
 
@@ -75,13 +75,13 @@ const getMe = async (userId: string) => {
 
   return user;
 };
-const getMyBookings = async (userId: string) => {
+const getMyBookings = async (user: any) => {
   try {
-    const bookings = await Booking.find({ user: userId })
+    const bookings = await Booking.find({ customer_email: user?.email })
       .populate("user", "_id name email phone")
       .populate(
         "room",
-        "title price bed_count max_person floor room_size floor"
+        "title price bed_count max_person floor room_size floor",
       );
     return bookings;
   } catch (error) {

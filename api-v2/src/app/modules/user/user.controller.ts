@@ -83,7 +83,7 @@ const getMyBookings = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const user: any = req?.user;
     console.log("user", user);
-    const result: any = await userService.getMyBookings(user?.userId);
+    const result: any = await userService.getMyBookings(user);
 
     sendResponse(res, {
       success: true,

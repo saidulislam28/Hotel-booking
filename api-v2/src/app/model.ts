@@ -24,24 +24,26 @@ import {
   roomFeaturesSchema,
   roomSchema,
   roomServiceSchema,
+  SettingsSchema,
   TagsSchema,
   TestimonialSchema,
   tourSchema,
   tourTypeSchema,
   userSchema,
 } from "./schema";
+import { ISettings } from "./interfaces/settings";
 
 export const RoomService = model<IRoomServices>(
   "RoomService",
-  roomServiceSchema
+  roomServiceSchema,
 );
 export const RoomFeature = model<IRoomFeatures>(
   "RoomFeature",
-  roomFeaturesSchema
+  roomFeaturesSchema,
 );
 export const BathroomFeature = model<IBathRoomFeatures>(
   "BathroomFeature",
-  bathroomFeaturesSchema
+  bathroomFeaturesSchema,
 );
 
 export const Room = model<IRoom>("Room", roomSchema);
@@ -53,8 +55,9 @@ export const User = model<IUser>("User", userSchema);
 export const FoodItem = model<IFoodItems>("FoodItem", FoodItemsSchema);
 export const Testimonial = model<ITestimonial>(
   "Testimonial",
-  TestimonialSchema
+  TestimonialSchema,
 );
 export const Tags = model<ITags>("Tags", TagsSchema);
 export const Blog = model<IBlog>("Blog", BlogSchema);
 export const Booking = model<IBooking>("Booking", bookingSchema);
+export const Setting = model<ISettings>("Setting", SettingsSchema);

@@ -19,6 +19,7 @@ import { ITestimonial } from "./interfaces/testimonial";
 import { ITags } from "./interfaces/tag";
 import { IBlog } from "./interfaces/blog";
 import { BOOKING_STATUS, IBooking } from "./interfaces/booking";
+import { ISettings } from "./interfaces/settings";
 
 export const roomServiceSchema = new Schema<IRoomServices>({
   title: { type: String, required: true },
@@ -93,7 +94,7 @@ export const roomSchema = new Schema<IRoom>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const divisionSchema = new Schema<IDivision>(
@@ -105,7 +106,7 @@ export const divisionSchema = new Schema<IDivision>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const paymentSchema = new Schema<IPayment>(
@@ -140,14 +141,14 @@ export const paymentSchema = new Schema<IPayment>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const tourTypeSchema = new Schema<ITourType>(
   {
     name: { type: String, required: true, unique: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const tourSchema = new Schema<ITour>(
@@ -172,7 +173,7 @@ export const tourSchema = new Schema<ITour>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const AuthProviderSchema = new Schema<IAuthProvider>(
@@ -183,7 +184,7 @@ export const AuthProviderSchema = new Schema<IAuthProvider>(
   {
     versionKey: false,
     _id: false,
-  }
+  },
 );
 
 export const userSchema = new Schema<IUser>(
@@ -214,7 +215,7 @@ export const userSchema = new Schema<IUser>(
   },
   {
     versionKey: false,
-  }
+  },
 );
 
 export const FoodItemsSchema = new Schema<IFoodItems>({
@@ -240,7 +241,7 @@ export const TestimonialSchema = new Schema<ITestimonial>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const TagsSchema = new Schema<ITags>(
@@ -251,7 +252,16 @@ export const TagsSchema = new Schema<ITags>(
   },
   {
     timestamps: true,
-  }
+  },
+);
+export const SettingsSchema = new Schema<ISettings>(
+  {
+    key: { type: String, required: true },
+    value: { type: String, required: false },
+  },
+  {
+    timestamps: true,
+  },
 );
 
 export const BlogSchema = new Schema<IBlog>(
@@ -274,7 +284,7 @@ export const BlogSchema = new Schema<IBlog>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const bookingSchema = new Schema<IBooking>(
@@ -308,5 +318,5 @@ export const bookingSchema = new Schema<IBooking>(
   },
   {
     timestamps: true,
-  }
+  },
 );

@@ -179,7 +179,7 @@ const Navbar = () => {
 
       {/* Mobile View */}
       <div className="h-20 bg-white relative z-50 shadow-md block md:hidden">
-        <div className="max-w-xl mx-auto px-5 h-full flex items-center justify-between">
+        <div className="max-w-2xl mx-auto px-5 h-full flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href={"/"}>
               <Image

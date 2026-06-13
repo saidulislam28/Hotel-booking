@@ -8,7 +8,7 @@ export default function LocalBanner() {
       style={{ backgroundImage: "url('/local_activities.avif')" }}
     >
       {/* Dark Overlay */}
-      <div className="relative z-20 flex p-8 text-white h-full px-4">
+      <div className="relative  z-20 hidden md:flex p-8 text-white h-full px-4">
         <div className="flex flex-col w-full justify-center pl-8 gap-8">
           <div>
             <SectionTitleMedium title={"Booking Hotel Room"} />

@@ -34,8 +34,8 @@ const page = () => {
 
       {/* faq section  */}
       <FadeUpWrapper>
-        <div className="max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex items-center justify-between gap-8 my-20">
-          <div className="w-[50%]">
+        <div className="border max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex flex-col md:flex-row items-center justify-between gap-8 my-2 md:my-20">
+          <div className="w-full md:w-[50%]">
             <Image
               width={520}
               height={540}
@@ -45,7 +45,7 @@ const page = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col w-[50%]">
+          <div className="flex flex-col w-full md:w-[50%]">
             <SectionTitleMedium title={"What You Also Get"} />
             <FAQSection faqs={practicalQuestionsFAQ} />
           </div>
@@ -73,8 +73,8 @@ const page = () => {
       </FadeUpWrapper>
       {/* Faq section  */}
       <FadeUpWrapper>
-        <div className="max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex flex-row-reverse items-center justify-between gap-8 my-20">
-          <div className="w-[50%]">
+        <div className="max-w-7xl mx-auto rounded-xl border-gray-200 p-5 flex flex-col md:flex-row-reverse  items-center justify-between gap-8 my-2 md:my-20 border">
+          <div className="w-full md:w-[50%]">
             <Image
               width={520}
               height={540}
@@ -84,7 +84,7 @@ const page = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col w-[50%]">
+          <div className="flex flex-col w-full md:w-[50%]">
             <SectionTitleMedium title={"What You Also Get"} />
             <FAQSection faqs={servicesAndInstructorsFAQ} />
           </div>

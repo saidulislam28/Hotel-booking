@@ -9,7 +9,7 @@ const GalleryShowcase = () => {
         className="text-center"
         title={"Stories from Surf Coaching Camp"}
       />
-      <div className="flex items-start gap-5 my-12 ">
+      <div className="flex flex-col md:flex-row items-start gap-5 my-12 ">
         <div className="flex flex-col gap-5  min-w-[390px]  h-[600px] ">
           <div className="rounded-xl">
             <Image
@@ -17,7 +17,7 @@ const GalleryShowcase = () => {
               height={250}
               src={"/surf1.avif"}
               alt="menus coming"
-              className="w-[400px] h-[250px] rounded-xl object-cover"
+              className="w-full md:w-[400px] h-[250px] rounded-xl object-cover"
               prefix="blur"
             />
           </div>
@@ -27,7 +27,7 @@ const GalleryShowcase = () => {
               height={330}
               src={"/surf4.avif"}
               alt="menus coming"
-              className=" w-[400px] h-[330px]  rounded-xl object-cover"
+              className=" w-full md:w-[400px] h-[330px]  rounded-xl object-cover"
               prefix="blur"
             />
           </div>
@@ -52,7 +52,7 @@ const GalleryShowcase = () => {
               height={330}
               src={"/surf3.avif"}
               alt="menus coming"
-              className=" w-[400px] h-[330px]  rounded-xl object-cover"
+              className=" w-full md:w-[400px] h-[330px]  rounded-xl object-cover"
               prefix="blur"
             />
           </div>
@@ -62,7 +62,7 @@ const GalleryShowcase = () => {
               height={250}
               src={"/surf2.avif"}
               alt="menus coming"
-              className="w-[400px] h-[250px] rounded-xl object-cover"
+              className="w-full md:w-[400px] h-[250px] rounded-xl object-cover"
               prefix="blur"
             />
           </div>

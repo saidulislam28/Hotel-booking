@@ -1,6 +1,7 @@
-import { IoSearch } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 export default function Banner() {
+  const router = useRouter();
   return (
     <div
       className="relative h-[500px] md:h-[700px] bg-cover bg-center w-full"
@@ -20,22 +21,12 @@ export default function Banner() {
         </p>
 
         {/* Search Form */}
-        <div className="bg-white rounded-2xl shadow-lg flex flex-wrap md:flex-nowrap items-center px-4 py-5 w-full max-w-5xl text-gray-700">
-          {/* Date Range */}
-          <div className="flex items-center space-x-6 border-r pr-4 w-full md:w-auto mb-2 md:mb-0">
-            <span className="text-gray-500 text-3xl">📅</span>
-            <div className="text-xs">
-              <div className="font-medium text-lg">Check in - Checkout</div>
-              <div className="text-gray-500 text-lg">
-                2025/06/05 – 2025/06/06
-              </div>
-            </div>
-          </div>
-          {/* Search Button */}
-          <button className="ml-auto bg-white hover:bg-[#B1905E] text-white p-2  rounded-full flex items-center gap-5 transition-all duration-500 ease-in-out cursor-pointer">
-            <span className="bg-[#B1905E] text-white  p-2 hover:p-0 rounded-full transition-all duration-500 ease-in-out">
-              <IoSearch size={22} />
-            </span>
+        <div className="">
+          <button
+            onClick={() => router.push("/rooms")}
+            className={`text-white hover:text-[#B1905E] bg-[#B1905E] hover:bg-white font-bold hover:cursor-pointer transition-all duration-400 ease-in-out border border-white px-10 py-4 rounded-full`}
+          >
+            Explore Now
           </button>
         </div>
       </div>

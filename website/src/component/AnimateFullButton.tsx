@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
-const AnimateFullButton = ({ text }: any) => {
+const AnimateFullButton = ({ text }: { text: string }) => {
   return (
     <button
       className="px-2 py-2 rounded-full border-2 border-[#B1905E] text-sm md:text-md font-medium md:font-bold text-[#B1905E] hover:text-white

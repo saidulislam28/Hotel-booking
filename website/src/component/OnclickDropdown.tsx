@@ -22,7 +22,7 @@ const OnclickDropdown = ({
   );
 
   return (
-    <div className="relative">
+    <div className="relative min-w-36">
       {/* Clickable Button */}
       <div
         onClick={() => setOpen(!open)}

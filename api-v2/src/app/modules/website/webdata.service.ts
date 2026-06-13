@@ -79,6 +79,7 @@ const GetRoomData = async (searchQuery: any) => {
   const page = Number(searchQuery.page) || 1;
   const limit = Number(searchQuery.limit) || 1;
   const skip = (page - 1) * limit;
+  const searchText = searchQuery?.searchText;
 
   if (searchQuery?.type === roomOptions.is_deluxe) {
     query.is_deluxe = true;
@@ -96,7 +97,16 @@ const GetRoomData = async (searchQuery: any) => {
     query.is_suite = true;
   }
 
-  const totalRoom = await Room.countDocuments({ is_active: true });
+  if (searchText && searchText.trim() !== "") {
+    const searchRegex = searchText.trim();
+    query.$or = [
+      { title: { $regex: searchRegex, $options: "i" } },
+      { short_desc: { $regex: searchRegex, $options: "i" } },
+      { description: { $regex: searchRegex, $options: "i" } },
+    ];
+  }
+
+  const totalRoom = await Room.countDocuments(query);
 
   const room = await Room.find(query)
     .sort({

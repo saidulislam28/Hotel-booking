@@ -1,7 +1,7 @@
 /* eslint-disable */
 import AppError from "../../../helpers/CustomError";
+import { BOOKING_STATUS } from "../../interfaces/booking";
 import { Booking, Payment } from "../../model";
-import { BOOKING_STATUS } from "../booking/booking.interface";
 import { IsslCommerz } from "../sslCommerz/sslCommerz.interface";
 import { sslService } from "../sslCommerz/sslCommerz.service";
 import { PAYMENT_STATUS } from "./payment.interface";
@@ -47,7 +47,7 @@ const successPayment = async (query: Record<string, string>) => {
     const updatedBooking = (await Booking.findByIdAndUpdate(
       payment?.booking,
       {
-        status: BOOKING_STATUS.COMPLETE,
+        status: BOOKING_STATUS.COMPLETED,
       },
       {
         new: true,
@@ -88,7 +88,7 @@ const failPayment = async (query: Record<string, string>) => {
     const updatedBooking = await Booking.findByIdAndUpdate(
       payment?.booking,
       {
-        status: BOOKING_STATUS.FAILED,
+        status: BOOKING_STATUS.CANCELLED,
       },
       {
         runValidators: true,
@@ -124,7 +124,7 @@ const cancelPayment = async (query: Record<string, string>) => {
     const updatedBooking = await Booking.findByIdAndUpdate(
       payment?.booking,
       {
-        status: BOOKING_STATUS.CANCEL,
+        status: BOOKING_STATUS.CANCELLED,
       },
       {
         runValidators: true,

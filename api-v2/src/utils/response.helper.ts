@@ -1,9 +1,9 @@
 import { Response } from "express";
 interface Tmeta {
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
+  total?: number;
+  page?: number;
+  limit?: number;
+  totalPages?: number;
 }
 
 interface TResponse<T> {

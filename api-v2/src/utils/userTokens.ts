@@ -32,12 +32,12 @@ export const createUserTokens = (user: Partial<IUser>) => {
 export const createNewAccessTokenWithRefreshToken = async (
   refreshToken: string
 ) => {
-  const verifyRefreshToken = await verifyToken(
+  const verifyRefreshToken: any = await verifyToken(
     refreshToken,
     envVars.JWT_REFRESH_SECRET
   );
 
-  const isUserExist = await User.findOne({ email: verifyRefreshToken.email });
+  const isUserExist = await User.findOne({ email: verifyRefreshToken?.email });
 
   if (!isUserExist) {
     throw new AppError(httpStatus.BAD_REQUEST, "User credentials not Matched");

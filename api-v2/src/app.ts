@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://hotel-booking-platform-26.netlify.app", "https://hotel-booking-platform-26-client.netlify.app"],
     credentials: true,
   })
 );

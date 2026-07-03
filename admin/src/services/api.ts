@@ -1,8 +1,9 @@
 /* eslint-disable  */
 import axios from "axios";
-
+const SERVER_URL = import.meta.env.VITE_BASE_API_URL;
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: SERVER_URL,
+  // baseURL: "https://hotel-booking-73td.onrender.com/api/v1",
 });
 
 instance.interceptors.request.use(

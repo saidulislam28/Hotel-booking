@@ -93,7 +93,7 @@ const BlogDetails = ({ params }: any) => {
         </div>
         <SectionTitle title="Related Blogs" className="text-center my-10" />
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {data?.localBlogs?.map((item, index) => (
+          {data?.localBlogs?.map((item: any, index: number) => (
             <EventCard key={index} item={item} />
           ))}
         </div>

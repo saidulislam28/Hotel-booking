@@ -8,8 +8,8 @@ const OnclickDropdown = ({
   selectedValue,
   setSelectedValue,
 }: {
-  selectedValue: string;
-  setSelectedValue: any;
+  selectedValue?: string;
+  setSelectedValue?: any;
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -37,7 +37,7 @@ const OnclickDropdown = ({
       {/* Dropdown Options */}
       {open && (
         <div className="absolute top-full mt-1 bg-white shadow-lg rounded-lg w-full z-10">
-          {roomOptions.map((option) => (
+          {roomOptions?.map((option) => (
             <div
               key={option.id}
               onClick={() => handleOptionClick(option.id, option.name)}

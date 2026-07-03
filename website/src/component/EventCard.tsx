@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import AnimateButton from "./AnimateButton";
 
-const EventCard = ({ item }) => {
+const EventCard = ({ item }: any) => {
   return (
     <div className="bg-[#F2F4F4] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Room Image */}
@@ -11,7 +11,7 @@ const EventCard = ({ item }) => {
         <div className="overflow-hidden rounded-t-xl w-full">
           <Image
             width={400}
-            height={300}j
+            height={300}
             src={item?.image}
             alt={"banner"}
             className="transition-transform duration-500 ease-in-out hover:scale-110  w-full h-[270px] object-cover cursor-pointer"

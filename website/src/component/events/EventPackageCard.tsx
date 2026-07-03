@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaCheck, FaClock } from "react-icons/fa";
 import FadeUpWrapper from "../hooks/FadeupWrapper";
 
-const EventPackageCard = ({ item, index }) => {
+const EventPackageCard = ({ item, index }: any) => {
   return (
     <FadeUpWrapper>
       <div
@@ -19,7 +19,7 @@ const EventPackageCard = ({ item, index }) => {
               start to finish:
             </p>
             <div className="grid grid-cols-3 gap-5">
-              {item?.service?.map((ser, index) => (
+              {item?.service?.map((ser: any, index: number) => (
                 <p
                   key={index}
                   className="text-[#4F5E71] flex items-center gap-2"

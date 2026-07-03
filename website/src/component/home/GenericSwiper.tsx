@@ -31,7 +31,7 @@ const GenericSwiper = ({
   isButtonShow = false,
   buttonText = "View All",
 }: IGenericSwiper) => {
-  const swiperRef = useRef(null);
+  const swiperRef: any = useRef(null);
 
   const breakpoints = {
     768: { slidesPerView: 2 },

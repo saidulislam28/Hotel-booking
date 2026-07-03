@@ -8,9 +8,9 @@ const FAQSection = ({
   faqs: { id: number; question: string; answer: string }[];
 }) => {
   const [openId, setOpenId] = useState(null);
-  const refs = useRef({});
+  const refs: any = useRef({});
 
-  const toggle = (id) => {
+  const toggle = (id: any) => {
     setOpenId(openId === id ? null : id);
   };
 
@@ -28,7 +28,7 @@ const FAQSection = ({
             </button>
 
             <div
-              ref={(el) => (refs.current[id] = el)}
+              ref={(el) => (refs.current[id] = el) as any}
               className="overflow-hidden transition-all duration-400 ease-in-out"
               style={{
                 maxHeight:

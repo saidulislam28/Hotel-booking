@@ -1,8 +1,8 @@
 /* eslint-disable  */
 import axios from "axios";
-
+const SERVER_URL = process.env.NEXT_PUBLIC_API_URL;
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: SERVER_URL,
 });
 
 instance.interceptors.request.use(

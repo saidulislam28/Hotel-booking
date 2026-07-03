@@ -124,11 +124,10 @@ const Rooms = () => {
             onClick={() => {
               setPage(page - 1);
             }}
-            className={` rounded-md text-white cursor-pointer ${
-              page === 1
+            className={` rounded-md text-white cursor-pointer ${page === 1
                 ? "bg-gray-400"
                 : "bg-[#B1905E] border border-[#B1905E]"
-            }  p-2 mx-1`}
+              }  p-2 mx-1`}
             disabled={page === 1}
           >
             Prev
@@ -137,12 +136,11 @@ const Rooms = () => {
           {pageArray?.map((data, ind) => (
             <button
               onClick={() => {
-                setPage(data);
+                setPage(data as any);
               }}
               key={ind}
-              className={`border border-[#B1905E] rounded-md  cursor-pointer hover:bg-[#B1905E] p-2 mx-1 ${
-                data == page ? "bg-[#B1905E] text-white" : "bg-white text-black"
-              }`}
+              className={`border border-[#B1905E] rounded-md  cursor-pointer hover:bg-[#B1905E] p-2 mx-1 ${data == page ? "bg-[#B1905E] text-white" : "bg-white text-black"
+                }`}
             >
               {data}
             </button>
@@ -151,11 +149,10 @@ const Rooms = () => {
             onClick={() => {
               setPage(page + 1);
             }}
-            className={` rounded-md text-white cursor-pointer ${
-              page === data?.totalPages
+            className={` rounded-md text-white cursor-pointer ${page === data?.totalPages
                 ? "bg-gray-400"
                 : "bg-[#B1905E] border border-[#B1905E]"
-            }  p-2 mx-1`}
+              }  p-2 mx-1`}
             disabled={page === data?.totalPages}
           >
             Next

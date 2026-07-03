@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaClock } from "react-icons/fa";
 import FadeUpWrapper from "../hooks/FadeupWrapper";
 
-const AmenityCard = ({ item, index }) => {
+const AmenityCard = ({ item, index }: any) => {
   return (
     <FadeUpWrapper>
       <div
@@ -20,7 +20,7 @@ const AmenityCard = ({ item, index }) => {
               Opening Hours
             </h2>
 
-            {item?.schedule?.map((time, index) => (
+            {item?.schedule?.map((time: any, index: number) => (
               <p
                 key={index}
                 className="text-[#4F5E71] my-3 flex items-center gap-5"

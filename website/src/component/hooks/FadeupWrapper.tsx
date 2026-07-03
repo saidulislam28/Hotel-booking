@@ -15,7 +15,7 @@ const customFadeUp = keyframes`
   }
 `;
 
-const FadeUpWrapper = ({ children, duration = 2000, delay = 0, ...props }) => {
+const FadeUpWrapper = ({ children, duration = 2000, delay = 0, ...props }:any) => {
   return (
     <Fade
       keyframes={customFadeUp}

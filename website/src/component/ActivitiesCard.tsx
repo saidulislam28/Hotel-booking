@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import AnimateButton from "./AnimateButton";
 
-const ActivitiesCard = ({ item }) => {
+const ActivitiesCard = ({ item }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -39,19 +39,24 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
   const navigate = useRouter();
 
   // Load token from localStorage on mount
   useEffect(() => {
-    const storedToken = localStorage.getItem("auth_token");
-    const storedUser: any = localStorage.getItem("user");
-    const objUser = JSON.parse(storedUser);
-    console.log("user from localStorage", objUser);
-    if (storedToken) {
-      setToken(storedToken);
-      setUser(objUser);
+    try {
+      const storedToken = localStorage.getItem("auth_token");
+      const storedUser: any = localStorage.getItem("user");
+      if (storedToken && storedUser) {
+        const objUser = JSON.parse(storedUser);
+        setToken(storedToken);
+        setUser(objUser);
+      }
+    } catch (e) {
+      console.error("Error loading auth state:", e);
+    } finally {
+      setLoading(false);
     }
   }, []);
 

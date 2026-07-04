@@ -2,23 +2,37 @@
 "use client";
 import { useAuth } from "@/providers/useAuth";
 import Routes from "@/utils/routes";
-import { List, X } from "lucide-react";
+import { List, User, CalendarDays, LogOut, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { IoIosArrowDown, IoIosLogOut } from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   // State to track which parent routes have their dropdown open
   const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>(
     {}
   );
-  const { user, signOut } = useAuth();
+  const { user, signOut, loading } = useAuth();
   const firstLetter = user?.name?.trim()?.charAt(0)?.toUpperCase() || "?";
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
   const getColorFromLetter = (letter: string) => {
     const colors = [
@@ -78,11 +92,10 @@ const Navbar = () => {
                 <div key={route.title} className="relative group">
                   <Link
                     href={route.path ? route.path : ""}
-                    className={`px-4 py-2 font-semibold flex items-center gap-2 ${
-                      isActive
+                    className={`px-4 py-2 font-semibold flex items-center gap-2 ${isActive
                         ? "text-[#B1905E]"
                         : "text-black hover:text-[#B1905E]"
-                    }`}
+                      }`}
                   >
                     {route.title}
                     {route.icon ? <IoIosArrowDown /> : ""}
@@ -97,11 +110,10 @@ const Navbar = () => {
                           <Link
                             key={child.title}
                             href={child.path}
-                            className={`block px-6 py-4 rounded-lg font-semibold ${
-                              isChildActive
+                            className={`block px-6 py-4 rounded-lg font-semibold ${isChildActive
                                 ? "text-[#B1905E]"
                                 : "text-black hover:text-[#B1905E]"
-                            }`}
+                              }`}
                           >
                             {child.title}
                           </Link>
@@ -129,45 +141,70 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-            {user ? (
-              <>
-                <div className="relative">
-                  {/* Clickable Button */}
-                  <h2
-                    onClick={() => setOpen(!open)}
-                    className="flex items-center justify-center h-12 w-12 rounded-full cursor-pointer font-semibold text-white select-none"
-                    style={{ backgroundColor: getColorFromLetter(firstLetter) }}
-                  >
-                    {firstLetter}
-                  </h2>
+            {loading ? (
+              <div className="h-12 w-12 rounded-full bg-gray-200 animate-pulse" />
+            ) : user ? (
+              <div className="relative" ref={dropdownRef}>
+                {/* Avatar Button */}
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="flex items-center justify-center h-12 w-12 rounded-full cursor-pointer font-semibold text-white select-none transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#B1905E]"
+                  style={{ backgroundColor: getColorFromLetter(firstLetter) }}
+                  aria-haspopup="true"
+                  aria-expanded={open}
+                >
+                  {firstLetter}
+                </button>
 
-                  {/* Dropdown Options */}
-                  {open && (
-                    <div className="absolute top-full mt-1 bg-white shadow-lg w-full min-w-32">
-                      <Link href={"/profile"}>
-                        <h4 className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500">
-                          {"Profile"}
-                        </h4>
-                      </Link>
-                      <Link href={"/my-bookings"}>
-                        <h4 className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500">
-                          {"Bookings"}
-                        </h4>
-                      </Link>
+                {/* Dropdown Menu */}
+                <div
+                  className={`absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 origin-top-right ${
+                    open
+                      ? "opacity-100 scale-100 pointer-events-auto"
+                      : "opacity-0 scale-95 pointer-events-none"
+                  }`}
+                >
+                  {/* User info header */}
+                  <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
+                    <p className="text-sm font-semibold text-gray-900 truncate">{user.name}</p>
+                    <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                  </div>
 
-                      <h4
-                        onClick={() => signOut()}
-                        className="px-5 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-500 flex items-center justify-between gap-2"
-                      >
-                        <span>Logout</span>
-                        <IoIosLogOut />
-                      </h4>
-                    </div>
-                  )}
+                  <div className="py-1">
+                    <Link
+                      href="/profile"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#B1905E] transition-colors"
+                    >
+                      <User size={16} />
+                      Profile
+                    </Link>
+                    <Link
+                      href="/my-bookings"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#B1905E] transition-colors"
+                    >
+                      <CalendarDays size={16} />
+                      Bookings
+                    </Link>
+                  </div>
+
+                  <div className="border-t border-gray-100">
+                    <button
+                      onClick={() => {
+                        setOpen(false);
+                        signOut();
+                      }}
+                      className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                    >
+                      <LogOut size={16} />
+                      Logout
+                    </button>
+                  </div>
                 </div>
-              </>
+              </div>
             ) : (
-              <Link href={"/login"}>
+              <Link href="/login">
                 <button className="text-md bg-[#B1905E] px-5 py-2 text-white font-semibold rounded-full hover:cursor-pointer hover:bg-[#ccae81] mb-0 hover:mb-5 transition-all duration-400 ease-in-out">
                   Login
                 </button>
@@ -208,9 +245,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Overlay/Sidebar */}
         <div
-          className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           {/* Sidebar Menu */}
           <div className="absolute inset-y-0 left-0 w-full max-w-full bg-white shadow-xl overflow-y-auto">
@@ -256,19 +292,17 @@ const Navbar = () => {
                           <Link
                             href={route.path}
                             onClick={closeMobileMenu}
-                            className={`flex-grow px-4 py-3 font-semibold text-left ${
-                              isActive
+                            className={`flex-grow px-4 py-3 font-semibold text-left ${isActive
                                 ? "text-[#B1905E]"
                                 : "text-black hover:text-[#B1905E]"
-                            }`}
+                              }`}
                           >
                             {route.title}
                           </Link>
                         ) : (
                           <span
-                            className={`flex-grow px-4 py-3 font-semibold text-left ${
-                              isActive ? "text-[#B1905E]" : "text-black"
-                            }`}
+                            className={`flex-grow px-4 py-3 font-semibold text-left ${isActive ? "text-[#B1905E]" : "text-black"
+                              }`}
                           >
                             {route.title}
                           </span>
@@ -283,9 +317,8 @@ const Navbar = () => {
                             aria-label={`Toggle ${route.title} menu`}
                           >
                             <IoIosArrowDown
-                              className={`transition-transform duration-400 ${
-                                isDropdownOpen ? "rotate-180" : ""
-                              }`}
+                              className={`transition-transform duration-400 ${isDropdownOpen ? "rotate-180" : ""
+                                }`}
                             />
                           </button>
                         )}
@@ -301,11 +334,10 @@ const Navbar = () => {
                                 key={child.title}
                                 href={child.path}
                                 onClick={closeMobileMenu}
-                                className={`block px-4 py-2.5 font-medium ${
-                                  isChildActive
+                                className={`block px-4 py-2.5 font-medium ${isChildActive
                                     ? "text-[#B1905E]"
                                     : "text-gray-700 hover:text-[#B1905E]"
-                                }`}
+                                  }`}
                               >
                                 {child.title}
                               </Link>
@@ -319,22 +351,32 @@ const Navbar = () => {
               </div>
 
               {/* User Section */}
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                {user ? (
+              <div className="mt-6 pt-6 border-t  border-gray-200">
+                {loading ? (
+                  <div className="flex items-center gap-3 px-4 py-3">
+                    <div className="h-10 w-10 rounded-full bg-gray-200 animate-pulse" />
+                    <div className="flex-1 space-y-2">
+                      <div className="h-4 bg-gray-200 rounded animate-pulse w-24" />
+                      <div className="h-3 bg-gray-200 rounded animate-pulse w-32" />
+                    </div>
+                  </div>
+                ) : user ? (
                   <div className="space-y-4">
                     <div className="space-y-1">
                       <Link
                         href="/profile"
                         onClick={closeMobileMenu}
-                        className="block px-4 py-3 font-semibold text-black hover:text-[#B1905E] hover:bg-gray-50 rounded-lg"
+                        className="flex items-center gap-3 px-4 py-3 font-semibold text-black hover:text-[#B1905E] hover:bg-gray-50 rounded-lg"
                       >
+                        <User size={18} />
                         Profile
                       </Link>
                       <Link
                         href="/my-bookings"
                         onClick={closeMobileMenu}
-                        className="block px-4 py-3 font-semibold text-black hover:text-[#B1905E] hover:bg-gray-50 rounded-lg"
+                        className="flex items-center gap-3 px-4 py-3 font-semibold text-black hover:text-[#B1905E] hover:bg-gray-50 rounded-lg"
                       >
+                        <CalendarDays size={18} />
                         Bookings
                       </Link>
                       <button
@@ -345,7 +387,7 @@ const Navbar = () => {
                         className="mt-5 flex items-center justify-between w-full px-4 py-3 bg-[#B1905E] text-white rounded-xl"
                       >
                         <span>Logout</span>
-                        <IoIosLogOut color="white" size={24} fontWeight={600} />
+                        <LogOut color="white" size={20} />
                       </button>
                     </div>
                   </div>

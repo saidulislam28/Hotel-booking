@@ -46,7 +46,7 @@ const RoomBookingTabs = ({ id, item }: any) => {
         total: totalAmount,
         subtotal: totalAmount,
         stay_nights: nights,
-        room: "693ed77d16d349b66081c7bf",
+        room: id,
       });
       setIsModalVisible(false);
     }
@@ -56,7 +56,7 @@ const RoomBookingTabs = ({ id, item }: any) => {
     setIsModalVisible(false);
   };
 
-  const roomPricePerNight = 150; // 🔒 static price
+  const roomPricePerNight = item?.price;
 
   const nights: number = countNights(
     formData?.check_in_at,
@@ -75,11 +75,10 @@ const RoomBookingTabs = ({ id, item }: any) => {
       <div className="flex border border-[#B1905E] rounded-md overflow-hidden mb-4">
         <button
           type="button"
-          className={`w-1/2 py-2 font-medium  cursor-pointer ${
-            activeTab === "Check Availability"
-              ? "bg-[#B1905E] text-white"
-              : "text-[#B1905E]"
-          }`}
+          className={`w-1/2 py-2 font-medium  cursor-pointer ${activeTab === "Check Availability"
+            ? "bg-[#B1905E] text-white"
+            : "text-[#B1905E]"
+            }`}
           onClick={() => {
             setActiveTab("Check Availability");
             setCheckAvailable(false);
@@ -89,11 +88,10 @@ const RoomBookingTabs = ({ id, item }: any) => {
         </button>
         <button
           type="button"
-          className={`w-1/2 py-2 font-medium cursor-pointer ${
-            activeTab === "Book"
-              ? "bg-[#B1905E] text-white cursor-pointer"
-              : "text-[#B1905E]"
-          }`}
+          className={`w-1/2 py-2 font-medium cursor-pointer ${activeTab === "Book"
+            ? "bg-[#B1905E] text-white cursor-pointer"
+            : "text-[#B1905E]"
+            }`}
           onClick={() => {
             setActiveTab("Book");
             setInquirySent(false);

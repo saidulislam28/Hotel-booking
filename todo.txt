@@ -182,3 +182,10 @@ price_per_night:
 9. Pagination on room and blog page.--- ##done
 10. Implement seeder button on admin panel
 11. Image upload with cloudinary
+
+after live
+-- admin panel each page loading state
+-- data from settings page
+-- room booking api not working
+-- contact page dynamic form
+

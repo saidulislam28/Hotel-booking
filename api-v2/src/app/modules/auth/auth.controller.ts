@@ -24,15 +24,24 @@ const credentialsLogin = CatchAsync(
     })(req, res, next);
   }
 );
+const credentialsRegister = CatchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    passport.authenticate("local", async (error: any, user: any, info: any) => {
+      const response = await AuthService.credentialsRegister(req.body);
+      sendResponse(res, {
+        success: true,
+        message: "User created in Successfully",
+        statusCode: httpStatus.OK,
+        data: response,
+      });
+    })(req, res, next);
+  }
+);
 const getAccessToken = CatchAsync(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async (req: Request, res: Response, next: NextFunction) => {
     // const user = await userService.createUser(req.body);
-
     const refreshAccessToken = req.cookies.refreshToken;
-
-    console.log("refreshAccessToken", refreshAccessToken);
-
     if (!refreshAccessToken) {
       throw new AppError(httpStatus.BAD_REQUEST, "Refresh Token not found");
     }
@@ -189,4 +198,5 @@ export const AuthController = {
   googleCallbackController,
   SetPassword,
   ForgotPassword,
+  credentialsRegister
 };

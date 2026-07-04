@@ -8,6 +8,7 @@ import { envVars } from "../../../configs/env";
 const router = Router();
 
 router.post("/login", AuthController.credentialsLogin);
+router.post("/register", AuthController.credentialsRegister);
 router.post("/refresh-token", AuthController.getAccessToken);
 router.post("/logout", AuthController.logout);
 router.post(

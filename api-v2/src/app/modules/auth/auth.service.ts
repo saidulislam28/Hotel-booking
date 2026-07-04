@@ -41,6 +41,43 @@ const credentialsLogin = async (payload: Partial<IUser>) => {
     jwtRefreshToken,
   };
 };
+const credentialsRegister = async (payload: Partial<IUser>) => {
+  const { name, phone, email, password } = payload;
+
+  const isUserExist = await User.findOne({ email: email });
+
+  if (isUserExist) {
+    throw new AppError(httpStatus.BAD_REQUEST, "user already registered");
+  }
+
+  const hashedPassword = await bcryptjs.hash(password as string, 10);
+  const createUser = await User.create({
+    name,
+    phone,
+    email,
+    password: hashedPassword,
+    auths: [
+      {
+        provider: "credentials",
+        providerId: email,
+      },
+    ],
+    role: "USER"
+  });
+
+  const { accessToken, jwtRefreshToken } = createUserTokens(createUser);
+
+  const userWithoutPassword = await User.findOne({ email }).select(
+    "-password -auths"
+  );
+  const userData = userWithoutPassword?.toObject();
+
+  return {
+    ...userData,
+    accessToken,
+    jwtRefreshToken,
+  };
+};
 const getNewAccessToken = async (refreshToken: string) => {
   const NewRefreshToken = await createNewAccessTokenWithRefreshToken(
     refreshToken
@@ -178,4 +215,5 @@ export const AuthService = {
   ChangePassword,
   SetPassword,
   ForgotPassword,
+  credentialsRegister
 };

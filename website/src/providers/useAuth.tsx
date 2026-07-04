@@ -33,6 +33,7 @@ interface AuthContextType {
   signOut: () => void;
   loading: boolean;
   updateUserProfile: (updatedData: UpdateProfileData) => Promise<void>;
+  signup: (payload: { name: string, email: string, phone: string, password: string }) => Promise<{ status: "success" | "failed"; message: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -76,6 +77,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return {
         status: "success" as const,
         message: "Login successful",
+      };
+    } catch (error: any) {
+      setLoading(false);
+      return {
+        status: "failed" as const,
+        message: error.message || "An error occurred during login",
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+  const signup = async (payload: { name: string, email: string, phone: string, password: string }) => {
+    try {
+      setLoading(true);
+      const response = await Post("auth/register", payload);
+      const data = response?.data;
+      console.log("register data", data)
+      if (response?.success) {
+        localStorage.setItem("auth_token", data?.accessToken);
+        localStorage.setItem("user", JSON.stringify(data));
+        setToken(data.accessToken);
+        setUser(data);
+        setLoading(false);
+        navigate.push("/");
+      }
+      return {
+        status: "success" as const,
+        message: "Register successful",
       };
     } catch (error: any) {
       setLoading(false);
@@ -136,6 +165,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signOut,
         loading,
         updateUserProfile,
+        signup
       }}
     >
       {children}

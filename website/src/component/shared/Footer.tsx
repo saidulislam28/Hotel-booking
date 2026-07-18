@@ -88,7 +88,7 @@ const Footer = () => {
                 <Image
                   width={50}
                   height={50}
-                  src={"/banner-min.png"}
+                  src={"/globe.svg"}
                   alt="banner"
                 />
               </div>

@@ -81,7 +81,7 @@ const Navbar = () => {
               />
             </Link>
             <Link href={"/"}>
-              <h2 className="font-bold text-2xl">Saidul</h2>
+              <h2 className="font-bold text-2xl">Sailing</h2>
             </Link>
           </div>
 
@@ -93,8 +93,8 @@ const Navbar = () => {
                   <Link
                     href={route.path ? route.path : ""}
                     className={`px-4 py-2 font-semibold flex items-center gap-2 ${isActive
-                        ? "text-[#B1905E]"
-                        : "text-black hover:text-[#B1905E]"
+                      ? "text-[#B1905E]"
+                      : "text-black hover:text-[#B1905E]"
                       }`}
                   >
                     {route.title}
@@ -111,8 +111,8 @@ const Navbar = () => {
                             key={child.title}
                             href={child.path}
                             className={`block px-6 py-4 rounded-lg font-semibold ${isChildActive
-                                ? "text-[#B1905E]"
-                                : "text-black hover:text-[#B1905E]"
+                              ? "text-[#B1905E]"
+                              : "text-black hover:text-[#B1905E]"
                               }`}
                           >
                             {child.title}
@@ -158,11 +158,10 @@ const Navbar = () => {
 
                 {/* Dropdown Menu */}
                 <div
-                  className={`absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 origin-top-right ${
-                    open
+                  className={`absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 origin-top-right ${open
                       ? "opacity-100 scale-100 pointer-events-auto"
                       : "opacity-0 scale-95 pointer-events-none"
-                  }`}
+                    }`}
                 >
                   {/* User info header */}
                   <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
@@ -293,8 +292,8 @@ const Navbar = () => {
                             href={route.path}
                             onClick={closeMobileMenu}
                             className={`flex-grow px-4 py-3 font-semibold text-left ${isActive
-                                ? "text-[#B1905E]"
-                                : "text-black hover:text-[#B1905E]"
+                              ? "text-[#B1905E]"
+                              : "text-black hover:text-[#B1905E]"
                               }`}
                           >
                             {route.title}
@@ -335,8 +334,8 @@ const Navbar = () => {
                                 href={child.path}
                                 onClick={closeMobileMenu}
                                 className={`block px-4 py-2.5 font-medium ${isChildActive
-                                    ? "text-[#B1905E]"
-                                    : "text-gray-700 hover:text-[#B1905E]"
+                                  ? "text-[#B1905E]"
+                                  : "text-gray-700 hover:text-[#B1905E]"
                                   }`}
                               >
                                 {child.title}
